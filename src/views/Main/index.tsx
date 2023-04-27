@@ -5,8 +5,8 @@ import MainContents from "./MainContents";
 export default function Main () {
     return (
         <Box>
-            <MainHead />
-            <MainContents />
+            {/* <MainHead />
+            <MainContents /> */}
         </Box>
     )
 }
