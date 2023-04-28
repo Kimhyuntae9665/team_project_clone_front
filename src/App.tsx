@@ -12,7 +12,7 @@ function App() {
   return(
   <>
     <NavigationBar/>
-      <MyPage />
+      <CompanyPage />
     <Footer/>
   </>
  
