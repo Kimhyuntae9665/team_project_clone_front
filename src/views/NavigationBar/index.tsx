@@ -7,13 +7,13 @@ export default function NavigationBar () {
                 <Toolbar>
                     
                     <Typography variant="h6" noWrap component="div" sx={{ flexGrow:1, display: {xs: 'none', sm:'block', color:'#000000'} } } >
-                        회사명
+                        구직사이트
                     </Typography>
                     <Box sx={{ display: 'flex' }}>
                         <FormControl variant='outlined' sx={{ mr: '10px' }}>
-                            <Typography color='#000000'>
+                            <IconButton  >
                                 로그인
-                            </Typography>
+                            </IconButton>
                         </FormControl>
                     </Box >
                 </Toolbar>
