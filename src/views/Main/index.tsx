@@ -7,11 +7,8 @@ import NavigationBar from "../NavigationBar";
 export default function Main () {
     return (
         <Box>
-            <NavigationBar />
             <MainHead />
             <MainContents />
-            <Footer/>
-
         </Box>
     )
 }
