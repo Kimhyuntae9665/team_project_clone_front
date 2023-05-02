@@ -7,6 +7,9 @@ import Footer from './views/Footer';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import NavigationBar from './views/NavigationBar';
 import MainContents from './views/Main/MainContents';
+import UserLoginCardView from './views/AuthenticationView/LoginCardVIew/UserLoginCardView';
+import AuthenticationView from './views/AuthenticationView';
+import CompanyLoginCardView from './views/AuthenticationView/LoginCardVIew/CompanyLoginCardView';
 
 function App() {
   const path = useLocation();
@@ -15,7 +18,11 @@ function App() {
     <NavigationBar/>
     <Routes>
       <Route path='/' element={(<Main/>)}/>
-      {/* <Route path='/auth'/> */}
+      <Route path='/auth' element={(<AuthenticationView/>)}/>
+      <Route path='auth/login'>
+        <Route path='user' element={(<UserLoginCardView/>)}/>
+        <Route path='company' element={(<CompanyLoginCardView/>)}/>
+      </Route>
       <Route path='/myPage' element={(<MyPage/>)}/>
       {/* <Route path='/myCompanyPage'/> */}
       <Route path='/Company' element={(<CompanyPage/>)}/>
