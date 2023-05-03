@@ -50,7 +50,7 @@ function SecondPage(){
     return (
         <Box>
             <FormControl fullWidth variant="standard" sx={{mt:'40px'}}>
-                <InputLabel>주소</InputLabel>
+                <InputLabel>회사 주소</InputLabel>
                 <Input sx={{ height: '40px' }}/>
             </FormControl>
 
@@ -60,7 +60,7 @@ function SecondPage(){
             </FormControl>
             
             <FormControl fullWidth variant="standard" sx={{mt:'40px'}}>
-                <InputLabel>이름</InputLabel>
+                <InputLabel>회사 명</InputLabel>
                 <Input sx={{ height: '40px' }}/>
             </FormControl>
 
@@ -72,7 +72,15 @@ function SecondPage(){
     )
 }
 
-export default function UserSignUpCardView(){
+function ThirdPage(){
+    return(
+        <Box>
+
+        </Box>
+    )
+}
+
+export default function CompanySignUpCardView(){
 
     const [page, setPage] = useState<number>(1);
 
@@ -89,7 +97,7 @@ export default function UserSignUpCardView(){
                 <Box>
                     <Box>
                     <Typography variant="h5" fontWeight='900' textAlign="center">
-                        사용자 회원가입
+                        회사 회원가입
                     </Typography>
                     <Typography variant="h5" fontWeight='900'>{page}/2</Typography>
                     </Box>
