@@ -38,3 +38,5 @@ interface ISignUpStore {
     telNumberValidate: boolean | null;
     setTelNumberValidate: (telNumberValidate: boolean) => void;
 }
+
+export default ISignUpStore;

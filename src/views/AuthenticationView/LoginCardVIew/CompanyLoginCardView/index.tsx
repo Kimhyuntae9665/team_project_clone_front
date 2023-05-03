@@ -33,7 +33,7 @@ export default function CompanyLoginCardView(){
 
                 <FormControl fullWidth variant="standard" sx={{mt:'40px'}}>
                     <InputLabel>비밀번호</InputLabel>
-                    <Input sx={{ height: '40px' }} onChange={(event) => setEmail(event.target.value)}/>
+                    <Input type="password" sx={{ height: '40px' }} onChange={(event) => setPassword(event.target.value)}/>
                     
                 </FormControl>
             </Box>
@@ -43,6 +43,7 @@ export default function CompanyLoginCardView(){
                     fullWidth
                     variant="contained"
                     size="large"
+                    color="secondary"
                     onClick={onLoginHandler}
                     >
                     로그인
@@ -52,6 +53,7 @@ export default function CompanyLoginCardView(){
                     <Typography
                         component="span"
                         fontWeight={900}
+                        
                     >
                         {" "}
                         회원가입

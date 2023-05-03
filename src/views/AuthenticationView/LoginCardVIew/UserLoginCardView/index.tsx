@@ -1,7 +1,7 @@
 import { Box, Button, Card, FormControl, Grid, IconButton, Input, InputAdornment, InputLabel, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 
-export default function CompanyLoginCardView(){
+export default function UserLoginCardView(){
 
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
@@ -33,7 +33,7 @@ export default function CompanyLoginCardView(){
 
                 <FormControl fullWidth variant="standard" sx={{mt:'40px'}}>
                     <InputLabel>비밀번호</InputLabel>
-                    <Input sx={{ height: '40px' }} onChange={(event) => setEmail(event.target.value)}/>
+                    <Input type="password" sx={{ height: '40px' }} onChange={(event) => setPassword(event.target.value)}/>
                     
                 </FormControl>
             </Box>
@@ -42,6 +42,7 @@ export default function CompanyLoginCardView(){
                     sx={{ mt:'80px',mb: "20px" }}
                     fullWidth
                     variant="contained"
+                    color="secondary"
                     size="large"
                     onClick={onLoginHandler}
                     >
@@ -52,6 +53,7 @@ export default function CompanyLoginCardView(){
                     <Typography
                         component="span"
                         fontWeight={900}
+                        
                     >
                         {" "}
                         회원가입
