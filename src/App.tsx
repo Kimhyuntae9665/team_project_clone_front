@@ -7,12 +7,13 @@ import Footer from './views/Footer';
 import { Routes } from 'react-router-dom';
 import NavigationBar from './views/NavigationBar';
 import MainContents from './views/Main/MainContents';
+import LoginCardView from './views/Authentication.View/LoginCardView';
 
 function App() {
   return(
   <>
     <NavigationBar/>
-      <MyPage />
+      <Main />
     <Footer/>
   </>
  
