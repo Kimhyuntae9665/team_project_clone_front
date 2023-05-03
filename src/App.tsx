@@ -13,6 +13,7 @@ import CompanyLoginCardView from './views/AuthenticationView/LoginCardVIew/Compa
 import UserSignUpCardView from './views/AuthenticationView/SignUpCardView/UserSIgnUpCardVIew';
 import CompanySignUpCardView from './views/AuthenticationView/SignUpCardView/CompanySIgnUpCardView';
 import AuthenticationSignUpView from './views/AuthenticationView/SignUpCardView';
+import MyCompanypageView from './views/CompanypageView/MyCompanypage';
 
 function App() {
   const path = useLocation();
@@ -32,7 +33,7 @@ function App() {
         <Route path="company" element={(<CompanySignUpCardView/>)}/>
       </Route>
       <Route path='/myPage' element={(<MyPage/>)}/>
-      {/* <Route path='/myCompanyPage'/> */}
+      <Route path='/myCompanyPage' element={(<MyCompanypageView/>)} /> 
       <Route path='/Company' element={(<CompanyPage/>)}/>
     </Routes>
     <Footer/>
