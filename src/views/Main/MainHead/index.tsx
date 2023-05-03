@@ -5,6 +5,7 @@ export default function MainHead() {
     
     return (
         <Box  sx ={{ pb: '40px', pl: '120px', pr: '120px'}} >
+            {/*로그인 전 */}
             <Box  sx={{ pt: '20px', pb: '5px', textAlign: 'center' }}>
                 <Typography sx={{ fontSize: '24px', fontWeight: '500', textAlign: ' center' }}>000님께서 원하는 TOP3 회사</Typography>
             </Box>
@@ -16,6 +17,7 @@ export default function MainHead() {
                     </Box>
                 </Box>
             </Box>
+            {/*로그인 후 */}
         </Box>
     )
     
