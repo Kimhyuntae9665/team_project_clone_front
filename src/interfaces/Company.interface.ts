@@ -1,4 +1,4 @@
-interface User{
+interface Company{
     email: string;
     name: string;
     telNumber: string;
@@ -7,4 +7,4 @@ interface User{
 
 }
 
-export default User;
+export default Company;
