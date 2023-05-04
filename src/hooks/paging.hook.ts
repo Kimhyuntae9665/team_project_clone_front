@@ -1,0 +1,3 @@
+const companyPagingHook = (COUNT:number) => {
+    
+}
