@@ -4,5 +4,3 @@ import ValidateUserEmailResponseDto from "./Validate-User-Email.response.dto"
 import ValidateUserTelNumberResponseDto from "./Validate-User-TelNumber.response.dto"
 
 export type {GetUserResponseDto, PatchUserProfileResponseDto, ValidateUserEmailResponseDto, ValidateUserTelNumberResponseDto}
-
-
