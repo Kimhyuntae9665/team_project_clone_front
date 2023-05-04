@@ -18,7 +18,7 @@ export default function NavigationBar () {
                     </Typography>
                     <Box sx={{ display: 'flex' }}>
                         <FormControl variant='outlined' sx={{ mr: '10px' }}>
-                            <Button variant="contained" color="secondary" onClick={() => navigator('/authL')}>
+                            <Button variant="contained" color="secondary" onClick={() => navigator('/authS')}>
                                 로그인
                             </Button>
                         </FormControl>
