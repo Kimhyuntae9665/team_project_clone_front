@@ -3,8 +3,8 @@ import axios, { AxiosResponse } from "axios";
 import { error } from "console";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ResponseDto from "src/apis/response";
 import { GetTop3ListResponseDto } from "src/apis/response/company";
-import ResponsDto from "src/apis/response/user";
 import PreviewCard from "src/components/previewCard";
 import { GET_TOP3_LIST_USRL } from "src/contants/api";
 
@@ -20,7 +20,7 @@ export default function MainHead() {
     }
 
     const getTop3ListResponseHandler = (response: AxiosResponse<any,any>) => {
-        const { result, message, data } = response.data as ResponsDto<GetTop3ListResponseDto[]>;
+        const { result, message, data } = response.data as ResponseDto<GetTop3ListResponseDto[]>;
         if ( !result || data === null) return;
         setTop3List(data);
     }
