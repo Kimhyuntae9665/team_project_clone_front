@@ -1,44 +1,68 @@
 import { VisibilityOff, Visibility } from "@mui/icons-material";
 import { Box, Button, Card, FormControl, FormHelperText, Grid, IconButton, Input, InputAdornment, InputLabel, TextField, Typography } from "@mui/material";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSignUpStore } from "src/userstores";
+import { useSignUpStore } from "src/stores/userstores";
+import ResponseDto from "src/apis/response"
+import CheckIcon from '@mui/icons-material/Check';
+import { ValidateUserEmailDto } from "src/apis/request/user";
+import { VALIDATE_USER_EMAIL_URL } from "src/contants/api";
+import axios, { AxiosResponse } from "axios";
 
 function FirstPage(){
     
-    const [email, setEmail] = useState<string>("");
-    const [password, setPassword] = useState<string>("");
-    const [passwordCheck, setPasswordCheck] = useState<String>("");
     const {userEmail, userPassword, userPasswordCheck} = useSignUpStore();
     const {setUserEmail, setUserPassword, setUserPasswordCheck} = useSignUpStore();
+    const {emailPatternCheck, emailValidate, passwordPatternCheck, passwordValidate} = useSignUpStore();
+    const {setEmailPatternCheck, setEmailValidate, setPasswordPatternCheck, setPasswordValidate} = useSignUpStore();
 
-    const onSignUpHandler = () => {
-        //? email 입력했는지 검증 / password 입력했는지 검증
-        if (!email || !password || !passwordCheck) {
-          alert("모든 값을 입력해주세요.");
-          return;
+    const emailValidator = /^[A-Za-z0-9]*@[A-Za-z0-9]([-.]?[A-Za-z0-9])*\.[A-Za-z0-9]{2,3}$/;
+    const passwordValidator = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!?_]).{8,20}$/;
+
+    const onEmailChangeHandler = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+        const value = event.target.value;
+        const isMatched = emailValidator.test(value);
+        setEmailPatternCheck(isMatched)
+        setUserEmail(value);
+    }
+
+    const onEmailValidateButtonHandler = () => {
+        if(!emailPatternCheck) return;
+        const data: ValidateUserEmailDto = {userEmail}
+
+        axios.post(VALIDATE_USER_EMAIL_URL, data) 
+        .then((response) => validateUserEmailResponseHandler(response))
+        .catch((error) => validateUserEmailResponseError(error));
+    }
+
+    const validateUserEmailResponseHandler = (response: AxiosResponse<any, any>) => {
+        const {data, message, result} = response.data as ResponseDto<>;
+        if(!result || !data){
+            alert(message)
+            return;
         }
+        setEmailValidate(data.result)
     }
 
     return(
         <Box>
                 <FormControl fullWidth variant="standard" sx={{mt:'40px'}}>
                     <InputLabel>이메일</InputLabel>
-                    <Input sx={{ height: '40px' }} onChange={(event) => setEmail(event.target.value)}/>
+                    <Input sx={{ height: '40px' }} onChange={(event) => setUserEmail(event.target.value)}/>
                     
                 </FormControl>
 
                 <FormControl fullWidth variant="standard" sx={{mt:'40px'}}>
                     <InputLabel >비밀번호</InputLabel>
-                    <Input type="password" sx={{ height: '40px' }} onChange={(event) => setPassword(event.target.value)}/>
+                    <Input type="password" sx={{ height: '40px' }} onChange={(event) => setUserPassword(event.target.value)}/>
                     
                 </FormControl>
 
                 <FormControl fullWidth variant="standard" sx={{mt:'40px'}}>
                     <InputLabel>비밀번호 확인</InputLabel>
-                    <Input type="password" sx={{ height: '40px' }} onChange={(event) => setPasswordCheck(event.target.value)}/>
+                    <Input type="password" sx={{ height: '40px' }} onChange={(event) => setUserPasswordCheck(event.target.value)}/>
                     {
-                        password !== passwordCheck ?
+                        userPassword !== userPasswordCheck ?
                         (<FormHelperText sx={{color:'red'}}>{'비밀번호가 일치하지 않습니다.'}</FormHelperText>) : (<></>)
                     }
                 </FormControl>
