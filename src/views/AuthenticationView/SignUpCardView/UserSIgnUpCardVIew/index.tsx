@@ -2,12 +2,15 @@ import { VisibilityOff, Visibility } from "@mui/icons-material";
 import { Box, Button, Card, FormControl, FormHelperText, Grid, IconButton, Input, InputAdornment, InputLabel, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSignUpStore } from "src/userstores";
 
 function FirstPage(){
     
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [passwordCheck, setPasswordCheck] = useState<String>("");
+    const {userEmail, userPassword, userPasswordCheck} = useSignUpStore();
+    const {setUserEmail, setUserPassword, setUserPasswordCheck} = useSignUpStore();
 
     const onSignUpHandler = () => {
         //? email 입력했는지 검증 / password 입력했는지 검증

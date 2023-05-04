@@ -29,7 +29,7 @@ export default function AuthenticationLogInView(){
                             <Typography
                                 component="span"
                                 fontWeight={900}
-                                
+                                onClick={() => navigator('/authS')}
                             >
                                 {" "}
                                 회원가입
