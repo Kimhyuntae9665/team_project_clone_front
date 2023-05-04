@@ -1,12 +1,12 @@
 import { Box, Button, Card, FormControl, Grid, IconButton, Input, InputAdornment, InputLabel, TextField, Typography } from "@mui/material";
 import { Dispatch, useState, SetStateAction } from "react";
-import { useUserStore } from "src/userstores";
+import { useUserStore } from "src/stores/userstores";
 
 interface Props {
     setLoginView: Dispatch<SetStateAction<boolean>>
 }
 
-export default function UserLoginCardView({setLoginView}:Props){
+export default function UserLoginCardView(){
 
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
