@@ -23,7 +23,7 @@ export default function NavigationBar () {
                             </Button>
                         </FormControl>
                         <FormControl variant='outlined' sx={{ mr: '10px' }}>
-                            <Button variant="outlined" color="secondary" onClick={() => navigator('/authL')}>
+                            <Button variant="outlined" color="secondary" onClick={() => navigator('/authS')}>
                                 회원가입
                             </Button>
                         </FormControl>
