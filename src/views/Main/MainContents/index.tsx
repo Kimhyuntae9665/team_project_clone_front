@@ -1,7 +1,13 @@
-import { Box, Card, CardActionArea, Grid, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import { Box, Card, CardActionArea, Grid, Pagination, Stack, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { GetCompanyListResponseDto } from "src/apis/response/company";
+import CompanyListItem from "src/components/CompanyListItem";
 
 export default function MainContents(){
+  const { viewList } = useState<any>;
+
+
   const navigator = useNavigate();
   return(
     <Box sx={{ pt:'40px', pb:'120px', backgroundColor: 'rgba(0,0,0,0.05)' }}>
@@ -12,7 +18,11 @@ export default function MainContents(){
           <Grid item xs={ 2 }>
             <Card  sx={{pt:'10px', pb:'350px', border: '2px solid black' }} onClick={() => navigator('/Company')}>
               <CardActionArea>
-                <Typography>회사1</Typography>
+                <Typography>
+                  <Stack spacing ={2}>
+                    {viewList.map((CompanyItem) => (<CompanyListItem item={CompanyItem as GetCompanyListResponseDto} />))}
+                  </Stack>
+                  </Typography>
               </CardActionArea>
             </Card>
           </Grid>
@@ -56,6 +66,7 @@ export default function MainContents(){
               </CardActionArea>
             </Card>
           </Grid>
+
         </Grid>
     </Box>
   );
