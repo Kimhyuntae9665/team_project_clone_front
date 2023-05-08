@@ -47,18 +47,18 @@ const userStore = create<ISignUpStore>((set) => ({
     userAddress: '',
     userAddressDetail:'',
     userEmailMessage: '',
-    setUserEmail: (email) => {
+    setUserEmail: (userEmail) => {
         const emailValidator = /^[A-Za-z0-9]*@[A-Za-z0-9]([-.]?[A-Za-z0-9])*\.[A-Za-z0-9]{2,3}$/;
-        const isMatched = emailValidator.test(email);
-        const emailMessage = isMatched ? '' : '이메일 주소 포맷이 맞지 않습니다.';
-        set((state) => ({...state, email, emailMessage}))
+        const isMatched = emailValidator.test(userEmail);
+        const userEmailMessage = isMatched ? '' : '이메일 주소 포맷이 맞지 않습니다.';
+        set((state) => ({...state, userEmail, userEmailMessage}))
     },
-    setUserPassword: (userpassword) => set((state) => ({...state, userpassword})),
-    setUserPasswordCheck: (userpasswordCheck) => set((state) => ({...state, userpasswordCheck})),
+    setUserPassword: (userPassword) => set((state) => ({...state, userPassword})),
+    setUserPasswordCheck: (userPasswordCheck) => set((state) => ({...state, userPasswordCheck})),
     setUserName: (userName) => set((state) => ({...state, userName})),
-    setUserTelNumber: (usertelNumber) => set((state) => ({...state, usertelNumber})),
-    setUserAddress: (useraddress) => set((state) => ({...state, useraddress})),
-    setUserAddressDetail: (useraddressDetail) => set((state) => ({...state, useraddressDetail})),
+    setUserTelNumber: (userTelNumber) => set((state) => ({...state, userTelNumber})),
+    setUserAddress: (userAddress) => set((state) => ({...state, userAddress})),
+    setUserAddressDetail: (userAddressDetail) => set((state) => ({...state, userAddressDetail})),
 
     signUpError: false,
     setSignUpError: (signUpError: boolean) => set((state) => ({...state, signUpError})),
