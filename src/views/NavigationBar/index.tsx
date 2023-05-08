@@ -18,12 +18,12 @@ export default function NavigationBar () {
                     </Typography>
                     <Box sx={{ display: 'flex' }}>
                         <FormControl variant='outlined' sx={{ mr: '10px' }}>
-                            <Button variant="contained" color="secondary" onClick={() => navigator('/authS')}>
+                            <Button variant="contained" color="secondary" onClick={() => navigator('/auth/login')}>
                                 로그인
                             </Button>
                         </FormControl>
                         <FormControl variant='outlined' sx={{ mr: '10px' }}>
-                            <Button variant="outlined" color="secondary" onClick={() => navigator('/authS')}>
+                            <Button variant="outlined" color="secondary" onClick={() => navigator('/auth/signup')}>
                                 회원가입
                             </Button>
                         </FormControl>

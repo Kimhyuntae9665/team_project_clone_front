@@ -7,6 +7,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import { ValidateUserEmailDto } from "src/apis/request/user";
 import { VALIDATE_USER_EMAIL_URL } from "src/contants/api";
 import axios, { AxiosResponse } from "axios";
+import { ValidateUserEmailResponseDto } from "src/apis/response/user";
 
 function FirstPage(){
     
@@ -35,7 +36,7 @@ function FirstPage(){
     }
 
     const validateUserEmailResponseHandler = (response: AxiosResponse<any, any>) => {
-        const {data, message, result} = response.data as ResponseDto<>;
+        const {data, message, result} = response.data as ResponseDto<ValidateUserEmailResponseDto>;
         if(!result || !data){
             alert(message)
             return;
@@ -43,11 +44,30 @@ function FirstPage(){
         setEmailValidate(data.result)
     }
 
+    const validateUserEmailResponseError = (error: any) => {
+        console.log(error.message);
+    }
+
     return(
         <Box>
                 <FormControl fullWidth variant="standard" sx={{mt:'40px'}}>
                     <InputLabel>이메일</InputLabel>
-                    <Input sx={{ height: '40px' }} onChange={(event) => setUserEmail(event.target.value)}/>
+                    <Input sx={{ height: '40px' }} endAdornment={
+                        <InputAdornment position="end">
+                            <IconButton onClick={() => onEmailValidateButtonHandler()}>
+                                <CheckIcon/>
+                            </IconButton>
+                        </InputAdornment>
+                    }
+                    value={userEmail}
+                    onChange={(event) => onEmailChangeHandler(event)}/>
+                    {
+                        emailPatternCheck === null ? (<></>) :
+                        !emailPatternCheck ? (<FormHelperText sx={{color:'red'}}>이메일 형식이 올바르지 않습니다.</FormHelperText>) :
+                        emailValidate === null ? (<FormHelperText sx={{color:'orange'}}>이메일 중복체크를 해주세요.</FormHelperText>) :
+                        !emailValidate ? (<FormHelperText sx={{color:'red'}}>사용할 수 없는 이메일입니다.</FormHelperText>) :
+                                        (<FormHelperText sx={{color:'green'}}>사용 가능한 이메일입니다.</FormHelperText>)
+                    }
                     
                 </FormControl>
 

@@ -42,7 +42,7 @@ export default function MainHead() {
                 <Box sx={{ pt: '5px', pb: '350px', pr: '10px', pl:'10px', border: '3px solid black' }}>
                     <Box sx={{display:'flex', justifyContent: 'center', alignItems:'center',flexDirection: 'column', mt:'20px'}}>
                         <Typography sx={{ fontSize: '24px', fontWeight: '500'  }}>로그인이 필요합니다.</Typography>
-                        <IconButton onClick={() => navigator('/authL')}>로그인</IconButton>
+                        <IconButton onClick={() => navigator('/auth/login')}>로그인</IconButton>
                     </Box>
                 </Box>
             </Box>

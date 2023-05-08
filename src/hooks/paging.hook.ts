@@ -15,3 +15,5 @@ const companyPagingHook = (COUNT:number) => {
         const endIndex = COUNT * page -1;
     }
 }
+
+export default companyPagingHook;
