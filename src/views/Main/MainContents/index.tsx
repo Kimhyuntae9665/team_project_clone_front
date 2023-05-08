@@ -5,7 +5,7 @@ import { GetCompanyListResponseDto } from "src/apis/response/company";
 import CompanyListItem from "src/components/CompanyListItem";
 
 export default function MainContents(){
-  const { viewList } = useState<any>;
+  // const { viewList } = useState<any>;
 
 
   const navigator = useNavigate();
@@ -20,7 +20,7 @@ export default function MainContents(){
               <CardActionArea>
                 <Typography>
                   <Stack spacing ={2}>
-                    {viewList.map((CompanyItem) => (<CompanyListItem item={CompanyItem as GetCompanyListResponseDto} />))}
+                    {/* {viewList.map((CompanyItem) => (<CompanyListItem item={CompanyItem as GetCompanyListResponseDto} />))} */}
                   </Stack>
                   </Typography>
               </CardActionArea>

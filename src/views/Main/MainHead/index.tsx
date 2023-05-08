@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import ResponseDto from "src/apis/response";
 import { GetTop3ListResponseDto } from "src/apis/response/company";
 import PreviewCard from "src/components/previewCard";
-import { GET_TOP3_LIST_USRL } from "src/contants/api";
+import { GET_TOP3_LIST_URL } from "src/contants/api";
 
 export default function MainHead() {
     
@@ -14,7 +14,7 @@ export default function MainHead() {
     const navigator = useNavigate();
 
     const getTop3List = () => {
-        axios.get(GET_TOP3_LIST_USRL)
+        axios.get(GET_TOP3_LIST_URL)
         .then((response) => getTop3ListResponseHandler(response))
         .catch((error) => getTop3ListErrorHandler(error));
     }
@@ -42,7 +42,7 @@ export default function MainHead() {
                 <Box sx={{ pt: '5px', pb: '350px', pr: '10px', pl:'10px', border: '3px solid black' }}>
                     <Box sx={{display:'flex', justifyContent: 'center', alignItems:'center',flexDirection: 'column', mt:'20px'}}>
                         <Typography sx={{ fontSize: '24px', fontWeight: '500'  }}>로그인이 필요합니다.</Typography>
-                        <IconButton onClick={() => navigator('/authL')}>로그인</IconButton>
+                        <IconButton onClick={() => navigator('/auth/login')}>로그인</IconButton>
                     </Box>
                 </Box>
             </Box>
