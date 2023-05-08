@@ -1,4 +1,4 @@
-const HOST = 'http://localhost:3000/';
+const HOST = 'http://localhost:4040/';
 
 export const USER_SIGN_UP_URL = `${HOST}auth/signup/user`;
 export const USER_SIGN_IN_URL = `${HOST}auth/login/user`;
