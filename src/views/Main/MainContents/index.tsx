@@ -20,7 +20,7 @@ export default function MainContents(){
               <CardActionArea>
                 <Typography>
                   <Stack spacing ={2}>
-                    {/* {viewList.map((CompanyItem) => (<CompanyListItem item={CompanyItem as GetCompanyListResponseDto} />))} */}
+                    {/* //{viewList.map((CompanyItem) => (<CompanyListItem item={CompanyItem as GetCompanyListResponseDto} />))} */}
                   </Stack>
                   </Typography>
               </CardActionArea>
