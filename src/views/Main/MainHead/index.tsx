@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import ResponseDto from "src/apis/response";
 import { GetTop3ListResponseDto } from "src/apis/response/company";
 import PreviewCard from "src/components/previewCard";
-import { GET_TOP3_LIST_USRL } from "src/contants/api";
+import { GET_TOP3_LIST_URL } from "src/contants/api";
 
 export default function MainHead() {
     
@@ -14,7 +14,7 @@ export default function MainHead() {
     const navigator = useNavigate();
 
     const getTop3List = () => {
-        axios.get(GET_TOP3_LIST_USRL)
+        axios.get(GET_TOP3_LIST_URL)
         .then((response) => getTop3ListResponseHandler(response))
         .catch((error) => getTop3ListErrorHandler(error));
     }
