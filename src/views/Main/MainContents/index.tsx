@@ -1,11 +1,21 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 import { Box, Card, CardActionArea, Grid, Pagination, Stack, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { GetCompanyListResponseDto } from "src/apis/response/company";
 import CompanyListItem from "src/components/CompanyListItem";
+import { getPageCount } from "src/utils";
+import companyPagingHook from "src/hooks/paging.hook";
+import { GET_LIST_COMPANY } from "src/contants/api";
 
 export default function MainContents(){
-  // const { viewList } = useState<any>;
+   const { viewList,pageNumber, companyList,setCompanyList,onPageHandler,COUNT } = companyPagingHook(6);
+  
+   const getList = () => {
+    axios.get(GET_LIST_COMPANY)
+    .then((response) => getListCompanyResponseHandler(response))
+    .catch((error) => getListCompanyErrorHandler(error));
+   }
 
 
   const navigator = useNavigate();
@@ -20,13 +30,13 @@ export default function MainContents(){
               <CardActionArea>
                 <Typography>
                   <Stack spacing ={2}>
-                    {/* //{viewList.map((CompanyItem) => (<CompanyListItem item={CompanyItem as GetCompanyListResponseDto} />))} */}
+                    {viewList.map((companyList) => (<CompanyListItem item={companyList as GetCompanyListResponseDto} />))}
                   </Stack>
                   </Typography>
               </CardActionArea>
             </Card>
           </Grid>
-          
+{/*           
           <Grid item xs={ 2 }>
             <Card  sx={{pt:'10px', pb:'350px', border: '2px solid black' }} onClick={() => navigator('/Company')}>
               <CardActionArea>
@@ -65,9 +75,12 @@ export default function MainContents(){
                 <Typography>회사6</Typography>
               </CardActionArea>
             </Card>
-          </Grid>
+          </Grid> */}
 
         </Grid>
+        <Box sx={{ display: 'flex', justifyContent: 'center'}}>
+           <Pagination page={pageNumber} count={getPageCount(companyList,COUNT)} onChange={(event, value) => onPageHandler(value)} />
+        </Box>
     </Box>
   );
     

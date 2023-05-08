@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect,useState } from "react"
 import { GetCompanyListResponseDto, GetCompanyResponseDto } from "src/apis/response/company"
 
 const companyPagingHook = (COUNT:number) => {
@@ -13,7 +13,20 @@ const companyPagingHook = (COUNT:number) => {
 
         const startIndex = COUNT * (page -1);
         const endIndex = COUNT * page -1;
+
+        for (let index = startIndex; index <= endIndex; index++) {
+            if (companyList.length < index + 1) break;
+            tmpList.push(companyList[index])
+          }
+      
+          setViewList(tmpList);
     }
+
+    useEffect (() => {
+        onPageHandler(pageNumber);
+    },[companyList])
+
+    return {companyList,viewList,pageNumber,setCompanyList,onPageHandler,COUNT};
 }
 
 export default companyPagingHook;
