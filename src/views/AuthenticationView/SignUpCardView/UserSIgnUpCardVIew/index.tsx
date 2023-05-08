@@ -3,11 +3,11 @@ import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSignUpStore } from "src/stores/userstores";
 import ResponseDto from "src/apis/response"
-import CheckIcon from '@mui/icons-material/Check';
-import { ValidateUserEmailDto } from "src/apis/request/user";
-import { VALIDATE_USER_EMAIL_URL } from "src/contants/api";
+import { ValidateUserEmailDto, ValidateUserTelNumberDto } from "src/apis/request/user";
+import { VALIDATE_USER_EMAIL_URL, VALIDATE_USER_TEL_NUMBER_URL } from "src/contants/api";
 import axios, { AxiosResponse } from "axios";
-import { ValidateUserEmailResponseDto } from "src/apis/response/user";
+import CheckIcon from '@mui/icons-material/Check';
+import { ValidateUserEmailResponseDto, ValidateUserTelNumberResponseDto } from "src/apis/response/user";
 
 function FirstPage(){
     
@@ -15,15 +15,31 @@ function FirstPage(){
     const {setUserEmail, setUserPassword, setUserPasswordCheck} = useSignUpStore();
     const {emailPatternCheck, emailValidate, passwordPatternCheck, passwordValidate} = useSignUpStore();
     const {setEmailPatternCheck, setEmailValidate, setPasswordPatternCheck, setPasswordValidate} = useSignUpStore();
+    const {signUpError} = useSignUpStore();
 
     const emailValidator = /^[A-Za-z0-9]*@[A-Za-z0-9]([-.]?[A-Za-z0-9])*\.[A-Za-z0-9]{2,3}$/;
     const passwordValidator = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!?_]).{8,20}$/;
 
     const onEmailChangeHandler = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         const value = event.target.value;
+        console.log(value);
         const isMatched = emailValidator.test(value);
         setEmailPatternCheck(isMatched)
         setUserEmail(value);
+    }
+    
+    const onPasswordChangeHandler = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+        const value = event.target.value;
+        const isMatched = passwordValidator.test(value);
+        setPasswordPatternCheck(isMatched);
+        setUserPassword(value)
+    }
+
+    const onPasswordCheckChangeHandler = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+        const value = event.target.value;
+        const isMatched = userPassword === value;
+        setPasswordValidate(isMatched)
+        setUserPasswordCheck(value);
     }
 
     const onEmailValidateButtonHandler = () => {
@@ -50,12 +66,12 @@ function FirstPage(){
 
     return(
         <Box>
-                <FormControl fullWidth variant="standard" sx={{mt:'40px'}}>
+                <FormControl fullWidth variant="standard" error={signUpError} sx={{mt:'40px'}}>
                     <InputLabel>이메일</InputLabel>
-                    <Input sx={{ height: '40px' }} endAdornment={
+                    <Input type="text" sx={{ height: '40px' }} endAdornment={
                         <InputAdornment position="end">
                             <IconButton onClick={() => onEmailValidateButtonHandler()}>
-                                <CheckIcon/>
+                                <CheckIcon/>    
                             </IconButton>
                         </InputAdornment>
                     }
@@ -71,18 +87,27 @@ function FirstPage(){
                     
                 </FormControl>
 
-                <FormControl fullWidth variant="standard" sx={{mt:'40px'}}>
+                <FormControl error={signUpError} fullWidth variant="standard" sx={{mt:'40px'}}>
                     <InputLabel >비밀번호</InputLabel>
-                    <Input type="password" sx={{ height: '40px' }} onChange={(event) => setUserPassword(event.target.value)}/>
-                    
+                    <Input type="password" sx={{ height: '40px' }} 
+                    value={userPassword}
+                    onChange={(event) => onPasswordChangeHandler(event)}/>
+                    {
+                        passwordPatternCheck === false ? 
+                        (<FormHelperText sx={{color: 'red'}}>{'영대문자 + 영소문자 + 숫자 + 특수문자(!?_)를 포함한 8-20자를 입력해주세요.'}</FormHelperText>) : 
+                        (<></>)
+                    }
                 </FormControl>
 
-                <FormControl fullWidth variant="standard" sx={{mt:'40px'}}>
+                <FormControl error={signUpError} fullWidth variant="standard" sx={{mt:'40px'}}>
                     <InputLabel>비밀번호 확인</InputLabel>
-                    <Input type="password" sx={{ height: '40px' }} onChange={(event) => setUserPasswordCheck(event.target.value)}/>
-                    {
-                        userPassword !== userPasswordCheck ?
-                        (<FormHelperText sx={{color:'red'}}>{'비밀번호가 일치하지 않습니다.'}</FormHelperText>) : (<></>)
+                    <Input type="password" sx={{ height: '40px' }}
+                    value={userPasswordCheck} 
+                    onChange={(event) => onPasswordCheckChangeHandler(event)}/>
+                    { 
+                    passwordValidate === false ?
+                    (<FormHelperText sx={{color: 'red'}}>{'비밀번호가 일치하지 않습니다.'}</FormHelperText>) : 
+                    (<></>)
                     }
                 </FormControl>
 
@@ -93,26 +118,88 @@ function FirstPage(){
 }
 
 function SecondPage(){
+
+    const {userName, userTelNumber, userAddress, userAddressDetail} = useSignUpStore()
+    const {setUserName, setUserTelNumber, setUserAddress, setUserAddressDetail} = useSignUpStore()
+
+    const {telNumberPatternCheck, telNumberValidate} = useSignUpStore()
+    const {setTelNumberPatternCheck, setTelNumberValidate} = useSignUpStore()
+    const {signUpError} = useSignUpStore()
+
+    const onTelNumberHandler = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+        const value = event.target.value;
+        const isMatched = telNumberVaildator.test(value);
+        setTelNumberPatternCheck(isMatched)
+        setUserTelNumber(value);
+    }
+
+    const onTelNumberValidateButtonHandler = () => {
+        if(!telNumberPatternCheck) return;
+        const data: ValidateUserTelNumberDto = {userTelNumber};
+
+        axios.post(VALIDATE_USER_TEL_NUMBER_URL, data) 
+        .then((response) => validateUserTelNumberResponseHandler(response))
+        .catch((error) => validateUserTelNumberErrorHandler(error))
+    }
+
+    const validateUserTelNumberResponseHandler = (response: AxiosResponse<any, any>) => {
+        const {result, data, message} = response.data as ResponseDto<ValidateUserTelNumberResponseDto>
+        if(!result || !data) {
+            alert(message);
+            return;
+        }
+        setTelNumberValidate(data.result);
+    }   
+
+    const validateUserTelNumberErrorHandler = (error: any) => {
+        console.log(error.message)
+    }
+
+    const telNumberVaildator = /^[0-9]{3}-[0-9]{3,4}-[0-9]{3,4}$/;
+
     return (
         <Box>
-            <FormControl fullWidth variant="standard" sx={{mt:'40px'}}>
+            <FormControl fullWidth error={signUpError} variant="standard" sx={{mt:'40px'}}>
                 <InputLabel>주소</InputLabel>
-                <Input sx={{ height: '40px' }}/>
+                <Input sx={{ height: '40px' }}
+                value={userAddress}
+                
+                />
             </FormControl>
 
-            <FormControl fullWidth variant="standard" sx={{mt:'40px'}}>
+            <FormControl fullWidth error={signUpError} variant="standard" sx={{mt:'40px'}}>
                 <InputLabel>상세주소</InputLabel>
-                <Input sx={{ height: '40px' }}/>
+                <Input sx={{ height: '40px' }}
+                value={userAddressDetail}
+                />
             </FormControl>
             
-            <FormControl fullWidth variant="standard" sx={{mt:'40px'}}>
+            <FormControl fullWidth error={signUpError} variant="standard" sx={{mt:'40px'}}>
                 <InputLabel>이름</InputLabel>
-                <Input sx={{ height: '40px' }}/>
+                <Input sx={{ height: '40px' }} 
+                value={userName}
+                />
             </FormControl>
 
-            <FormControl fullWidth variant="standard" sx={{mt:'40px'}}>
+            <FormControl fullWidth error={signUpError} variant="standard" sx={{mt:'40px'}}>
                 <InputLabel>전화번호</InputLabel>
-                <Input sx={{ height: '40px' }}/>
+                <Input sx={{ height: '40px' }} endAdornment={
+                    <InputAdornment position="end">
+                        <IconButton onClick={() => onTelNumberValidateButtonHandler()}>
+                            <CheckIcon/>
+                        </IconButton>
+                    </InputAdornment>
+                }
+                value={userTelNumber}
+                onChange={(event) => onTelNumberHandler(event)}
+                />
+                {
+                    telNumberPatternCheck === null ? (<></>) :
+                    !telNumberPatternCheck ? (<FormHelperText sx={{ color: 'red' }}>전화번호 패턴이 일치하지 않습니다.</FormHelperText>) :
+                    telNumberValidate === null ? (<FormHelperText sx={{ color: 'orange' }}>전화번호 중복 체크를 해주세요.</FormHelperText>) :
+                    telNumberValidate ? (<FormHelperText sx={{ color: 'green' }}>사용 가능한 전화번호입니다.</FormHelperText>) :
+                    (<FormHelperText sx={{ color: 'red' }}>사용중인 전화번호입니다.</FormHelperText>)
+                }
             </FormControl>
         </Box>
     )
