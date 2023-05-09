@@ -1,3 +1,4 @@
+
 import { create } from "zustand";
 
 interface ISignUpStore {
@@ -9,6 +10,8 @@ interface ISignUpStore {
     userAddress: string;
     userAddressDetail: string;
     userEmailMessage: string;
+    userAge: string;
+    userGender: string;
     setUserEmail: (str: string) => void;
     setUserPassword: (str: string) => void;
     setUserPasswordCheck: (str: string) => void;
@@ -16,6 +19,8 @@ interface ISignUpStore {
     setUserTelNumber: (str: string) => void
     setUserAddress: (str: string) => void;
     setUserAddressDetail: (str: string) => void;
+    setUserAge: (str:string) => void;
+    setUserGender: (str:string) => void;
 
     signUpError: boolean;
     setSignUpError: (signUpError: boolean) => void;
@@ -47,6 +52,8 @@ const userStore = create<ISignUpStore>((set) => ({
     userAddress: '',
     userAddressDetail:'',
     userEmailMessage: '',
+    userAge: '',
+    userGender: '',
     setUserEmail: (userEmail) => {
         const emailValidator = /^[A-Za-z0-9]*@[A-Za-z0-9]([-.]?[A-Za-z0-9])*\.[A-Za-z0-9]{2,3}$/;
         const isMatched = emailValidator.test(userEmail);
@@ -59,6 +66,8 @@ const userStore = create<ISignUpStore>((set) => ({
     setUserTelNumber: (userTelNumber) => set((state) => ({...state, userTelNumber})),
     setUserAddress: (userAddress) => set((state) => ({...state, userAddress})),
     setUserAddressDetail: (userAddressDetail) => set((state) => ({...state, userAddressDetail})),
+    setUserAge: (userAge) => set((state) => ({...state, userAge})),
+    setUserGender: (userGender) => set((state) => ({...state, userGender})),
 
     signUpError: false,
     setSignUpError: (signUpError: boolean) => set((state) => ({...state, signUpError})),
