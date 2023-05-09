@@ -8,8 +8,9 @@ export const COMPANY_SIGN_IN_URL = `${HOST}auth/login/company`;
 
 export const VALIDATE_USER_EMAIL_URL = `${HOST}api/user/validate/userEmail`;
 export const VALIDATE_USER_TEL_NUMBER_URL = `${HOST}api/user/validate/userTelNumber`
+export const VALIDATE_USER_NICKNAME_URL = `${HOST}api/user/validate/userNickname`;
+export const GET_TOP3_COMPANY_LIST_URL = `${HOST}api/company/top3-company-list`;
 export const VALIDATE_COMPANY_EMAIL_URL = `${HOST}api/company/validate/companyEmail`;
 export const VALIDATE_COMPANY_TEL_NUMBER_URL = `${HOST}api/company/validate/companyTelNumber`
-export const GET_TOP3_LIST_URL = `${HOST}api/company/top3-list`;
 export const GET_LIST_COMPANY = `${HOST}api/company/list`;
 

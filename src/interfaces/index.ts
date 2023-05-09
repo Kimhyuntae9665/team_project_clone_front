@@ -24,12 +24,14 @@ export interface IUser {
     profile?: string;
 }
 export interface ICompany{
-    email: string;
-    name: string;
-    telNumber: string;
-    address: string;
-    addressDetail: string;
-    profile?: string | null;
+    companyTelNumber: string;
+    companyName:string;
+    companyImgUrl:string | null;
+    companyEmployeeNumber: string;
+    companyAnnualIncomeAverage: number;
+    companySales: number;
+    companyaddress: string;
+    companyHomepage: string;
 
 }
 

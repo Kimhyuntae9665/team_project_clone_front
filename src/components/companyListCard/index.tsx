@@ -3,25 +3,25 @@ import { useNavigate } from "react-router-dom";
 import { GetCompanyListResponseDto, GetListResponseDto } from "src/apis/response/company";
 
 interface Props {
-    item: GetListResponseDto | GetCompanyListResponseDto;
+  companyListItem:  GetCompanyListResponseDto |GetListResponseDto;
 }
 
-export default function CompanyListItem ({item}:Props) {
+export default function CompanyListCard ({companyListItem}:Props) {
 
     const navigator = useNavigate();
     return (
         <Card variant="outlined">
-      <CardActionArea sx={{ display: "flex", justifyContent: "space-between", p: "24px", backgroundColor: "#ffffff"}} onClick={() => navigator(`/board/detail/${item.companyName}`)}>
+      <CardActionArea sx={{ display: "flex",height:'400px', justifyContent: "space-between", p: "24px", backgroundColor: "#ffffff"}} onClick={() => navigator(`/Company${companyListItem.companyTelNumber}`)}>
         <Box>
           <Box sx={{ display: "flex" }}>
             <Box sx={{ mr: "8px" }}>
-              <Avatar alt={item.companyName} src={item.companyImgUrl ? item.companyImgUrl : ''} />
+              <Avatar alt={companyListItem.companyName} src={companyListItem.companyImgUrl ? companyListItem.companyImgUrl : ''} />
             </Box>
             <Box>
               <Typography
                 sx={{ fontSize: "12px", fontWeight: 500, color: "#000000" }}
               >
-                {item.companyName}
+                {companyListItem.companyName}
               </Typography>
               <Typography
                 sx={{
@@ -31,16 +31,11 @@ export default function CompanyListItem ({item}:Props) {
                   color: "rgba(0, 0, 0, 0.7)",
                 }}
               >
-                {item.companyHomepage}
+                {companyListItem.companyTelNumber}
               </Typography>
             </Box>
           </Box>
           <Box sx={{ mt: "16px", mb: "16px" }}>
-            <Typography
-              sx={{ fontSize: "16px", fontWeight: 500, color: "#000000" }}
-            >
-              {item.companyName}
-            </Typography>
             <Typography
               sx={{
                 mt: "5px",
@@ -49,15 +44,15 @@ export default function CompanyListItem ({item}:Props) {
                 color: "rgba(0, 0, 0, 0.7)",
               }}
             >
-              {item.companyName}
+              {companyListItem.companyHomepage}
             </Typography>
           </Box>
         </Box>
-        {item.companyImgUrl && (
+        {companyListItem.companyImgUrl && (
           <Box>
             <Box
               component="img"
-              src={item.companyImgUrl}
+              src={companyListItem.companyImgUrl}
               sx={{ height: "152px", width: "152px", borderRadius: "5%" }}
             />
           </Box>

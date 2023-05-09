@@ -1,7 +1,7 @@
 import { useEffect,useState } from "react"
 import { GetCompanyListResponseDto, GetCompanyResponseDto } from "src/apis/response/company"
-
-const companyPagingHook = (COUNT:number) => {
+//? Hook을 함수를 쓸때는 무조건 앞에 use를 붙여야 된다.
+const useCompanyPagingHook = (COUNT:number) => {
     const [companyList, setCompanyList] = useState<(GetCompanyResponseDto | GetCompanyListResponseDto)[]>([]);
     const [viewList, setViewList] = useState< (GetCompanyResponseDto | GetCompanyListResponseDto)[]>([]);
     const [pageNumber, setPageNumber] = useState<number>(1);
@@ -29,4 +29,4 @@ const companyPagingHook = (COUNT:number) => {
     return {companyList,viewList,pageNumber,setCompanyList,onPageHandler,COUNT};
 }
 
-export default companyPagingHook;
+export default useCompanyPagingHook;

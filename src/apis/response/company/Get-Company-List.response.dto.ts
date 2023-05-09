@@ -7,6 +7,8 @@ interface Dto{
     companySales: number;
     companyaddress: string;
     companyHomepage: string;
+    
+    
 
 }
 
