@@ -1,5 +1,5 @@
 interface RequestDto {
-    CompanyEmail: string;
+    companyEmail: string;
 }
 
 export default RequestDto;

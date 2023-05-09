@@ -1,5 +1,5 @@
 interface RequestDto {
-    CompanyTelNumber: string;
+    companyTelNumber: string;
 }
 
 export default RequestDto;

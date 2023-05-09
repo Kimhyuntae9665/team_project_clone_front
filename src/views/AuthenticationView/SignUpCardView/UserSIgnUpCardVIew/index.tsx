@@ -1,4 +1,4 @@
-import { Box, Button, Card, FormControl, FormHelperText, Grid, IconButton, Input, InputAdornment, InputLabel, TextField, Typography } from "@mui/material";
+import { Box, Button, Card, FormControl, FormHelperText, Grid, IconButton, Input, InputAdornment, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
 import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSignUpStore } from "src/stores/userstores";
@@ -8,6 +8,7 @@ import { VALIDATE_USER_EMAIL_URL, VALIDATE_USER_TEL_NUMBER_URL } from "src/conta
 import axios, { AxiosResponse } from "axios";
 import CheckIcon from '@mui/icons-material/Check';
 import { ValidateUserEmailResponseDto, ValidateUserTelNumberResponseDto } from "src/apis/response/user";
+import { UserSignUpDto } from "src/apis/request/auth";
 
 function FirstPage(){
     
@@ -22,7 +23,6 @@ function FirstPage(){
 
     const onEmailChangeHandler = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         const value = event.target.value;
-        console.log(value);
         const isMatched = emailValidator.test(value);
         setEmailPatternCheck(isMatched)
         setUserEmail(value);
@@ -119,8 +119,8 @@ function FirstPage(){
 
 function SecondPage(){
 
-    const {userName, userTelNumber, userAddress, userAddressDetail} = useSignUpStore()
-    const {setUserName, setUserTelNumber, setUserAddress, setUserAddressDetail} = useSignUpStore()
+    const {userName, userTelNumber, userAddress, userAddressDetail, userAge, userGender} = useSignUpStore()
+    const {setUserName, setUserTelNumber, setUserAddress, setUserAddressDetail, setUserAge, setUserGender} = useSignUpStore()
 
     const {telNumberPatternCheck, telNumberValidate} = useSignUpStore()
     const {setTelNumberPatternCheck, setTelNumberValidate} = useSignUpStore()
@@ -161,29 +161,50 @@ function SecondPage(){
         <Box>
             <FormControl fullWidth error={signUpError} variant="standard" sx={{mt:'40px'}}>
                 <InputLabel>주소</InputLabel>
-                <Input sx={{ height: '40px' }}
+                <Input type="text" sx={{ height: '40px' }}
                 value={userAddress}
-                
+                onChange={(event) => setUserAddress(event.target.value)}
                 />
             </FormControl>
 
             <FormControl fullWidth error={signUpError} variant="standard" sx={{mt:'40px'}}>
                 <InputLabel>상세주소</InputLabel>
-                <Input sx={{ height: '40px' }}
+                <Input type="text" sx={{ height: '40px' }}
                 value={userAddressDetail}
+                onChange={(event) => setUserAddressDetail(event.target.value)}
                 />
             </FormControl>
             
             <FormControl fullWidth error={signUpError} variant="standard" sx={{mt:'40px'}}>
                 <InputLabel>이름</InputLabel>
-                <Input sx={{ height: '40px' }} 
+                <Input type="text" sx={{ height: '40px' }} 
                 value={userName}
+                onChange={(event) => setUserName(event.target.value)}
                 />
             </FormControl>
 
             <FormControl fullWidth error={signUpError} variant="standard" sx={{mt:'40px'}}>
+                <InputLabel>나이</InputLabel>
+                <Input type="number" sx={{ height: '40px' }} 
+                value={userAge}
+                onChange={(event) => setUserAge(event.target.value)}
+                />
+            </FormControl>
+
+            <FormControl fullWidth error={signUpError} variant="standard" sx={{mt:'40px'}}>
+                <InputLabel>성별</InputLabel>
+                <Select sx={{ height: '40px' }} 
+                value={userGender}
+                onChange={(event) => setUserGender(event.target.value)}
+                >
+                    <MenuItem value={'남성'}>남성</MenuItem>
+                    <MenuItem value={'여성'}>여성</MenuItem>
+                </Select>
+            </FormControl>
+
+            <FormControl fullWidth error={signUpError} variant="standard" sx={{mt:'40px'}}>
                 <InputLabel>전화번호</InputLabel>
-                <Input sx={{ height: '40px' }} endAdornment={
+                <Input type="text" sx={{ height: '40px' }} endAdornment={
                     <InputAdornment position="end">
                         <IconButton onClick={() => onTelNumberValidateButtonHandler()}>
                             <CheckIcon/>
@@ -206,14 +227,57 @@ function SecondPage(){
 }
 
 export default function UserSignUpCardView(){
+    
+    const {userName, userTelNumber, userAddress, userAddressDetail} = useSignUpStore()
+    const {userEmail, userPassword, userPasswordCheck, userAge, userGender} = useSignUpStore();
+    const {emailPatternCheck, emailValidate, passwordPatternCheck, passwordValidate} = useSignUpStore();
+    const {setSignUpError} = useSignUpStore();
 
     const [page, setPage] = useState<number>(1);
 
     const navigator = useNavigate(); 
 
     const onNextButtonHandler = () => {
+        if(!userEmail || !userPassword || !userPasswordCheck){
+            setSignUpError(true)
+            return
+        }
+        if(!emailPatternCheck || !passwordPatternCheck) return;
+        if(!passwordValidate) return
+        //! emailValidate 넣어야함
+
+        setSignUpError(false)
         setPage(2);
     }
+
+    const onSignUphandler = () => {
+        if(!userEmail || !userPassword || !userPasswordCheck){
+            setSignUpError(true)
+            setPage(1)
+            return
+        }
+        if(!userName || !userAddress || !userTelNumber || !userAddressDetail) {
+            setSignUpError(true)
+            setPage(2)
+            return;
+        }
+
+        if(!emailPatternCheck || !passwordPatternCheck){
+            setPage(1)
+            return;
+        } 
+        // if(!passwordValidate || !emailValidate){
+        //     setPage(1)
+        //     return
+        // } 
+
+
+        setSignUpError(false)
+
+        const data: UserSignUpDto = {userEmail, userPassword, userName, userTelNumber, userAddress: `${userAddress} ${userAddressDetail}`, userAge, userGender}
+    
+        navigator('/auth/login')
+    } 
 
     return(
         <Box display="flex" sx={{flexDirection:'column', justifyContent:"space-between", alignItems: 'center' }}>
@@ -244,12 +308,12 @@ export default function UserSignUpCardView(){
                     )}
                     {page === 2 && (
                         <Button
-                        sx={{ mt:'80px',mb: "20px" }}
+                        sx={{ mt:'40px',mb: "20px" }}
                         fullWidth
                         variant="contained"
                         color="secondary"
                         size="large"
-                        onClick={onNextButtonHandler}
+                        onClick={onSignUphandler}
                         >
                         회원가입
                     </Button> 
@@ -263,7 +327,7 @@ export default function UserSignUpCardView(){
                     <Typography
                         component="span"
                         fontWeight={900}
-                        onClick={() => navigator('/auth')}
+                        onClick={() => navigator('/auth/login')}
                         
                     >
                         {" "}
