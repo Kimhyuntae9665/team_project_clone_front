@@ -1,54 +1,100 @@
-import {ICompany} from "src/interfaces/index"   
+import {ICompany} from "src/interfaces/index"  
+
+export const COMPANYLISTTOP3: ICompany[] = [
+    {
+        companyTelNumber:'010-1111-1111',
+        companyName:'회사 1',
+        companyImgUrl:'',
+        companyEmployeeNumber: "100명",
+        companyAnnualIncomeAverage: 10000000,
+        companySales: 8000,
+        companyaddress: "부산동구",
+        companyHomepage: 'http://naver.com'
+    } ,{
+        companyTelNumber:'010-1111-1111',
+        companyName:'회사 1',
+        companyImgUrl:'',
+        companyEmployeeNumber: "100명",
+        companyAnnualIncomeAverage: 10000000,
+        companySales: 8000,
+        companyaddress: "부산동구",
+        companyHomepage: 'http://naver.com'
+    },{
+        companyTelNumber:'010-1111-1111',
+        companyName:'회사 1',
+        companyImgUrl:'',
+        companyEmployeeNumber: "100명",
+        companyAnnualIncomeAverage: 10000000,
+        companySales: 8000,
+        companyaddress: "부산동구",
+        companyHomepage: 'http://naver.com'
+    }
+]
 
 export const COMPANYLISTTOP6: ICompany[] = [
     {
-        email:'dsa@naver.com',
-        name:'작성자1',
-        telNumber: '010-1234-5678',
-        address: '부산광역시',
-        addressDetail: '부산 동구 부산진역',
-        profile:''
-    } ,{
-        email:'dsa@naver.com',
-        name:'작성자1',
-        telNumber: '010-1234-5678',
-        address: '부산광역시',
-        addressDetail: '부산 동구 부산진역',
-        profile:''
-    } ,{
-        email:'dsa@naver.com',
-        name:'작성자1',
-        telNumber: '010-1234-5678',
-        address: '부산광역시',
-        addressDetail: '부산 동구 부산진역',
-        profile:''
-    } ,{
-        email:'dsa@naver.com',
-        name:'작성자1',
-        telNumber: '010-1234-5678',
-        address: '부산광역시',
-        addressDetail: '부산 동구 부산진역',
-        profile:''
-    } ,{
-        email:'dsa@naver.com',
-        name:'작성자1',
-        telNumber: '010-1234-5678',
-        address: '부산광역시',
-        addressDetail: '부산 동구 부산진역',
-        profile:''
-    } ,{
-        email:'dsa@naver.com',
-        name:'작성자1',
-        telNumber: '010-1234-5678',
-        address: '부산광역시',
-        addressDetail: '부산 동구 부산진역',
-        profile:''
-    } ,{
-        email:'dsa@naver.com',
-        name:'작성자1',
-        telNumber: '010-1234-5678',
-        address: '부산광역시',
-        addressDetail: '부산 동구 부산진역',
-        profile:''
+        companyTelNumber:'010-1111-1111',
+        companyName:'회사 1',
+        companyImgUrl:'',
+        companyEmployeeNumber: "100명",
+        companyAnnualIncomeAverage: 10000000,
+        companySales: 8000,
+        companyaddress: "부산동구",
+        companyHomepage: 'http://naver.com'
     } 
+    ,{
+        companyTelNumber:'010-1111-1111',
+        companyName:'회사 1',
+        companyImgUrl:'',
+        companyEmployeeNumber: "100명",
+        companyAnnualIncomeAverage: 10000000,
+        companySales: 8000,
+        companyaddress: "부산동구",
+        companyHomepage: 'http://naver.com'
+    },{
+        companyTelNumber:'010-1111-1111',
+        companyName:'회사 1',
+        companyImgUrl:'',
+        companyEmployeeNumber: "100명",
+        companyAnnualIncomeAverage: 10000000,
+        companySales: 8000,
+        companyaddress: "부산동구",
+        companyHomepage: 'http://naver.com'
+    },{
+        companyTelNumber:'010-1111-1111',
+        companyName:'회사 1',
+        companyImgUrl:'',
+        companyEmployeeNumber: "100명",
+        companyAnnualIncomeAverage: 10000000,
+        companySales: 8000,
+        companyaddress: "부산동구",
+        companyHomepage: 'http://naver.com'
+    },{
+        companyTelNumber:'010-1111-1111',
+        companyName:'회사 1',
+        companyImgUrl:'',
+        companyEmployeeNumber: "100명",
+        companyAnnualIncomeAverage: 10000000,
+        companySales: 8000,
+        companyaddress: "부산동구",
+        companyHomepage: 'http://naver.com'
+    },{
+        companyTelNumber:'010-1111-1111',
+        companyName:'회사 1',
+        companyImgUrl:'',
+        companyEmployeeNumber: "100명",
+        companyAnnualIncomeAverage: 10000000,
+        companySales: 8000,
+        companyaddress: "부산동구",
+        companyHomepage: 'http://naver.com'
+    },{
+        companyTelNumber:'010-1111-1111',
+        companyName:'회사 1',
+        companyImgUrl:'',
+        companyEmployeeNumber: "100명",
+        companyAnnualIncomeAverage: 10000000,
+        companySales: 8000,
+        companyaddress: "부산동구",
+        companyHomepage: 'http://naver.com'
+    }
 ]

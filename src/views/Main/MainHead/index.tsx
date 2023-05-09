@@ -4,23 +4,24 @@ import { error } from "console";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ResponseDto from "src/apis/response";
-import { GetTop3ListResponseDto } from "src/apis/response/company";
+import { GetTop3CompanyListResponseDto } from "src/apis/response/company";
 import PreviewCard from "src/components/previewCard";
-import { GET_TOP3_LIST_URL } from "src/contants/api";
+import { GET_TOP3_COMPANY_LIST_URL } from "src/contants/api";
+import { COMPANYLISTTOP3 } from "src/mock";
 
 export default function MainHead() {
     
-    const [top3Lost, setTop3List] = useState<GetTop3ListResponseDto[]>([]);
+    const [top3List, setTop3List] = useState<GetTop3CompanyListResponseDto[]>([]);
     const navigator = useNavigate();
 
     const getTop3List = () => {
-        axios.get(GET_TOP3_LIST_URL)
+        axios.get(GET_TOP3_COMPANY_LIST_URL)
         .then((response) => getTop3ListResponseHandler(response))
         .catch((error) => getTop3ListErrorHandler(error));
     }
 
     const getTop3ListResponseHandler = (response: AxiosResponse<any,any>) => {
-        const { result, message, data } = response.data as ResponseDto<GetTop3ListResponseDto[]>;
+        const { result, message, data } = response.data as ResponseDto<GetTop3CompanyListResponseDto[]>;
         if ( !result || data === null) return;
         setTop3List(data);
     }
@@ -28,7 +29,8 @@ export default function MainHead() {
         console.log(error.message);
     }
     useEffect(() => {
-        getTop3List();
+        // getTop3List();
+        setTop3List(COMPANYLISTTOP3);
     },[])
 
     
@@ -50,9 +52,9 @@ export default function MainHead() {
             <Box>
                 <Typography  sx={{ fontSize: '24px', fontWeight: '400', p: '24px', textAlign: ' center' }}>TOP3 회사</Typography>
                     <Grid container spacing={3}>
-                    {top3Lost.map((item)=> (
+                    {top3List.map((item)=> (
                         <Grid item sm={12} md={4}>
-                            <PreviewCard previewItem={item} />
+                            <PreviewCard top3PreviewItem={item} />
                         </Grid>
                         ))}
                 </Grid>
