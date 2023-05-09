@@ -8,6 +8,8 @@ import { companySignUpStore } from "src/stores/companystores";
 import { ValidateCompanyEmailDto, ValidateCompanyTelNumberDto } from "src/apis/request/company";
 import { VALIDATE_COMPANY_EMAIL_URL, VALIDATE_COMPANY_TEL_NUMBER_URL } from "src/contants/api";
 import { ValidateCompanyEmailResponseDto, ValidateCompanytelNumberResponseDto } from "src/apis/response/company";
+import { useSignUpStore } from "src/stores/userstores";
+import { UserSignUpDto } from "src/apis/request/auth";
 
 
 function FirstPage(){

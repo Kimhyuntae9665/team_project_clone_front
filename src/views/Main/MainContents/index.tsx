@@ -9,11 +9,11 @@ import companyPagingHook from "src/hooks/paging.hook";
 import { GET_LIST_COMPANY } from "src/contants/api";
 import ResponseDto from "src/apis/response";
 import { COMPANYLISTTOP6 } from "src/mock";
+import { useUserStore } from "src/stores/userstores";
 
 export default function MainContents(){
-   const { viewList,pageNumber, companyList,setCompanyList,onPageHandler,COUNT } = companyPagingHook(4);
+   const { viewList,pageNumber, companyList,setCompanyList,onPageHandler,COUNT } = companyPagingHook(6);
    const navigator = useNavigate();
-
 
    const getList = () => {
     axios.get(GET_LIST_COMPANY)
@@ -45,9 +45,7 @@ export default function MainContents(){
         <Box>
         <Box sx={{ p:'15px' ,border: '3px solid black', textAlign:'center', alignItems:'flex-start'}}>
           <Grid container spacing={3}> 
-              
-                    {viewList.map((companyList) => (<Grid item sm={12} md={3}  ><CompanyListItem companyListItem={companyList as GetCompanyListResponseDto} /></Grid>))}
-              
+                    {viewList.map((companyList) => (<Grid item sm={12} md={2}  ><CompanyListItem companyListItem={companyList as GetCompanyListResponseDto} /></Grid>))}
             </Grid>
         </Box>
         </Box>
