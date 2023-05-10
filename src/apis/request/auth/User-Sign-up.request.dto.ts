@@ -1,12 +1,11 @@
 interface Dto {
-    UserEmail: string;
-    UserPassword: string;
-    UserProfileUrl: string;
-    UserTelNumber: string;
-    UserName: string;
-    UserAddress: string;
-    UserAge: string;
-    UserGender : string;
+    userEmail: string;
+    userPassword: string;
+    userTelNumber: string;
+    userName: string;
+    userAddress: string;
+    userAge: string;
+    userGender : string;
 }
 
 export default Dto;

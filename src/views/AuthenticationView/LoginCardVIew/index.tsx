@@ -7,7 +7,7 @@ export default function AuthenticationLogInView(){
         <Box sx={{pr:'120px', pl:'120px'}}>
             <Grid container spacing={2}>
                 <Grid item lg={6} sm={12}>
-                <Card sx={{height: '600px', mt: '80px', mb: '80px', backgroundImage: 'url(https://t1.daumcdn.net/cfile/tistory/2513B53E55DB206927)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}} onClick={() => navigator('login/user')}>
+                <Card sx={{height: '600px', mt: '80px', mb: '80px', backgroundImage: 'url(https://t1.daumcdn.net/cfile/tistory/2513B53E55DB206927)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}} onClick={() => navigator('user')}>
                         <CardActionArea>
                             <Typography textAlign='center' sx={{pt:'500px', fontSize:'60px', fontWeight:'900'}}>사용자 로그인</Typography>
                         
@@ -15,7 +15,7 @@ export default function AuthenticationLogInView(){
                     </Card>
                 </Grid>
                 <Grid item lg={6} sm={12}>
-                    <Card sx={{height: '600px', mt: '80px', mb: '80px', backgroundImage: 'url(https://png.pngtree.com/png-vector/20191001/ourmid/pngtree-building-icon-isolated-on-abstract-background-png-image_1776393.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}} onClick={() => navigator('login/company')}>
+                    <Card sx={{height: '600px', mt: '80px', mb: '80px', backgroundImage: 'url(https://png.pngtree.com/png-vector/20191001/ourmid/pngtree-building-icon-isolated-on-abstract-background-png-image_1776393.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}} onClick={() => navigator('company')}>
                         <CardActionArea>
                             <Typography textAlign='center' sx={{pt:'500px', fontSize:'60px', fontWeight:'900'}}>회사 로그인</Typography>
                         
@@ -29,7 +29,7 @@ export default function AuthenticationLogInView(){
                             <Typography
                                 component="span"
                                 fontWeight={900}
-                                
+                                onClick={() => navigator('/auth/signup')}
                             >
                                 {" "}
                                 회원가입

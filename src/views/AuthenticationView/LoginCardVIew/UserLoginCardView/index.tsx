@@ -1,5 +1,10 @@
 import { Box, Button, Card, FormControl, Grid, IconButton, Input, InputAdornment, InputLabel, TextField, Typography } from "@mui/material";
-import { useState } from "react";
+import { Dispatch, useState, SetStateAction } from "react";
+import { useUserStore } from "src/stores/userstores";
+
+interface Props {
+    setLoginView: Dispatch<SetStateAction<boolean>>
+}
 
 export default function UserLoginCardView(){
 
@@ -7,6 +12,8 @@ export default function UserLoginCardView(){
     const [password, setPassword] = useState<string>("");
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [loginError, setLoginError] = useState<boolean>(false);
+
+    const {setUser} = useUserStore();
 
     const onLoginHandler = () => {
         //? email 입력했는지 검증 / password 입력했는지 검증
