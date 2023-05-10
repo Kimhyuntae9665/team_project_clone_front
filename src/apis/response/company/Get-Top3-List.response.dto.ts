@@ -9,6 +9,6 @@ interface Dto{
     companyHomepage: string;
 
 }
-
+// 메인화면에서 탑3 회사 보여주기 위해
 export default Dto;
 

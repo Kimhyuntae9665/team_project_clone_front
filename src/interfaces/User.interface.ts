@@ -1,9 +1,9 @@
 interface User{
-    email: string;
-    name: string;
-    telNumber: string;
-    address: string;
-    profile?: string | null;
+    useremail: string;
+    username: string;
+    usertelNumber: string;
+    useraddress: string;
+    userprofile?: string | null;
 
 }
 

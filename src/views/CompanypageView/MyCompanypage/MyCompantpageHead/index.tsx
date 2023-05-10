@@ -1,29 +1,47 @@
-import { Avatar, Box, Input, Typography } from "@mui/material";
+import { Avatar, Box, Button, FormControl, IconButton, Input, Typography } from "@mui/material";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
+import { companyStore } from "src/stores/companystores";
+
 
 export default function MyCompanypageHeadView() {
+
+    const [cookies,setCookies] = useCookies();
+    const {company,setCompany,resetCompany} = companyStore();
+    const navigator = useNavigate();
+
+    const accessToken = cookies.accessToken;
+    const logoutHandler = () => {
+        setCookies('accessToken','',{ expires: new Date(), path:'/' });
+        resetCompany();
+        navigator('/');
+    };
+
     return (
-        <Box>
-        <Box sx={{display:'flex'}}>
-                <Box sx={{ width:'30%', m:'50px 50px'}}>
-                    <Avatar sx={{width:'150px', height:'150px',ml:'110px'}}/>
-                    <Typography sx={{ml:'145px', fontSize:'30px', fontWeight:'600'}}>A회사</Typography>
-                </Box>
-                <Box sx={{pt:'80px',width:'30%'}}>
-                    <Typography sx={{fontSize:'20px'}}>연락처: <Input placeholder="연락처를 입력하세요" /> </Typography>
-                    <Typography sx={{fontSize:'20px'}}>이메일: <Input placeholder="이메일를 입력하세요" /></Typography>
-                    <Typography sx={{fontSize:'20px'}}>주소: <Input placeholder="주소를 입력하세요" /></Typography>
-                    <Typography sx={{fontSize:'20px'}}>업종 :<Input placeholder="업종를 입력하세요" /></Typography>
-                </Box>
-                <Box sx={{pt:'80px',width:'30%'}}>
-                    <Typography sx={{fontSize:'20px'}}>평균 연봉: <Input placeholder="평균 연봉를 입력하세요" /></Typography>
-                    <Typography sx={{fontSize:'20px'}}>설립일: <Input placeholder="설립일를 입력하세요" /></Typography>
-                    <Typography sx={{fontSize:'20px'}}>홈페이지 주소: <Input placeholder="주소를 입력하세요" /></Typography>
-                    <Typography sx={{fontSize:'20px'}}>매출액: <Input placeholder="매출액를 입력하세요" /></Typography>
-                </Box>
-        </Box>
-            <Box sx={{m:'10px 10px'}}>
-                <Typography sx={{fontSize:'20px'}}>회사 소개글: </Typography>
+        <Box sx={{ p: '40px 120px', display: 'flex' }}>
+            <Box>
+                <IconButton onClick={logoutHandler}>
+                    <Avatar sx={{width:'120px', height:'120px'}} alt={company?.companyEmail} src={company?.companyProfile ? company.companyProfile: ''} />
+                </IconButton>
             </Box>
+                <Box sx={{ ml: '25px', display: 'flax', FlexDirection: 'column', justifyContent: 'center' }}>
+                    <Box sx={{  alignItems: 'center' }}>
+                    <Typography sx={{mt: '10px', fontSize: '16px', fontWeight: 500, color: 'rgba(0,0,0,0.4)' }}>이름:{company?.companyName} </Typography>
+                    <Typography sx={{mt: '10px', fontSize: '16px', fontWeight: 500, color: 'rgba(0,0,0,0.4)' }}>전화번호:{company?.companyTelNumber}</Typography>
+                    <Typography sx={{mt: '10px', fontSize: '16px', fontWeight: 500, color: 'rgba(0,0,0,0.4)' }}>업종:{company?.companyCategory}</Typography>
+                    <Typography sx={{ mt: '10px', fontSize: '16px', fontWeight: 500, color: 'rgba(0,0,0,0.4)' }}>주소:{company?.companyAddress}</Typography>
+                    </Box>
+                </Box>
+                <FormControl  variant='outlined'>
+                    <Button variant="contained" onClick={()=>navigator('/')} >
+                    수정
+                    </Button>
+                </FormControl>
+                
+            
+            {/* <Box sx={{m:'10px 10px'}}>
+                <Typography sx={{fontSize:'20px'}}>회사 소개글: </Typography>
+            </Box> */}
         </Box> 
     )
 }
