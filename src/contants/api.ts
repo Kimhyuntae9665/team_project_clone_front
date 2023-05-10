@@ -11,6 +11,14 @@ export const VALIDATE_USER_TEL_NUMBER_URL = `${HOST}api/user/validate/userTelNum
 export const VALIDATE_USER_NICKNAME_URL = `${HOST}api/user/validate/userNickname`;
 export const GET_TOP3_COMPANY_LIST_URL = `${HOST}api/company/top3-company-list`;
 export const VALIDATE_COMPANY_EMAIL_URL = `${HOST}api/company/validate/companyEmail`;
-export const VALIDATE_COMPANY_TEL_NUMBER_URL = `${HOST}api/company/validate/companyTelNumber`
+export const VALIDATE_COMPANY_TEL_NUMBER_URL = `${HOST}api/company/validate/companyTelNumber`;
 export const GET_LIST_COMPANY = `${HOST}api/company/list`;
+
+export const COMPANY_SELECT_UNIVERSITY = `{HOST}select/company/university`;
+export const COMPANY_SELECT_CARRER = `{HOST}select/company/carrer`
+export const COMPANY_SELECT_LICENSE = `{HOST}select/company/license`
+
+export const authorizationHeader = (accessToken: string) =>{
+    return {headers:{Authorization:`Bearer ${accessToken}`}}
+}
 
