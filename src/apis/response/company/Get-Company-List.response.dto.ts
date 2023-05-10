@@ -7,9 +7,6 @@ interface Dto{
     companySales: number;
     companyaddress: string;
     companyHomepage: string;
-    
-    
-
 }
 
 export default Dto;

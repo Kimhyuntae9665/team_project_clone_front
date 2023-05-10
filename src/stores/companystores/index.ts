@@ -1,4 +1,4 @@
 import companySignUpStore from './companysign-up.stores';
-import companyStore from './company.store';
+import useCompanyStore from './company.store';
 
-export {companyStore, companySignUpStore}
+export {useCompanyStore, companySignUpStore}

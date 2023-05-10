@@ -47,13 +47,13 @@ const companyStore = create<CompanySignUpStore>((set) => ({
     companyAddress: '',
     companyAddressDetail:'',
     companyEmailMessage: '',
-    setCompanyEmail: (email) => {
+    setCompanyEmail: (companyEmail) => {
         const emailValidator = /^[A-Za-z0-9]*@[A-Za-z0-9]([-.]?[A-Za-z0-9])*\.[A-Za-z0-9]{2,3}$/;
-        const isMatched = emailValidator.test(email);
+        const isMatched = emailValidator.test(companyEmail);
         const emailMessage = isMatched ? '' : '이메일 주소 포맷이 맞지 않습니다.';
-        set((state) => ({...state, email, emailMessage}))
+        set((state) => ({...state, companyEmail, emailMessage}))
     },
-    setCompanyPassword: (companypassword) => set((state) => ({...state, companypassword})),
+    setCompanyPassword: (companyPassword) => set((state) => ({...state, companyPassword})),
     setCompanyPasswordCheck: (companyPasswordCheck) => set((state) => ({...state, companyPasswordCheck})),
     setCompanyName: (companyName) => set((state) => ({...state, companyName})),
     setCompanyTelNumber: (companyTelNumber) => set((state) => ({...state, companyTelNumber})),

@@ -1,10 +1,11 @@
 interface User{
-    email: string;
-    name: string;
-    telNumber: string;
     address: string;
-    profile?: string | null;
+    userEmail: string;
+    userName: string;
+    userprofile: string | null;
+    userTelNumber: string;
 
 }
 
 export default User;
+
