@@ -1,6 +1,6 @@
 interface Dto {
-    UserEmail : String;
-    UserPassword: String;
+    userEmail : String;
+    userPassword: String;
 }
 
 export default Dto;

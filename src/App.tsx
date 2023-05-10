@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CompanyPage from './views/CompanypageView/index'
 import Main from './views/Main';
 import MyPage from './views/MypageView/index'
@@ -16,6 +16,8 @@ import CompanySignUpCardView from './views/AuthenticationView/SignUpCardView/Com
 
 function App() {
   const path = useLocation();
+  const [loginView, setLoginView] = useState<boolean>(true);
+
   return(
     <>
     <NavigationBar/>
@@ -24,7 +26,7 @@ function App() {
       <Route path='/auth'>
         <Route path='login'>
           <Route index element={(<AuthenticationLogInView/>)} />
-          <Route path='user' element={(<UserLoginCardView />)} />
+          <Route path='user' element={(<UserLoginCardView/>)} />
           <Route path='company' element={(<CompanyLoginCardView />)} />
         </Route>
         <Route path='signup'>

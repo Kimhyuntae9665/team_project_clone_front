@@ -1,7 +1,7 @@
 import { Avatar, Box, Button, FormControl, IconButton, Input, Typography } from "@mui/material";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
-import { companyStore } from "src/stores/companystores";
+import companyStore from "src/stores/companystores/company.store";
 
 
 export default function MyCompanypageHeadView() {

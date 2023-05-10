@@ -1,6 +1,6 @@
 interface Dto {
-    CompanyEmail : string;
-    CompanyPassword: string;
+    companyEmail : string;
+    companyPassword: string;
 }
 
 export default Dto;
