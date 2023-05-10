@@ -1,6 +1,8 @@
 import { Avatar, Box, Typography } from "@mui/material"
 
 export default function CompanyPageHead(){
+    
+
     return(
         <Box>
         <Box sx={{display:'flex'}}>

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { GetCompanyListResponseDto, GetListResponseDto } from "src/apis/response/company";
 
 interface Props {
-  companyListItem:  GetCompanyListResponseDto |GetListResponseDto;
+  companyListItem:  GetCompanyListResponseDto | GetListResponseDto;
 }
 
 export default function CompanyListCard ({companyListItem}:Props) {

@@ -1,4 +1,4 @@
-import { Autocomplete, Grid, TextField } from "@mui/material";
+import { Autocomplete, Grid, TextField,Box,Typography,Input } from "@mui/material";
 import { useState, } from "react";
 import axios, { AxiosResponse } from "axios";
 import ResponseDto from "src/apis/response";
@@ -116,12 +116,16 @@ export default function MyCompanypageInterfaceView() {
                         onChange={(event,value)=>setLicense(value?.label)}
                         />
                     </Grid>
-                    <Grid item xs={6}>
-                        <Autocomplete 
-                        sx={{width:'200px', ml:'55px' }} 
-                        options={companyfinalEducation4} disablePortal 
-                        renderInput={(params) => <TextField {...params} label="최종학력4" />}
-                        />
+                    <Grid item xs={5}>
+                        <Box sx={{alignItems:'center',justifyContent:'center',p:'10px'}}>
+                            <Autocomplete 
+                            options={companyfinalEducation4} disablePortal 
+                            renderInput={(params) => <TextField {...params} label="최종학력4" />}
+                            />
+                        </Box>
+                        <Box sx={{alignItems:'center',p:'10px'}}  >
+                            <Typography sx={{fontSize:'20px'}}>월매출: <Input placeholder="매출액를 입력하세요" /></Typography>
+                        </Box>
                     </Grid>
                 </Grid>
             </Grid>
