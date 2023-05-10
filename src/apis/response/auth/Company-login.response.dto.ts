@@ -5,6 +5,7 @@ interface Dto {
     companyName: string;
     companyProfile: string | null;
     companyTelNumber: string;
+    companyCategory: string;
     token: string;
 }
 
