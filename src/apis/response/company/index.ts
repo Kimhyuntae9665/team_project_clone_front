@@ -5,7 +5,8 @@ import ValidateCompanyEmailResponseDto from "./Validate-Company-Email.response.d
 import ValidateCompanytelNumberResponseDto from "./Validate-Company-telNumber.response.dto"
 import GetTop3CompanyListResponseDto from './Get-Top3-List.response.dto';
 import GetListResponseDto from './Get-List.response.dto';
-import GetCompanyListResponseDto from './Get-Company-List.response.dto'
+import GetCompanyListResponseDto from './Get-Company-List.response.dto';
+import UpLoadCompanySelectComponentResponseDto from './Up-Load-Company-Select-Component.response.dto';
 
 export type {
     GetTop3ListresponseDto,
@@ -15,5 +16,6 @@ export type {
     ValidateCompanytelNumberResponseDto,
     GetTop3CompanyListResponseDto,
     GetListResponseDto,
-    GetCompanyListResponseDto
+    GetCompanyListResponseDto,
+    UpLoadCompanySelectComponentResponseDto
 }

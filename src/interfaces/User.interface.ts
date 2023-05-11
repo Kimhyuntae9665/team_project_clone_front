@@ -1,5 +1,5 @@
 interface User{
-    address: string;
+    userAddress: string;
     userEmail: string;
     userName: string;
     userprofile: string | null;

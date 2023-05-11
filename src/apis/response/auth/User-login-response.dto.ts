@@ -1,10 +1,10 @@
 interface Dto {
-    address: string;
+    userAddress: string;
     userEmail: string;
-    expiredTime: number;
     userName: string;
     userprofile: string | null;
     userTelNumber: string;
+    expiredTime: number;
     token: string;
 }
 
