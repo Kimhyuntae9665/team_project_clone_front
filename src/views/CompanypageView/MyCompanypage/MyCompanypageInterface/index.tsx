@@ -9,7 +9,13 @@ import { useCookies } from "react-cookie";
 
 
 
-//      HOOK        //
+
+
+
+
+
+export default function MyCompanypageInterfaceView() {
+    //      HOOK        //
 const navigator = useNavigate();
 // ? undefined, 랑 null이랑 다르다 
 const [Grade_One_University,setGrade_One_University] = useState<string | undefined>('');
@@ -67,11 +73,11 @@ const UpLoad_company_select_component_Handler = () =>{
 //      Response Handler   //
 const company_Select_Component_ResponseHandler = (response : AxiosResponse<any,any>)=>{
 
-    const {result,message,data} = response.data as ResponseDto<>
-    if(!result || !data){
-        alert(message);
-        return;
-      }
+    // const {result,message,data} = response.data as ResponseDto<>
+    // if(!result || !data){
+    //     alert(message);
+    //     return;
+    //   }
 
     navigator('/myCompanyPage');
 
@@ -84,11 +90,6 @@ const company_Select_Component_ResponseHandler = (response : AxiosResponse<any,a
 const company_Select_ComponentError =(error:any)=>{
     console.log(error.message);
 }
-
-
-
-
-export default function MyCompanypageInterfaceView() {
     return (
         <Grid container sx={{ p:'20px 20px',mt:'50px'}}>
                 <Grid item sx={{display:'flex', alignItems:'center', p:'20px',width:'100%', height: '100%', border:'2px solid black', pb:'100px'}}>

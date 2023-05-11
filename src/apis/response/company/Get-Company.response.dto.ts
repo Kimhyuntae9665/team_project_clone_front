@@ -1,5 +1,5 @@
 interface Dto {
-    address: string;
+    companyAddress: string;
     companyEmail: string;
     companyName: string;
     companyProfile: string | null;

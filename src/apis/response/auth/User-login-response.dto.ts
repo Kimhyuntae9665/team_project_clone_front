@@ -1,11 +1,12 @@
 interface Dto {
-    address: string;
+    userAddress: string;
     userEmail: string;
-    expiredTime: number;
     userName: string;
     userprofile: string | null;
     userTelNumber: string;
+
     token: string;
+    expiredTime: number;
 }
 
 export default Dto;
