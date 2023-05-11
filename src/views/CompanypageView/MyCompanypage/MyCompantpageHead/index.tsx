@@ -21,13 +21,13 @@ export default function MyCompanypageHeadView() {
     };
 
     return (
-        <Grid sx={{ p: '40px 120px', display: 'flex' }}>
-            <Grid>
+        <Grid container  sx={{ p: '40px 120px', display: 'flex' }}>
+            <Grid item xs={2}>
                 <IconButton onClick={logoutHandler}>
                     <Avatar sx={{width:'120px', height:'120px'}} alt={company?.companyEmail} src={company?.companyProfile ? company.companyProfile: ''} />
                 </IconButton>
             </Grid>
-            <Grid >
+            <Grid item xs={8}>
                 <Box sx={{ ml: '25px', display: 'flax', FlexDirection: 'column', justifyContent: 'center' }}>
                         <Box sx={{  alignItems: 'center' }}>
                         <Typography sx={{mt: '10px', fontSize: '16px', fontWeight: 500, color: 'rgba(0,0,0,0.4)' }}>이름:{company?.companyName} </Typography>
@@ -36,13 +36,15 @@ export default function MyCompanypageHeadView() {
                         <Typography sx={{ mt: '10px', fontSize: '16px', fontWeight: 500, color: 'rgba(0,0,0,0.4)' }}>주소:{company?.companyAddress}</Typography>
                         </Box>
                     </Box>
-
-                    <FormControl  variant='outlined'>
-                        <Button variant="contained" color="secondary" onClick={()=>navigator('/')} >
-                        수정
-                        </Button>
-                    </FormControl>
             </Grid>
+            <Grid item xs={2}>
+                <FormControl  variant='outlined'>
+                    <Button variant="contained" color="secondary" onClick={()=>navigator('/')} sx={{mt:'34px',width:'100px', height:'70px'}}>
+                        <Typography sx={{fontSize:'25px', fontWeight:'500'}}>수정</Typography>
+                    </Button>
+                </FormControl>
+            </Grid>
+                    
                 
                 
             
