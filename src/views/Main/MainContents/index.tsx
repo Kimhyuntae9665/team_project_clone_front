@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios, { AxiosResponse } from "axios";
-import { Box, Card, CardActionArea, Grid, Pagination, Stack, Typography } from "@mui/material";
+import { Box, Grid, Pagination,  Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { GetCompanyListResponseDto } from "src/apis/response/company";
 import CompanyListItem from "src/components/companyListCard";
@@ -9,7 +9,6 @@ import companyPagingHook from "src/hooks/paging.hook";
 import { GET_LIST_COMPANY } from "src/contants/api";
 import ResponseDto from "src/apis/response";
 import { COMPANYLISTTOP6 } from "src/mock";
-import { useUserStore } from "src/stores/userstores";
 
 export default function MainContents(){
    const { viewList,pageNumber, companyList,setCompanyList,onPageHandler,COUNT } = companyPagingHook(6);

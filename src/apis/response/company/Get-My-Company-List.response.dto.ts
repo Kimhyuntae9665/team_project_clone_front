@@ -9,5 +9,5 @@ interface Dto{
     companyHomepage: string;
 
 }
-// company my 페이지 화면에서 회사 정보 보여주기 위해
+//  유저페이지에서 내가 지원한 회사 보기
 export default Dto;
