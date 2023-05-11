@@ -15,13 +15,13 @@ export interface IPreviewItem {
     boardNumber: number;
 }
 export interface IUser {
-    email: string;
-    password: string;
-    name: string;
-    telNumber: string;
-    address: string;
-    addressDetail: string;
-    profile?: string;
+    userEmail: string;
+    userPassword: string;
+    userName: string;
+    userTelNumber: string;
+    userAddress: string;
+    userAddressDetail: string;
+    userProfile?: string;
 }
 export interface ICompany{
     companyTelNumber: string;

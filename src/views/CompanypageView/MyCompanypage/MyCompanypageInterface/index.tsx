@@ -13,8 +13,13 @@ import { useCookies } from "react-cookie";
 
 
 
+<<<<<<< HEAD
+export default function MyCompanypageInterfaceView() {
+
+=======
 
 export default function MyCompanypageInterfaceView() {
+>>>>>>> 3437e671348b632597b14637d612450422d79435
     //      HOOK        //
 const navigator = useNavigate();
 // ? undefined, 랑 null이랑 다르다 
@@ -90,6 +95,11 @@ const company_Select_Component_ResponseHandler = (response : AxiosResponse<any,a
 const company_Select_ComponentError =(error:any)=>{
     console.log(error.message);
 }
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 3437e671348b632597b14637d612450422d79435
     return (
         <Grid container sx={{ p:'20px 20px',mt:'50px'}}>
                 <Grid item sx={{display:'flex', alignItems:'center', p:'20px',width:'100%', height: '100%', border:'2px solid black', pb:'100px'}}>
@@ -124,7 +134,7 @@ const company_Select_ComponentError =(error:any)=>{
                             renderInput={(params) => <TextField {...params} label="최종학력4" />}
                             />
                         </Box>
-                        <Box sx={{alignItems:'center',p:'10px'}}  >
+                        <Box sx={{alignItems:'center',p:'10px'}} >
                             <Typography sx={{fontSize:'20px'}}>월매출: <Input placeholder="매출액를 입력하세요" /></Typography>
                         </Box>
                     </Grid>
