@@ -6,11 +6,14 @@ import companyStore from "src/stores/companystores/company.store";
 
 export default function MyCompanypageHeadView() {
 
+    const navigator = useNavigate();
     const [cookies,setCookies] = useCookies();
     const {company,setCompany,resetCompany} = companyStore();
-    const navigator = useNavigate();
+    
 
     const accessToken = cookies.accessToken;
+
+    
     const logoutHandler = () => {
         setCookies('accessToken','',{ expires: new Date(), path:'/' });
         resetCompany();

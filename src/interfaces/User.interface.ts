@@ -4,7 +4,6 @@ interface User{
     userName: string;
     userProfile: string | null;
     userTelNumber: string;
-
 }
 
 export default User;
