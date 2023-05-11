@@ -26,7 +26,7 @@ export default function PreviewCard({top3PreviewItem} : Props) {
                         </Box>
                     </Box>
                     <Box sx={{ mt: '16px', mb: '16px' }}>
-                        <Typography sx={{ fontSize: '16px', fontWeight: 500, color: '#ffffff' }}>{ top3PreviewItem.companyaddress }</Typography>
+                        <Typography sx={{ fontSize: '16px', fontWeight: 500, color: '#ffffff' }}>{ top3PreviewItem.companyAddress }</Typography>
                         <Typography sx={{ mt: '5px', fontSize: '12px', fontWeight: 400, color: 'rgba(255, 255, 255, 0.7)' }}>{ top3PreviewItem.companyHomepage }</Typography>
                     </Box>
                     <Box>

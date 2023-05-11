@@ -274,7 +274,7 @@ export default function UserSignUpCardView(){
 
         setSignUpError(false)
 
-        const data: UserSignUpDto = {userEmail, userPassword, userName, userTelNumber, userAddress: `${userAddress} ${userAddressDetail}`, userAge, userGender}
+        const data: UserSignUpDto = {userEmail, userPassword, userName, userTelNumber, address: `${userAddress} ${userAddressDetail}`, userAge, userGender}
     
         navigator('/auth/login')
     } 
