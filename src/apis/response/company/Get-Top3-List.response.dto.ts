@@ -5,7 +5,7 @@ interface Dto{
     companyEmployeeNumber: string;
     companyAnnualIncomeAverage: number;
     companySales: number;
-    companyaddress: string;
+    companyAddress: string;
     companyHomepage: string;
 
 }
