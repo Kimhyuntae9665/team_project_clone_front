@@ -3,7 +3,7 @@ interface Dto {
     userPassword: string;
     userTelNumber: string;
     userName: string;
-    address: string;
+    userAddress: string;
     userAge: string;
     userGender : string;
 }
