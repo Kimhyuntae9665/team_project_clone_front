@@ -1,13 +1,13 @@
 interface Dto {
-    token: string;
-    expiredTime: number;
     companyTelNumber: string;
     companyName: string;
-    companyProfileUrl: string;
+    companyProfileUrl: string | null;
     companyAddress: string;
     companyCategory: string;
-    companyPassword: string;
     companyEmail: string;
+    companyPassword:string;
+    token: string;
+    expiredTime: number;
 }
 
 export default Dto;
