@@ -1,4 +1,4 @@
-import { Autocomplete, Grid, TextField } from "@mui/material";
+import { Autocomplete, Grid, TextField,Box,Typography,Input, Button } from "@mui/material";
 import { useState, } from "react";
 import axios, { AxiosResponse } from "axios";
 import ResponseDto from "src/apis/response";
@@ -13,9 +13,16 @@ import { UpLoadCompanySelectComponentResponseDto } from "src/apis/response/compa
 
 
 
+<<<<<<< HEAD
 export default function MyCompanypageInterfaceView() {
     
 //      HOOK        //
+=======
+
+
+export default function MyCompanypageInterfaceView() {
+    //      HOOK        //
+>>>>>>> 6a16541c3361a0796eb72f59c3b11fbb7d054ba7
 const navigator = useNavigate();
 // ? undefined, 랑 null이랑 다르다 
 const [Grade_One_University,setGrade_One_University] = useState<string | undefined>('');
@@ -78,12 +85,20 @@ const Display_Select_Component = (data : UpLoadCompanySelectComponentResponseDto
 //      Response Handler   //
 const company_Select_University_ResponseHandler = (response : AxiosResponse<any,any>)=>{
 
+<<<<<<< HEAD
     const {result,message,data} = response.data as ResponseDto<UpLoadCompanySelectComponentResponseDto>
     // ? data에는 우리회사가 가장 비중을 두고 있는 선택사항을 보여준다, 우리회사에 지원한 지원자중 가장 점수가 높은 ? 인의 정보를 보여준다
     if(!result || !data){
         alert(message);
         return;
       }
+=======
+    // const {result,message,data} = response.data as ResponseDto<>
+    // if(!result || !data){
+    //     alert(message);
+    //     return;
+    //   }
+>>>>>>> 6a16541c3361a0796eb72f59c3b11fbb7d054ba7
 
     navigator('/myCompanyPage');
     Display_Select_Component(data)
@@ -126,11 +141,15 @@ const company_Select_License_ResponseHandler = (response : AxiosResponse<any,any
 const company_Select_ComponentError =(error:any)=>{
     console.log(error.message);
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6a16541c3361a0796eb72f59c3b11fbb7d054ba7
     return (
-        <Grid container sx={{ p:'20px 20px',mt:'50px'}}>
+        <Grid container spacing={4} sx={{p:'20px 20px', mr:'20px' }}>
                 <Grid item sx={{display:'flex', alignItems:'center', p:'20px',width:'100%', height: '100%', border:'2px solid black', pb:'100px'}}>
                     <Grid item xs={6}>
+<<<<<<< HEAD
                         <Autocomplete 
                         sx={{width:'200px', ml:'55px' }} 
                         options={companyfinalEducation1} disablePortal 
@@ -138,9 +157,26 @@ const company_Select_ComponentError =(error:any)=>{
         // ?                                            value값이 없으면 undefined  있으면 정상적으로 value.label을 set함수에 넣는다
                         onChange={(event,value)=>setGrade_One_University(value?.label)}
                         />
+=======
+                        <Grid container>
+                            <Grid item xs={6}>
+                                <Autocomplete
+                                sx={{width:'200px', ml:'55px' }} 
+                                options={companyfinalEducation1} disablePortal 
+                                renderInput={(params) => <TextField {...params} label="최종학력" /> }
+                                onChange={(event,value)=>setGrade_One_University(value?.label)}
+                                />
+                            </Grid>
+                            <Grid>
+                                <Box sx={{alignItems:'center',p:'10px'}}  >
+                                    <Typography sx={{fontSize:'20px'}}>월매출: <Input placeholder="매출액를 입력하세요" /></Typography>
+                                </Box>
+                            </Grid>
+                        </Grid>
+>>>>>>> 6a16541c3361a0796eb72f59c3b11fbb7d054ba7
                     </Grid>
                     <Grid item xs={6}>
-                        <Autocomplete 
+                        <Autocomplete
                         sx={{width:'200px', ml:'55px' }} 
                         options={companyfinalEducation2} disablePortal 
                         renderInput={(params) => <TextField {...params} label="희망 경력" />}
@@ -156,12 +192,14 @@ const company_Select_ComponentError =(error:any)=>{
                         />
                     </Grid>
                     <Grid item xs={6}>
-                        <Autocomplete 
-                        sx={{width:'200px', ml:'55px' }} 
-                        options={companyfinalEducation4} disablePortal 
-                        renderInput={(params) => <TextField {...params} label="최종학력4" />}
-                        />
+                        <Box sx={{alignItems:'center',justifyContent:'center',p:'10px'}}>
+                            <Autocomplete 
+                            options={companyfinalEducation4} disablePortal 
+                            renderInput={(params) => <TextField {...params} label="최종학력4" />}
+                            />
+                        </Box>
                     </Grid>
+                    <Button variant="contained" color="secondary">버튼</Button>
                 </Grid>
             </Grid>
     )
@@ -186,3 +224,4 @@ const companyfinalEducation4 = [
     {label:'고등학교 졸업'},
     {label:'고등학교 졸업'},
 ]
+

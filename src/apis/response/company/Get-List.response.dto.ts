@@ -5,9 +5,9 @@ interface Dto{
     companyEmployeeNumber: string;
     companyAnnualIncomeAverage: number;
     companySales: number;
-    companyaddress: string;
+    companyAddress: string;
     companyHomepage: string;
 
 }
-
+// company my 페이지 화면에서 회사 정보 보여주기 위해
 export default Dto;

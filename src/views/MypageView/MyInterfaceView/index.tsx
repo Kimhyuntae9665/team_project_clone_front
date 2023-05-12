@@ -1,8 +1,11 @@
-import { Autocomplete, Grid, TextField } from "@mui/material";
+import { Autocomplete, Box ,Grid, TextField } from "@mui/material";
 
 export default function MyInterfaceView() {
+
+
     return(
-        <Grid container sx={{ p:'20px 20px',mt:'50px'}}>
+        <Box> 
+        <Grid container sx={{ p:'20px 20px'}}>
                 <Grid item sx={{display:'flex', alignItems:'center', p:'20px',width:'100%', height: '100%', border:'2px solid black', pb:'100px'}}>
                     <Grid item xs={6}>
                         <Autocomplete 
@@ -34,6 +37,7 @@ export default function MyInterfaceView() {
                     </Grid>
                 </Grid>
             </Grid>
+            </Box>
     )
 }
 

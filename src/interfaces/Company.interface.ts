@@ -11,5 +11,5 @@ interface Company{
 
 
 }
-
+// 로그인할때 필요한 정보
 export default Company;

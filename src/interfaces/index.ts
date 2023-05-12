@@ -1,6 +1,6 @@
 import User from "./User.interface";
 import Company from "./Company.interface";
-
+//? mock으로 결과 확인하기 위해 interface만듬
 export interface IPreviewItem {
     img: string | null;
     writerProfile: string;
@@ -15,13 +15,13 @@ export interface IPreviewItem {
     boardNumber: number;
 }
 export interface IUser {
-    email: string;
-    password: string;
-    name: string;
-    telNumber: string;
-    address: string;
-    addressDetail: string;
-    profile?: string;
+    userEmail: string;
+    userPassword: string;
+    userName: string;
+    userTelNumber: string;
+    userAddress: string;
+    userAddressDetail: string;
+    userProfile?: string;
 }
 export interface ICompany{
     companyTelNumber: string;
@@ -30,7 +30,7 @@ export interface ICompany{
     companyEmployeeNumber: string;
     companyAnnualIncomeAverage: number;
     companySales: number;
-    companyaddress: string;
+    companyAddress: string;
     companyHomepage: string;
 
 }

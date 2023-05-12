@@ -2,22 +2,23 @@ import {ICompany} from "src/interfaces/index"
 
 export const COMPANYLISTTOP3: ICompany[] = [
     {
-        companyTelNumber:'010-1879-1111',
-        companyName:'회사 1',
+        companyTelNumber:'010-1241-1111',
+        companyName:'회사 3',
         companyImgUrl:'',
         companyEmployeeNumber: "100명",
         companyAnnualIncomeAverage: 10000000,
         companySales: 8000,
-        companyaddress: "부산동구",
+        companyAddress: "부산동구",
         companyHomepage: 'http://naver.com'
+
     } ,{
-        companyTelNumber:'010-4611-1111',
-        companyName:'회사 2',
+        companyTelNumber:'010-1241-1111',
+        companyName:'회사 3',
         companyImgUrl:'',
         companyEmployeeNumber: "100명",
         companyAnnualIncomeAverage: 10000000,
         companySales: 8000,
-        companyaddress: "부산동구",
+        companyAddress: "부산동구",
         companyHomepage: 'http://naver.com'
     },{
         companyTelNumber:'010-1241-1111',
@@ -26,9 +27,10 @@ export const COMPANYLISTTOP3: ICompany[] = [
         companyEmployeeNumber: "100명",
         companyAnnualIncomeAverage: 10000000,
         companySales: 8000,
-        companyaddress: "부산동구",
+        companyAddress: "부산동구",
         companyHomepage: 'http://naver.com'
     }
+    
 ]
 
 export const COMPANYLISTTOP6: ICompany[] = [
@@ -39,7 +41,7 @@ export const COMPANYLISTTOP6: ICompany[] = [
         companyEmployeeNumber: "100명",
         companyAnnualIncomeAverage: 10000000,
         companySales: 8000,
-        companyaddress: "부산동구",
+        companyAddress: "부산동구",
         companyHomepage: 'http://naver.com'
     } 
     ,{
@@ -49,7 +51,7 @@ export const COMPANYLISTTOP6: ICompany[] = [
         companyEmployeeNumber: "100명",
         companyAnnualIncomeAverage: 10000000,
         companySales: 8000,
-        companyaddress: "부산동구",
+        companyAddress: "부산동구",
         companyHomepage: 'http://naver.com'
     },{
         companyTelNumber:'010-1111-1765',
@@ -58,7 +60,7 @@ export const COMPANYLISTTOP6: ICompany[] = [
         companyEmployeeNumber: "100명",
         companyAnnualIncomeAverage: 10000000,
         companySales: 8000,
-        companyaddress: "부산동구",
+        companyAddress: "부산동구",
         companyHomepage: 'http://naver.com'
     },{
         companyTelNumber:'010-1111-1456',
@@ -67,7 +69,7 @@ export const COMPANYLISTTOP6: ICompany[] = [
         companyEmployeeNumber: "100명",
         companyAnnualIncomeAverage: 10000000,
         companySales: 8000,
-        companyaddress: "부산동구",
+        companyAddress: "부산동구",
         companyHomepage: 'http://naver.com'
     },{
         companyTelNumber:'010-1111-1333',
@@ -76,7 +78,7 @@ export const COMPANYLISTTOP6: ICompany[] = [
         companyEmployeeNumber: "100명",
         companyAnnualIncomeAverage: 10000000,
         companySales: 8000,
-        companyaddress: "부산동구",
+        companyAddress: "부산동구",
         companyHomepage: 'http://naver.com'
     },{
         companyTelNumber:'010-1111-1222',
@@ -85,7 +87,7 @@ export const COMPANYLISTTOP6: ICompany[] = [
         companyEmployeeNumber: "100명",
         companyAnnualIncomeAverage: 10000000,
         companySales: 8000,
-        companyaddress: "부산동구",
+        companyAddress: "부산동구",
         companyHomepage: 'http://naver.com'
     },{
         companyTelNumber:'010-1111-1000',
@@ -94,7 +96,7 @@ export const COMPANYLISTTOP6: ICompany[] = [
         companyEmployeeNumber: "100명",
         companyAnnualIncomeAverage: 10000000,
         companySales: 8000,
-        companyaddress: "부산동구",
+        companyAddress: "부산동구",
         companyHomepage: 'http://naver.com'
     }
 ]

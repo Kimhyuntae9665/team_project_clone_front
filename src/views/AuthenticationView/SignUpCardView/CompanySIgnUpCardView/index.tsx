@@ -250,7 +250,7 @@ export default function CompanySignUpCardView(){
         setSignUpError(false)
 
         const data: CompanySignUpDto = {
-            companyEmail, companyPassword, companyName, companyTelNumber, companyAddress: `${companyAddress}`
+            companyEmail, companyPassword, companyName, companyTelNumber, address: `${companyAddress}`
         }
     
         navigator('/auth/login')

@@ -9,12 +9,14 @@ interface CompanySignUpStore {
     companyAddress: string;
     companyAddressDetail: string;
     companyEmailMessage: string;
+    companyCategory: string;
     setCompanyEmail: (str: string) => void;
     setCompanyPassword: (str: string) => void;
     setCompanyPasswordCheck: (str: string) => void;
     setCompanyName: (str: string) => void;
     setCompanyTelNumber: (str: string) => void
     setCompanyAddress: (str: string) => void;
+    setCompanyCategory: (str: string) => void;
     setCompanyAddressDetail: (str: string) => void;
 
     signUpError: boolean;
@@ -47,6 +49,7 @@ const companyStore = create<CompanySignUpStore>((set) => ({
     companyAddress: '',
     companyAddressDetail:'',
     companyEmailMessage: '',
+    companyCategory: '',
     setCompanyEmail: (companyEmail) => {
         const emailValidator = /^[A-Za-z0-9]*@[A-Za-z0-9]([-.]?[A-Za-z0-9])*\.[A-Za-z0-9]{2,3}$/;
         const isMatched = emailValidator.test(companyEmail);
@@ -59,6 +62,7 @@ const companyStore = create<CompanySignUpStore>((set) => ({
     setCompanyTelNumber: (companyTelNumber) => set((state) => ({...state, companyTelNumber})),
     setCompanyAddress: (companyAddress) => set((state) => ({...state, companyAddress})),
     setCompanyAddressDetail: (companyAddressDetail) => set((state) => ({...state, companyAddressDetail})),
+    setCompanyCategory: (companyCategory) => set((...state)=>({...state,companyCategory})),
 
     signUpError: false,
     setSignUpError: (signUpError: boolean) => set((state) => ({...state, signUpError})),

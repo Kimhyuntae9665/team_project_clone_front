@@ -9,6 +9,5 @@ interface Dto{
     companyHomepage: string;
 
 }
-// 메인화면에서 탑3 회사 보여주기 위해
+//  유저페이지에서 내가 지원한 회사 보기
 export default Dto;
-
