@@ -1,9 +1,15 @@
 interface User{
-    userAddress: string;
     userEmail: string;
-    userName: string;
-    userprofile: string | null;
+    userPassword:string;
+    userProfileUrl: string | null;
     userTelNumber: string;
+    userName: string;
+    userAddress: string;
+    userAge:string;
+    userGender:string;
+
+
+    
 
 }
 

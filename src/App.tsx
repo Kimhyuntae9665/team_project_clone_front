@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CompanyPage from './views/CompanypageView/index'
 import Main from './views/Main';
 import MyPage from './views/MypageView/index'
@@ -13,10 +13,20 @@ import UserLoginCardView from './views/AuthenticationView/LoginCardVIew/UserLogi
 import CompanyLoginCardView from './views/AuthenticationView/LoginCardVIew/CompanyLoginCardView';
 import UserSignUpCardView from './views/AuthenticationView/SignUpCardView/UserSIgnUpCardVIew';
 import CompanySignUpCardView from './views/AuthenticationView/SignUpCardView/CompanySIgnUpCardView';
+import { useCookies } from 'react-cookie';
+import { useUserStore } from './stores/userstores';
 
 function App() {
   const path = useLocation();
+  const { user } = useUserStore();
+  const [cookies, setCookies] = useCookies();
   const [loginView, setLoginView] = useState<boolean>(true);
+
+  useEffect(() => {
+    if (cookies.accessToken && !user) {
+
+    }
+  }, []);
 
   return(
     <>

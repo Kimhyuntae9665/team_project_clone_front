@@ -1,8 +1,14 @@
 import { AppBar, Box, Button, FormControl, IconButton, InputAdornment, OutlinedInput, Toolbar, Typography } from "@mui/material";
+import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
+import { useUserStore } from "src/stores/userstores";
 
-export default function NavigationBar () {
+export default function NavigationBar_No_Login () {
     const navigator = useNavigate();
+    
+  const { user } = useUserStore();
+  const [cookies, setCookies] = useCookies();
+
     return (
         <Box sx={{flexGrow:1}}>
             <AppBar variant="outlined" position="static" sx={{ p: '0px 100px', backgroundColor: '#ffffff' }} >
@@ -17,16 +23,33 @@ export default function NavigationBar () {
                         구직 사이트
                     </Typography>
                     <Box sx={{ display: 'flex' }}>
-                        <FormControl variant='outlined' sx={{ mr: '10px' }}>
-                            <Button variant="contained" color="secondary" onClick={() => navigator('/auth/login')}>
-                                로그인
-                            </Button>
-                        </FormControl>
-                        <FormControl variant='outlined' sx={{ mr: '10px' }}>
-                            <Button variant="outlined" color="secondary" onClick={() => navigator('/auth/signup')}>
-                                회원가입
-                            </Button>
-                        </FormControl>
+                        { user && cookies.accessToken ? (
+                            <>
+                                <FormControl variant='outlined' sx={{ mr: '10px' }}>
+                                    <Button variant="contained" color="secondary" onClick={() => navigator('/auth/login')}>
+                                        로그아웃
+                                    </Button>
+                                </FormControl>
+                                <FormControl variant='outlined' sx={{ mr: '10px' }}>
+                                    <Button variant="outlined" color="secondary" onClick={() => navigator('/auth/signup')}>
+                                        마이페이지
+                                    </Button>
+                                </FormControl>
+                            </>
+                        ) : (
+                            <>
+                                <FormControl variant='outlined' sx={{ mr: '10px' }}>
+                                    <Button variant="contained" color="secondary" onClick={() => navigator('/auth/login')}>
+                                        로그인
+                                    </Button>
+                                </FormControl>
+                                <FormControl variant='outlined' sx={{ mr: '10px' }}>
+                                    <Button variant="outlined" color="secondary" onClick={() => navigator('/auth/signup')}>
+                                        회원가입
+                                    </Button>
+                                </FormControl>
+                            </>
+                        )}
                     </Box >
                 </Toolbar>
             </AppBar>

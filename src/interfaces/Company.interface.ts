@@ -1,10 +1,14 @@
 interface Company{
-    companyAddress: string;
-    companyEmail: string;
-    companyName: string;
-    companyProfile: string | null;
+    
     companyTelNumber: string;
+    companyName: string;
+    companyProfileUrl: string | null;
+    companyAddress: string;
     companyCategory: string;
+    companyEmail: string;
+    companyPassword : string;
+    
+
 
 }
 
