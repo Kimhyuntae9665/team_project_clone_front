@@ -5,7 +5,7 @@ import ValidateCompanytelNumberResponseDto from "./Validate-Company-telNumber.re
 import GetTop3CompanyListResponseDto from './Get-Top3-List.response.dto';
 import GetListResponseDto from './Get-List.response.dto';
 import GetCompanyListResponseDto from './Get-Company-List.response.dto'
-
+import GetMyCompanyListResponseDto from './Get-My-Company-List.response.dto'
 export type {
     GetCompanyResponseDto,
     PatchCompanyProfileResponseDto,
@@ -14,5 +14,6 @@ export type {
     
     GetTop3CompanyListResponseDto,
     GetListResponseDto,
+    GetMyCompanyListResponseDto,
     GetCompanyListResponseDto
 }

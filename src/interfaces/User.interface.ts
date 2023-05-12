@@ -1,9 +1,12 @@
 interface User{
-    userAddress: string;
     userEmail: string;
-    userName: string;
-    userProfile: string | null;
+    userPassword: string;
+    userProfileUrl: string;
     userTelNumber: string;
+    userName: string;
+    userAddress:string;
+    userAge: number;
+    userGender:string;
 }
 
 export default User;
