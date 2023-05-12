@@ -1,12 +1,14 @@
 import { AppBar, Box, Button, FormControl, IconButton, InputAdornment, OutlinedInput, Toolbar, Typography } from "@mui/material";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
+import { useCompanyStore } from "src/stores/companystores";
 import { useUserStore } from "src/stores/userstores";
 
 export default function NavigationBar_No_Login () {
     const navigator = useNavigate();
     
   const { user } = useUserStore();
+  const {company} = useCompanyStore();
   const [cookies, setCookies] = useCookies();
 
     return (
@@ -23,33 +25,41 @@ export default function NavigationBar_No_Login () {
                         구직 사이트
                     </Typography>
                     <Box sx={{ display: 'flex' }}>
-                        { user && cookies.accessToken ? (
+                                                {user && cookies.accessToken ? (
                             <>
                                 <FormControl variant='outlined' sx={{ mr: '10px' }}>
-                                    <Button variant="contained" color="secondary" onClick={() => navigator('/auth/login')}>
-                                        로그아웃
-                                    </Button>
+                                <Button variant="contained" color="secondary" onClick={() => navigator('/auth/login')}>
+                                    로그아웃
+                                </Button>
                                 </FormControl>
                                 <FormControl variant='outlined' sx={{ mr: '10px' }}>
-                                    <Button variant="outlined" color="secondary" onClick={() => navigator('/auth/signup')}>
-                                        마이페이지
+                                <Button variant="outlined" color="secondary" onClick={() => navigator('/auth/signup')}>
+                                    마이페이지
+                                </Button>
+                                </FormControl>
+                                {company && cookies.accessToken ? (
+                                // "company"가 로그인한 경우 추가된 내용
+                                <FormControl variant='outlined' sx={{ mr: '10px' }}>
+                                    <Button variant="outlined" color="secondary" onClick={() => navigator('/company/dashboard')}>
+                                    대시보드
                                     </Button>
                                 </FormControl>
+                                ) : null}
                             </>
-                        ) : (
+                            ) : (
                             <>
                                 <FormControl variant='outlined' sx={{ mr: '10px' }}>
-                                    <Button variant="contained" color="secondary" onClick={() => navigator('/auth/login')}>
-                                        로그인
-                                    </Button>
+                                <Button variant="contained" color="secondary" onClick={() => navigator('/auth/login')}>
+                                    로그인
+                                </Button>
                                 </FormControl>
                                 <FormControl variant='outlined' sx={{ mr: '10px' }}>
-                                    <Button variant="outlined" color="secondary" onClick={() => navigator('/auth/signup')}>
-                                        회원가입
-                                    </Button>
+                                <Button variant="outlined" color="secondary" onClick={() => navigator('/auth/signup')}>
+                                    회원가입
+                                </Button>
                                 </FormControl>
                             </>
-                        )}
+                            )}
                     </Box >
                 </Toolbar>
             </AppBar>

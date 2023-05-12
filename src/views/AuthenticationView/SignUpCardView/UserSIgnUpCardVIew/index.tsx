@@ -253,8 +253,9 @@ export default function UserSignUpCardView(){
             return
         }
         if(!emailPatternCheck || !passwordPatternCheck) return;
-        if(!passwordValidate) return
-        //! emailValidate 넣어야함
+        if(!passwordValidate) return;
+        if(!emailValidate) return;
+        
 
         setSignUpError(false)
         setPage(2);
