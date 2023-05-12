@@ -48,11 +48,11 @@ function FirstPage(){
         const data: ValidateCompanyEmailDto = {companyEmail}
 
         axios.post(VALIDATE_COMPANY_EMAIL_URL, data) 
-        .then((response) => validateUserEmailResponseHandler(response))
-        .catch((error) => validateUserEmailResponseError(error));
+        .then((response) => validateCompanyEmailResponseHandler(response))
+        .catch((error) => validateCompanyEmailResponseError(error));
     }
 
-    const validateUserEmailResponseHandler = (response: AxiosResponse<any, any>) => {
+    const validateCompanyEmailResponseHandler = (response: AxiosResponse<any, any>) => {
         const {data, message, result} = response.data as ResponseDto<ValidateCompanyEmailResponseDto>;
         if(!result || !data){
             alert(message)
@@ -61,7 +61,7 @@ function FirstPage(){
         setEmailValidate(data.result)
     }
 
-    const validateUserEmailResponseError = (error: any) => {
+    const validateCompanyEmailResponseError = (error: any) => {
         console.log(error.message);
     }
 
@@ -139,11 +139,11 @@ function SecondPage(){
         const data: ValidateCompanyTelNumberDto = {companyTelNumber};
 
         axios.post(VALIDATE_COMPANY_TEL_NUMBER_URL, data) 
-        .then((response) => validateUserTelNumberResponseHandler(response))
-        .catch((error) => validateUserTelNumberErrorHandler(error))
+        .then((response) => validateCompanyTelNumberResponseHandler(response))
+        .catch((error) => validateCompanyTelNumberErrorHandler(error))
     }
 
-    const validateUserTelNumberResponseHandler = (response: AxiosResponse<any, any>) => {
+    const validateCompanyTelNumberResponseHandler = (response: AxiosResponse<any, any>) => {
         const {result, data, message} = response.data as ResponseDto<ValidateCompanytelNumberResponseDto>
         if(!result || !data) {
             alert(message);
@@ -152,7 +152,7 @@ function SecondPage(){
         setTelNumberValidate(data.result);
     }   
 
-    const validateUserTelNumberErrorHandler = (error: any) => {
+    const validateCompanyTelNumberErrorHandler = (error: any) => {
         console.log(error.message)
     }
 
@@ -205,7 +205,7 @@ export default function CompanySignUpCardView(){
     
     const {companyName, companyTelNumber, companyAddress, } = companySignUpStore()
     const {companyEmail, companyPassword, companyPasswordCheck} = companySignUpStore();
-    const {emailPatternCheck, emailValidate, passwordPatternCheck, passwordValidate} = companySignUpStore();
+    const {emailPatternCheck, emailValidate, passwordPatternCheck, passwordValidate, telNumberPatternCheck, telNumberValidate} = companySignUpStore();
     const {setSignUpError} = companySignUpStore();
 
     const [page, setPage] = useState<number>(1);
@@ -219,7 +219,7 @@ export default function CompanySignUpCardView(){
         }
         if(!emailPatternCheck || !passwordPatternCheck) return;
         if(!passwordValidate) return
-        //! emailValidate 넣어야함
+        if(!emailValidate) return
 
         setSignUpError(false)
         setPage(2);
@@ -241,10 +241,19 @@ export default function CompanySignUpCardView(){
             setPage(1)
             return;
         } 
-        // if(!passwordValidate || !emailValidate){
-        //     setPage(1)
-        //     return
-        // } 
+        if(!passwordValidate || !emailValidate){
+            setPage(1)
+            return
+        } 
+
+        if(!telNumberPatternCheck){
+            setPage(2)
+            return
+        }
+        if(!telNumberValidate){
+            setPage(2)
+            return
+        }
 
 
         setSignUpError(false)

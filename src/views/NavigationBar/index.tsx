@@ -1,13 +1,27 @@
 import { AppBar, Box, Button, FormControl, IconButton, InputAdornment, OutlinedInput, Toolbar, Typography } from "@mui/material";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
+import { useCompanyStore } from "src/stores/companystores";
 import { useUserStore } from "src/stores/userstores";
 
 export default function NavigationBar_No_Login () {
     const navigator = useNavigate();
     
-  const { user } = useUserStore();
+  const { user, resetUser } = useUserStore();
   const [cookies, setCookies] = useCookies();
+  const {company} = useCompanyStore();
+
+  const onUserLogoutHandler = () => {
+    setCookies('accessToken', '', {expires: new Date(), path:'/'})
+    resetUser();
+    navigator('/');
+  }
+
+  const onCompanyLogoutHandler = () => {
+    setCookies('accessToken', '', {expires: new Date(), path:'/'})
+    resetUser();
+    navigator('/');
+  }
 
     return (
         <Box sx={{flexGrow:1}}>
@@ -24,18 +38,33 @@ export default function NavigationBar_No_Login () {
                     </Typography>
                     <Box sx={{ display: 'flex' }}>
                         { user && cookies.accessToken ? (
-                            <>
+                            company && cookies.accessToken ? (
+                                <>
                                 <FormControl variant='outlined' sx={{ mr: '10px' }}>
-                                    <Button variant="contained" color="secondary" onClick={() => navigator('/auth/login')}>
+                                    <Button variant="contained" color="secondary" onClick={onUserLogoutHandler}>
                                         로그아웃
                                     </Button>
                                 </FormControl>
                                 <FormControl variant='outlined' sx={{ mr: '10px' }}>
-                                    <Button variant="outlined" color="secondary" onClick={() => navigator('/auth/signup')}>
+                                    <Button variant="outlined" color="secondary" onClick={() => navigator('/myPage')}>
                                         마이페이지
                                     </Button>
                                 </FormControl>
                             </>
+                            ):(
+                                <>
+                                    <FormControl variant='outlined' sx={{ mr: '10px' }}>
+                                        <Button variant="contained" color="secondary" onClick={onCompanyLogoutHandler}>
+                                            로그아웃
+                                        </Button>
+                                    </FormControl>
+                                    <FormControl variant='outlined' sx={{ mr: '10px' }}>
+                                        <Button variant="outlined" color="secondary" onClick={() => navigator('/myPage')}>
+                                            마이페이지
+                                        </Button>
+                                    </FormControl>  
+                                </>
+                            )
                         ) : (
                             <>
                                 <FormControl variant='outlined' sx={{ mr: '10px' }}>
