@@ -24,7 +24,7 @@ export default function MyCompanypageHeadView() {
         <Grid sx={{ p: '40px 120px', display: 'flex' }}>
             <Grid>
                 <IconButton onClick={logoutHandler}>
-                    <Avatar sx={{width:'120px', height:'120px'}} alt={company?.companyEmail} src={company?.companyProfile ? company.companyProfile: ''} />
+                    <Avatar sx={{width:'120px', height:'120px'}} alt={company?.companyEmail} src={company?.companyProfileUrl ? company.companyProfileUrl: ''} />
                 </IconButton>
             </Grid>
             <Grid >

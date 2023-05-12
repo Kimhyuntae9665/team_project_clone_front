@@ -15,7 +15,7 @@ export default function MyPageHead() {
                         <Typography sx={{fontSize:'20px', fontWeight:'400', ml:'50px'}}>OOO님{user?.userTelNumber}</Typography>
                     </Box>
                     
-                    <Box sx={{ display: 'flex', alignItems: 'center', m:'50px 50px',width:'100px'}}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', m:'50px 50px',width:'1000px',height:'150px'}}>
                     <Grid container sx={{p:'20px 20px'}}>
                         <Grid item sx={{display:'flex',alignItems:'center',p:'20px',width:'100%', height: '100%', border:'2px solid black', pb:'100px'}}>
                             <Grid item xs={6}>
