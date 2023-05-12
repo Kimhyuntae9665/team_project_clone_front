@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { useSignUpStore } from "src/stores/userstores";
 import ResponseDto from "src/apis/response"
 import { ValidateUserEmailDto, ValidateUserTelNumberDto } from "src/apis/request/user";
-import { VALIDATE_USER_EMAIL_URL, VALIDATE_USER_TEL_NUMBER_URL } from "src/contants/api";
+import { USER_SIGN_UP_URL, VALIDATE_USER_EMAIL_URL, VALIDATE_USER_TEL_NUMBER_URL } from "src/contants/api";
 import axios, { AxiosResponse } from "axios";
 import CheckIcon from '@mui/icons-material/Check';
 import { ValidateUserEmailResponseDto, ValidateUserTelNumberResponseDto } from "src/apis/response/user";
 import { UserSignUpDto } from "src/apis/request/auth";
+import { UserSignUpResponseDto } from "src/apis/response/auth";
 
 function FirstPage(){
     
@@ -237,6 +238,15 @@ export default function UserSignUpCardView(){
 
     const navigator = useNavigate(); 
 
+
+    //      Event Handler      //
+    const Deliver_User_Info_ToServer = (data : UserSignUpDto) =>{
+        axios.post(USER_SIGN_UP_URL,data)
+            .then((response)=>User_Sign_Up_ResponseHandler(response))
+            .catch((error)=>User_Sign_Up_Error_Handler(error))
+
+    }
+
     const onNextButtonHandler = () => {
         if(!userEmail || !userPassword || !userPasswordCheck){
             setSignUpError(true)
@@ -274,10 +284,35 @@ export default function UserSignUpCardView(){
 
         setSignUpError(false)
 
-        const data: UserSignUpDto = {userEmail, userPassword, userName, userTelNumber, address: `${userAddress} ${userAddressDetail}`, userAge, userGender}
+        const data: UserSignUpDto = {userEmail, userPassword, userName, userTelNumber, userAddress: `${userAddress} ${userAddressDetail}`, userAge, userGender}
+        
+        Deliver_User_Info_ToServer(data);
+
     
-        navigator('/auth/login')
+        
     } 
+
+    //      Response Handler   //
+    const User_Sign_Up_ResponseHandler = (response : AxiosResponse<any,any>) =>{
+        const {result,message,data} = response.data as ResponseDto<UserSignUpResponseDto>;
+
+        if(!result || !data){
+            alert(message);
+            return;
+          }
+
+          navigator('/auth/login')
+
+
+
+    }
+
+
+    //      Error Handler       //
+
+    const User_Sign_Up_Error_Handler =(error:any)=>{
+        console.log(error.message);
+    }
 
     return(
         <Box display="flex" sx={{flexDirection:'column', justifyContent:"space-between", alignItems: 'center' }}>

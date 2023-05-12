@@ -14,6 +14,8 @@ import { getExpires } from "src/utils";
 
 export default function UserLoginCardView(){
 
+    //      Hook     //
+
     const [userEmail, setUserEmail] = useState<string>("");
     const [userPassword, setUserPassword] = useState<string>("");
     const [loginError, setLoginError] = useState<boolean>(false);
@@ -23,6 +25,8 @@ export default function UserLoginCardView(){
 
     const {setUser} = useUserStore();
     const passwordRef = useRef<HTMLInputElement | null>(null);
+
+        //      Event Handler   //
     
     const onEmailKeyPressHandler = (event: KeyboardEvent<HTMLDivElement>) => {
         if (event.key !== 'Enter') return;
@@ -43,8 +47,7 @@ export default function UserLoginCardView(){
         }
 
         const data: UserSignInDto = {userEmail, userPassword};
-        axios
-        .post(USER_SIGN_IN_URL, data)
+        axios.post(USER_SIGN_IN_URL, data)
         .then((response) => signInResponseHandler(response))
         .catch((error) => signInErrorHandler(error))
     }
@@ -56,12 +59,14 @@ export default function UserLoginCardView(){
             return;
         }
 
-        const {token, expiredTime, ...user} = data;
+        const {token, expiredTime, ...user1} = data;
         const expires = getExpires(expiredTime);
         setCookie("accessToken", token, {expires, path:'/'})
-        setUser(user);
+        setUser(user1);
         navigator('/')
     }
+
+    //      Error Handler    //
 
     const signInErrorHandler = (error: any) => {
         console.log(error.message);
