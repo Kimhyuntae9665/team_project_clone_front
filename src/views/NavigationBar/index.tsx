@@ -1,6 +1,7 @@
 import { AppBar, Box, Button, FormControl, IconButton, InputAdornment, OutlinedInput, Toolbar, Typography } from "@mui/material";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
+import { useCompanyStore } from "src/stores/companystores";
 import { useUserStore } from "src/stores/userstores";
 
 export default function NavigationBar_No_Login () {
@@ -8,6 +9,7 @@ export default function NavigationBar_No_Login () {
     
   const { user } = useUserStore();
   const [cookies, setCookies] = useCookies();
+  const {company} = useCompanyStore();
 
     return (
         <Box sx={{flexGrow:1}}>
@@ -37,7 +39,20 @@ export default function NavigationBar_No_Login () {
                                 </FormControl>
                             </>
                         ) : (
+                            
                             <>
+                            { company && cookies.accessToken ? (<>
+                                <FormControl variant='outlined' sx={{ mr: '10px' }}>
+                                    <Button variant="contained" color="secondary" onClick={() => navigator('/auth/login')}>
+                                        로그아웃
+                                    </Button>
+                                </FormControl>
+                                <FormControl variant='outlined' sx={{ mr: '10px' }}>
+                                    <Button variant="outlined" color="secondary" onClick={() => navigator('/auth/signup')}>
+                                        마이페이지
+                                    </Button>
+                                </FormControl>
+                            </>) : (<>
                                 <FormControl variant='outlined' sx={{ mr: '10px' }}>
                                     <Button variant="contained" color="secondary" onClick={() => navigator('/auth/login')}>
                                         로그인
@@ -48,6 +63,7 @@ export default function NavigationBar_No_Login () {
                                         회원가입
                                     </Button>
                                 </FormControl>
+                                </>)}
                             </>
                         )}
                     </Box >
