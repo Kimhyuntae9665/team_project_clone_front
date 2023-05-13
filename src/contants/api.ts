@@ -19,6 +19,7 @@ export const COMPANY_SELECT_CARRER = `${HOST}select/company/carrer`;
 export const COMPANY_SELECT_LICENSE = `${HOST}select/company/license`;
 
 export const GET_MY_COMPANY_LIST_URL =`${HOST}api/company/my-list`;
+export const PARCH_COMPANY_PROFILE = `${HOST}company/patch/companyProfile`;
 
 export const authorizationHeader = (accessToken: string) =>{
     return {headers:{Authorization:`Bearer ${accessToken}`}}

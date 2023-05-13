@@ -1,10 +1,16 @@
 import { Avatar, Box, Button, FormControl, Grid, IconButton, Input, Typography } from "@mui/material";
+import axios, { AxiosResponse } from "axios";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
+import ResponseDto from "src/apis/response";
+import { CompanyInfoPatchResponseDto } from "src/apis/response/company";
+import { PARCH_COMPANY_PROFILE } from "src/contants/api";
 import companyStore from "src/stores/companystores/company.store";
 
 
 export default function MyCompanypageHeadView() {
+
+    // Hook //
 
     const navigator = useNavigate();
     const [cookies,setCookies] = useCookies();
@@ -13,12 +19,46 @@ export default function MyCompanypageHeadView() {
 
     const accessToken = cookies.accessToken;
 
+    // Event Handler //
+
+    const CompanyInfoPatch = () =>{
+        const sendData = {};
+        axios.post(PARCH_COMPANY_PROFILE,sendData,accessToken())
+                .then((response)=>CompanyInfoPatchResponseHandler(response))
+                .catch((error)=>CompanyIndoPatchErrorHander(error))
+
+    }
+
     
     const logoutHandler = () => {
         setCookies('accessToken','',{ expires: new Date(), path:'/' });
         resetCompany();
         navigator('/');
     };
+
+
+    // Response Handler //
+
+    const CompanyInfoPatchResponseHandler = (response:AxiosResponse<any,any>)=>{
+
+        const {result,data,message} = response.data as ResponseDto<CompanyInfoPatchResponseDto>
+        if(!result || !data){
+            alert(message);
+            return;
+          }
+        navigator('/myCompanyPage');
+
+
+    }
+
+
+
+    // Error Handler //
+
+    const CompanyIndoPatchErrorHander = (error:any)=>{
+        console.log(error.message);
+    }
+
 
     return (
         <Grid container  sx={{ p: '40px 120px', display: 'flex' }}>
@@ -39,8 +79,8 @@ export default function MyCompanypageHeadView() {
             </Grid>
             <Grid item xs={2}>
                 <FormControl  variant='outlined'>
-                    <Button variant="contained" color="secondary" onClick={()=>navigator('/')} sx={{mt:'34px',width:'100px', height:'70px'}}>
-                        <Typography sx={{fontSize:'25px', fontWeight:'500'}}>수정</Typography>
+                    <Button variant="contained" color="secondary" onClick={CompanyInfoPatch} sx={{mt:'34px',width:'100px', height:'70px'}}>
+                        <Typography sx={{fontSize:'25px', fontWeight:'500'}}>회사정보 수정</Typography>
                     </Button>
                 </FormControl>
             </Grid>
