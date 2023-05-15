@@ -45,7 +45,7 @@ export default function MainHead() {
             {!user ? (
                 <>
                     <Box  sx={{ pt: '20px', pb: '5px', textAlign: 'center' }}>
-                        <Typography sx={{ fontSize: '24px', fontWeight: '500', textAlign: ' center' }}>000님께서 원하는 TOP3 회사</Typography>
+                        <Typography sx={{ fontSize: '24px', fontWeight: '500', textAlign: ' center' }}>로그인이 필요한 작업입니다!</Typography>
                     </Box>
                     <Box sx = {{ pt: '20px', pb: '50px' }}>
                         <Box sx={{ pt: '5px', pb: '350px', pr: '10px', pl:'10px', border: '3px solid black' }}>
@@ -58,7 +58,7 @@ export default function MainHead() {
                 </>
             ) : (
                 <Box>
-                    <Typography  sx={{ fontSize: '24px', fontWeight: '400', p: '24px', textAlign: ' center' }}>TOP3 회사</Typography>
+                    <Typography  sx={{ fontSize: '24px', fontWeight: '400', p: '24px', textAlign: ' center' }}>{user.userName}님에게 추천하는 TOP3 회사</Typography>
                         <Grid container spacing={3}>
                         {top3List.map((item)=> (
                             <Grid item sm={12} md={4}>

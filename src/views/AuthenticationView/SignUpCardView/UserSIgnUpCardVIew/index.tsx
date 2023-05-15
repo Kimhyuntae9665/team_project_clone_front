@@ -231,7 +231,7 @@ export default function UserSignUpCardView(){
     
     const {userName, userTelNumber, userAddress, userAddressDetail} = useSignUpStore()
     const {userEmail, userPassword, userPasswordCheck, userAge, userGender} = useSignUpStore();
-    const {emailPatternCheck, emailValidate, passwordPatternCheck, passwordValidate} = useSignUpStore();
+    const {emailPatternCheck, emailValidate, passwordPatternCheck, passwordValidate, telNumberPatternCheck, telNumberValidate} = useSignUpStore();
     const {setSignUpError} = useSignUpStore();
 
     const [page, setPage] = useState<number>(1);
@@ -277,10 +277,18 @@ export default function UserSignUpCardView(){
             setPage(1)
             return;
         } 
-        // if(!passwordValidate || !emailValidate){
-        //     setPage(1)
-        //     return
-        // } 
+        if(!passwordValidate || !emailValidate){
+            setPage(1)
+            return
+        } 
+        if(!telNumberPatternCheck){
+            setPage(2)
+            return
+        }
+        if(!telNumberValidate){
+            setPage(2)
+            return;
+        }
 
 
         setSignUpError(false)
