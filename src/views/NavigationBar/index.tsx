@@ -59,7 +59,7 @@ export default function NavigationBar_No_Login () {
                                         </Button>
                                     </FormControl>
                                     <FormControl variant='outlined' sx={{ mr: '10px' }}>
-                                        <Button variant="outlined" color="secondary" onClick={() => navigator('/myPage')}>
+                                        <Button variant="outlined" color="secondary" onClick={() => navigator('/myCompanyPage')}>
                                             마이페이지
                                         </Button>
                                     </FormControl>  
