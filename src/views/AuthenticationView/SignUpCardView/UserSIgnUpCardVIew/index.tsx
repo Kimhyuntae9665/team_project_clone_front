@@ -253,7 +253,9 @@ export default function UserSignUpCardView(){
             return
         }
         if(!emailPatternCheck || !passwordPatternCheck) return;
-        if(!passwordValidate) return
+        if(!passwordValidate) return;
+        if(!emailValidate) return;
+        
 
         setSignUpError(false)
         setPage(2);
