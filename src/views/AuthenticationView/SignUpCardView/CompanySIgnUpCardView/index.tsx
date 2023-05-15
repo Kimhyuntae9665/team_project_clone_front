@@ -9,9 +9,12 @@ import { ValidateCompanyEmailDto, ValidateCompanyTelNumberDto } from "src/apis/r
 import { VALIDATE_COMPANY_EMAIL_URL, VALIDATE_COMPANY_TEL_NUMBER_URL } from "src/contants/api";
 import { ValidateCompanyEmailResponseDto, ValidateCompanytelNumberResponseDto } from "src/apis/response/company";
 import { CompanySignUpDto } from "src/apis/request/auth";
+import { COMPANY_SIGN_UP_URL } from "src/contants/api";
 
 
 function FirstPage(){
+
+    // Hook //
     
     const {companyEmail, companyPassword, companyPasswordCheck} = companySignUpStore();
     const {setCompanyEmail, setCompanyPassword, setCompanyPasswordCheck} = companySignUpStore();
@@ -21,6 +24,8 @@ function FirstPage(){
 
     const emailValidator = /^[A-Za-z0-9]*@[A-Za-z0-9]([-.]?[A-Za-z0-9])*\.[A-Za-z0-9]{2,3}$/;
     const passwordValidator = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!?_]).{8,20}$/;
+
+    //  Event Handler  //
 
     const onEmailChangeHandler = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         const value = event.target.value;
@@ -60,6 +65,8 @@ function FirstPage(){
         }
         setEmailValidate(data.result)
     }
+
+    // Error Handler //
 
     const validateUserEmailResponseError = (error: any) => {
         console.log(error.message);
@@ -140,7 +147,7 @@ function SecondPage(){
 
         axios.post(VALIDATE_COMPANY_TEL_NUMBER_URL, data) 
         .then((response) => validateUserTelNumberResponseHandler(response))
-        .catch((error) => validateUserTelNumberErrorHandler(error))
+        .catch((error) => validateCompanyTelNumberErrorHandler(error))
     }
 
     const validateUserTelNumberResponseHandler = (response: AxiosResponse<any, any>) => {
@@ -152,7 +159,7 @@ function SecondPage(){
         setTelNumberValidate(data.result);
     }   
 
-    const validateUserTelNumberErrorHandler = (error: any) => {
+    const validateCompanyTelNumberErrorHandler = (error: any) => {
         console.log(error.message)
     }
 
@@ -202,6 +209,8 @@ function SecondPage(){
 }
 
 export default function CompanySignUpCardView(){
+
+    //  Hook //
     
     const {companyName, companyTelNumber, companyAddress, } = companySignUpStore()
     const {companyEmail, companyPassword, companyPasswordCheck} = companySignUpStore();
@@ -211,6 +220,15 @@ export default function CompanySignUpCardView(){
     const [page, setPage] = useState<number>(1);
 
     const navigator = useNavigate(); 
+    //  Event Handler //
+
+    const Deliver_Company_Info_To_Server = (data : CompanySignUpDto) =>{
+
+        axios.post(COMPANY_SIGN_UP_URL,data)
+                .then((response)=>Company_Sign_Up_ResponseHandler(response))
+                .then((error)=>Company_Sign_Up_Error_Handler(error))
+
+    }
 
     const onNextButtonHandler = () => {
         if(!companyEmail || !companyPassword || !companyPasswordCheck){
@@ -218,8 +236,9 @@ export default function CompanySignUpCardView(){
             return
         }
         if(!emailPatternCheck || !passwordPatternCheck) return;
-        if(!passwordValidate) return
-        //! emailValidate 넣어야함
+        if(!passwordValidate) return;
+        if(!emailValidate) return;
+        
 
         setSignUpError(false)
         setPage(2);
@@ -250,11 +269,31 @@ export default function CompanySignUpCardView(){
         setSignUpError(false)
 
         const data: CompanySignUpDto = {
-            companyEmail, companyPassword, companyName, companyTelNumber, address: `${companyAddress}`
+            companyEmail, companyPassword, companyName, companyTelNumber, companyAddress
         }
+
+        Deliver_Company_Info_To_Server(data);
     
-        navigator('/auth/login')
+        
     } 
+
+    //  Response Handler  //
+    const Company_Sign_Up_ResponseHandler = (response:AxiosResponse<any,any>)=>{
+        const {result,message,data} = response.data as ResponseDto<CompanySignUpDto>;
+
+        if(!result || !data){
+            alert(message);
+            return;
+          }
+
+          navigator('/auth/login')
+
+    }
+
+    //  Error Handler   //
+    const Company_Sign_Up_Error_Handler = (error:any) =>{
+        console.log(error.message);
+    }
 
     return(
         <Box display="flex" sx={{flexDirection:'column', justifyContent:"space-between", alignItems: 'center' }}>
