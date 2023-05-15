@@ -1,7 +1,7 @@
 interface Dto{
     companyTelNumber: string;
     companyName:string;
-    companyImgUrl:string | null;
+    companyProfileUrl:string | null;
     companyEmployeeNumber: string;
     companyAnnualIncomeAverage: number;
     companySales: number;

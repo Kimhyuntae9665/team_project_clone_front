@@ -15,7 +15,7 @@ export default function CompanyListCard ({companyListItem}:Props) {
         <Box>
           <Box sx={{ display: "flex" }}>
             <Box sx={{ mr: "8px" }}>
-              <Avatar alt={companyListItem.companyName} src={companyListItem.companyImgUrl ? companyListItem.companyImgUrl : ''} />
+              <Avatar alt={companyListItem.companyName} src={companyListItem.companyProfileUrl ? companyListItem.companyProfileUrl : ''} />
             </Box>
             <Box>
               <Typography
@@ -44,15 +44,15 @@ export default function CompanyListCard ({companyListItem}:Props) {
                 color: "rgba(0, 0, 0, 0.7)",
               }}
             >
-              {companyListItem.companyHomepage}
+              {companyListItem.companyName}
             </Typography>
           </Box>
         </Box>
-        {companyListItem.companyImgUrl && (
+        {companyListItem.companyProfileUrl && (
           <Box>
             <Box
               component="img"
-              src={companyListItem.companyImgUrl}
+              src={companyListItem.companyProfileUrl}
               sx={{ height: "152px", width: "152px", borderRadius: "5%" }}
             />
           </Box>
