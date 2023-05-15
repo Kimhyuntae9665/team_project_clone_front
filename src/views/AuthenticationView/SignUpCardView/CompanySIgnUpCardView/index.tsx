@@ -53,11 +53,11 @@ function FirstPage(){
         const data: ValidateCompanyEmailDto = {companyEmail}
 
         axios.post(VALIDATE_COMPANY_EMAIL_URL, data) 
-        .then((response) => validateUserEmailResponseHandler(response))
-        .catch((error) => validateUserEmailResponseError(error));
+        .then((response) => validateCompanyEmailResponseHandler(response))
+        .catch((error) => validateCompanyEmailResponseError(error));
     }
 
-    const validateUserEmailResponseHandler = (response: AxiosResponse<any, any>) => {
+    const validateCompanyEmailResponseHandler = (response: AxiosResponse<any, any>) => {
         const {data, message, result} = response.data as ResponseDto<ValidateCompanyEmailResponseDto>;
         if(!result || !data){
             alert(message)
@@ -68,7 +68,7 @@ function FirstPage(){
 
     // Error Handler //
 
-    const validateUserEmailResponseError = (error: any) => {
+    const validateCompanyEmailResponseError = (error: any) => {
         console.log(error.message);
     }
 

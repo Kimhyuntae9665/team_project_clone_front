@@ -1,7 +1,7 @@
 import { Avatar, Box, Button, FormControl, Grid, IconButton, Input, Typography } from "@mui/material";
 import axios, { AxiosResponse } from "axios";
 import { useCookies } from "react-cookie";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ResponseDto from "src/apis/response";
 import { CompanyInfoPatchResponseDto } from "src/apis/response/company";
 import { PARCH_COMPANY_PROFILE } from "src/contants/api";
@@ -15,6 +15,7 @@ export default function MyCompanypageHeadView() {
     const navigator = useNavigate();
     const [cookies,setCookies] = useCookies();
     const {company,setCompany,resetCompany} = companyStore();
+    const { phoneNumber } = useParams();
     
 
     const accessToken = cookies.accessToken;

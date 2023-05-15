@@ -31,7 +31,7 @@ export default function MainContents(){
    }
 
    useEffect(() => {
-    // getList();
+    getList();
     setCompanyList(COMPANYLISTTOP6);
    },[]);
 

@@ -11,7 +11,7 @@ export default function CompanyListCard ({companyListItem}:Props) {
     const navigator = useNavigate();
     return (
         <Card variant="outlined">
-      <CardActionArea sx={{ display: "flex",height:'400px', justifyContent: "space-between", p: "24px", backgroundColor: "#ffffff"}} onClick={() => navigator(`/Company${companyListItem.companyTelNumber}`)}>
+      <CardActionArea sx={{ display: "flex",height:'400px', justifyContent: "space-between", p: "24px", backgroundColor: "#ffffff"}} onClick={() => navigator(`/Company/${companyListItem.companyTelNumber}`)}>
         <Box>
           <Box sx={{ display: "flex" }}>
             <Box sx={{ mr: "8px" }}>
