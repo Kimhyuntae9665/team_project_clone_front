@@ -1,4 +1,4 @@
-import { Box, Grid, IconButton, Typography } from "@mui/material";
+import { Box, Button, Grid, IconButton, Typography } from "@mui/material";
 import axios, { AxiosResponse } from "axios";
 import { error } from "console";
 import { useEffect, useState } from "react";
@@ -48,10 +48,10 @@ export default function MainHead() {
                         <Typography sx={{ fontSize: '24px', fontWeight: '500', textAlign: ' center' }}>로그인이 필요한 작업입니다!</Typography>
                     </Box>
                     <Box sx = {{ pt: '20px', pb: '50px' }}>
-                        <Box sx={{ pt: '5px', pb: '350px', pr: '10px', pl:'10px', border: '3px solid black' }}>
-                            <Box sx={{display:'flex', justifyContent: 'center', alignItems:'center',flexDirection: 'column', mt:'20px'}}>
-                                <Typography sx={{ fontSize: '24px', fontWeight: '500'  }}>로그인이 필요합니다.</Typography>
-                                <IconButton onClick={() => navigator('/auth/login')}>로그인</IconButton>
+                        <Box sx={{ pt: '5px', pb: '200px', pr: '10px', pl:'10px', border: '3px solid black' }}>
+                            <Box sx={{display:'flex', justifyContent: 'center', alignItems:'center',flexDirection: 'column', mt:'150px'}}>
+                                <Typography sx={{ fontSize: '30px', fontWeight: '500'  }}>로그인이 필요합니다.</Typography>
+                                <Button variant="contained" color="secondary" size="medium" onClick={() => navigator('/auth/login')} sx={{fontSize:'20px', fontWeight:'400'}}>로그인</Button>
                             </Box>
                         </Box>
                     </Box>

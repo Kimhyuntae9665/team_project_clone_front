@@ -66,6 +66,8 @@ function FirstPage(){
         setEmailValidate(data.result)
     }
 
+    // Error Handler //
+
     const validateCompanyEmailResponseError = (error: any) => {
         console.log(error.message);
     }
@@ -144,11 +146,11 @@ function SecondPage(){
         const data: ValidateCompanyTelNumberDto = {companyTelNumber};
 
         axios.post(VALIDATE_COMPANY_TEL_NUMBER_URL, data) 
-        .then((response) => validateCompanyTelNumberResponseHandler(response))
+        .then((response) => validateUserTelNumberResponseHandler(response))
         .catch((error) => validateCompanyTelNumberErrorHandler(error))
     }
 
-    const validateCompanyTelNumberResponseHandler = (response: AxiosResponse<any, any>) => {
+    const validateUserTelNumberResponseHandler = (response: AxiosResponse<any, any>) => {
         const {result, data, message} = response.data as ResponseDto<ValidateCompanytelNumberResponseDto>
         if(!result || !data) {
             alert(message);
@@ -212,7 +214,7 @@ export default function CompanySignUpCardView(){
     
     const {companyName, companyTelNumber, companyAddress, } = companySignUpStore()
     const {companyEmail, companyPassword, companyPasswordCheck} = companySignUpStore();
-    const {emailPatternCheck, emailValidate, passwordPatternCheck, passwordValidate, telNumberPatternCheck, telNumberValidate} = companySignUpStore();
+    const {emailPatternCheck, emailValidate, passwordPatternCheck, passwordValidate} = companySignUpStore();
     const {setSignUpError} = companySignUpStore();
 
     const [page, setPage] = useState<number>(1);
@@ -224,7 +226,7 @@ export default function CompanySignUpCardView(){
 
         axios.post(COMPANY_SIGN_UP_URL,data)
                 .then((response)=>Company_Sign_Up_ResponseHandler(response))
-                .then((error)=>Company_Sign_Up_Error_Handler(error))
+                .catch((error)=>Company_Sign_Up_Error_Handler(error))
 
     }
 
@@ -258,19 +260,10 @@ export default function CompanySignUpCardView(){
             setPage(1)
             return;
         } 
-        if(!passwordValidate || !emailValidate){
-            setPage(1)
-            return
-        } 
-
-        if(!telNumberPatternCheck){
-            setPage(2)
-            return
-        }
-        if(!telNumberValidate){
-            setPage(2)
-            return
-        }
+        // if(!passwordValidate || !emailValidate){
+        //     setPage(1)
+        //     return
+        // } 
 
 
         setSignUpError(false)
