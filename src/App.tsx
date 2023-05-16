@@ -47,7 +47,7 @@ function App() {
       </Route>
       <Route path='/myPage' element={(<MyPage/>)}/>
       <Route path='/myCompanyPage/:phoneNumber' element={(<MyCompanypageView/>)}/>
-      <Route path='/Company' element={(<CompanyPage/>)}/>
+      <Route path='/Company/:phoneNumber' element={(<CompanyPage/>)}/>
     </Routes>
     <Footer/>
     </>
