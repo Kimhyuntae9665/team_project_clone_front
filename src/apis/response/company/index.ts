@@ -7,6 +7,8 @@ import GetListResponseDto from './Get-List.response.dto';
 import GetCompanyListResponseDto from './Get-Company-List.response.dto';
 import UpLoadCompanySelectComponentResponseDto from './Up-Load-Company-Select-Component.response.dto';
 import GetMyCompanyListResponseDto from './Get-My-Company-List.response.dto'
+import CompanyInfoPatchResponseDto from './Patch-Company-Profile.response.dto'
+
 export type {
     GetCompanyResponseDto,
     PatchCompanyProfileResponseDto,
@@ -17,6 +19,7 @@ export type {
     GetListResponseDto,
     GetCompanyListResponseDto,
     UpLoadCompanySelectComponentResponseDto,
-    GetMyCompanyListResponseDto
+    GetMyCompanyListResponseDto,
+    CompanyInfoPatchResponseDto
     
 }

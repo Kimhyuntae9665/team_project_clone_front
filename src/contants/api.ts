@@ -7,7 +7,7 @@ export const COMPANY_SIGN_IN_URL = `${HOST}auth/login/company`;
 
 
 export const VALIDATE_USER_EMAIL_URL = `${HOST}user/validate/userEmail`;
-export const VALIDATE_USER_TEL_NUMBER_URL = `${HOST}user/validate/userTelNumber`
+export const VALIDATE_USER_TEL_NUMBER_URL = `${HOST}user/validate/userTelNumber`;
 export const VALIDATE_USER_NICKNAME_URL = `${HOST}user/validate/userNickname`;
 export const GET_TOP3_COMPANY_LIST_URL = `${HOST}company/top3-company-list`;
 export const VALIDATE_COMPANY_EMAIL_URL = `${HOST}company/validate/companyEmail`;
@@ -23,5 +23,9 @@ export const GET_MY_SCORE = `${HOST}api/user/score`;
 
 export const authorizationHeader = (accessToken: string) =>{
     return {headers:{Authorization:`Bearer ${accessToken}`}}
+}
+
+export const mutipartHeadler = () => {
+    return { headers: {'Content-Type': 'multipart/form-data' } };
 }
 
