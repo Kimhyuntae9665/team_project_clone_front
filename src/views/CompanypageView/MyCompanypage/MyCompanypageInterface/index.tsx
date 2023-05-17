@@ -5,7 +5,9 @@ import ResponseDto from "src/apis/response";
 import { useNavigate } from "react-router-dom";
 import { COMPANY_SELECT_CARRER, COMPANY_SELECT_LICENSE, COMPANY_SELECT_UNIVERSITY, authorizationHeader } from "src/contants/api";
 import { useCookies } from "react-cookie";
-import { UpLoadCompanySelectComponentResponseDto } from "src/apis/response/company";
+import companyStore from "src/stores/companystores/company.store";
+import { useCompanyStore } from "src/stores/companystores";
+import { SelectUniversityResponseDto,SelectCarrerResponseDto,SelectLicenseResponseDto } from "src/apis/response/company";
 
 
 
@@ -17,6 +19,7 @@ export default function MyCompanypageInterfaceView() {
     
 //      HOOK        //
 const navigator = useNavigate();
+const {company,setCompany} = useCompanyStore();
 // ? undefined, 랑 null이랑 다르다 
 const [Grade_One_University_one,setGrade_One_University_one] = useState<string | undefined>('');
 const [Grade_One_University_two,setGrade_One_University_two] = useState<string | undefined>('');
@@ -61,11 +64,21 @@ const [grade_two_string_array,setGrade_two_string_array] = useState<string[]>([]
 const [grade_three_string_array,setGrade_three_string_array] = useState<string[]>([]);
 const [grade_etc_string_array,setGrade_etc_string_array] = useState<string[]>([]);
 
-const [Carrer,setCarrer] = useState<string| undefined>('');
+const [Carrer_one,setCarrer_one] = useState<string| undefined>('');
+const [Carrer_two,setCarrer_two] = useState<string| undefined>('');
+const [Carrer_three,setCarrer_three] = useState<string| undefined>('');
+const [Carrer_four,setCarrer_four] = useState<string| undefined>('');
+const [Carrer_five,setCarrer_five] = useState<string| undefined>('');
 const [Carrer_score,setCarrer_score] = useState<Number| undefined>(0);
+const [Carrer_string_array,setCarrer_string_array] = useState<string[]>([]);
 
-const [License,setLicense]= useState<string| undefined>('');
+const [License_one,setLicense_one]= useState<string| undefined>('');
+const [License_two,setLicense_two]= useState<string| undefined>('');
+const [License_three,setLicense_three]= useState<string| undefined>('');
+const [License_four,setLicense_four]= useState<string| undefined>('');
+const [License_five,setLicense_five]= useState<string| undefined>('');
 const [License_score,setLicense_score]= useState<Number| undefined>(0);
+const [License_string_array,setLicense_string_array] = useState<string[]>([]);
 
 const [cookies] = useCookies();
 const accessToken = cookies.accessToken;
@@ -77,46 +90,102 @@ const accessToken = cookies.accessToken;
 
 
 const add_string_handler_grade_one_university = () =>{
+    if(grade_one_string_array.length>0){
+        console.log("이거");
+        console.log("데이터 :"+grade_one_string_array);
+        return;
+    }
     setGrade_one_string_array((previousArray)=>[...previousArray,Grade_One_University_one || '',Grade_One_University_two || '',Grade_One_University_three || '',Grade_One_University_four || '',Grade_One_University_five || '']);
+    setGrade_One_University_score(Grade_One_University_score);
     console.log(grade_one_string_array);
+    console.log(Grade_One_University_score);
+}
+
+const add_string_handler_grade_two_university = () =>{
+    if(grade_two_string_array.length>0){
+        console.log("이거");
+        console.log("데이터 :"+grade_two_string_array);
+        return;
+    }
+    setGrade_two_string_array((previousArray)=>[...previousArray,Grade_Two_University_one || '',Grade_Two_University_two || '',Grade_Two_University_three || '',Grade_Two_University_four || '',Grade_Two_University_five || '']);
+    setGrade_Two_University_score(Grade_Two_University_score);
+    console.log(grade_two_string_array);
+
+}
+
+const add_string_handler_grade_three_university = () =>{
+    if(grade_three_string_array.length>0){
+        console.log("이거");
+        console.log("데이터 :"+grade_three_string_array);
+        return;
+    }
+
+    setGrade_three_string_array((previousArray)=>[...previousArray,Grade_Three_University_one || '',Grade_Three_University_two || '',Grade_Three_University_three || '',Grade_Three_University_four || '',Grade_Three_University_five || '']);
+    setGrade_Three_University_score(Grade_Three_University_score);
+    console.log(grade_three_string_array);
+}
+
+const add_string_handler_grade_etc_university = ()=>{
+    if(grade_etc_string_array.length>0){
+        console.log("이거");
+        console.log("데이터 :"+grade_etc_string_array);
+        return;
+    }
+
+    setGrade_etc_string_array((previousArray)=>[...previousArray,Grade_Etc_University_one || '',Grade_Etc_University_two || '',Grade_Etc_University_three || '',Grade_Etc_University_four || '',Grade_Etc_University_five || '']);
+    setGrade_Etc_University_score(Grade_Etc_University_score);
+    console.log(grade_etc_string_array);
+}
+
+const add_string_handler_carrer = () =>{
+    if(Carrer_string_array.length>0){
+        console.log("이거");
+        console.log("데이터 :"+Carrer_string_array);
+        return;
+    }
+    setCarrer_string_array((previousArray)=>[...previousArray,Carrer_one||'',Carrer_two||'',Carrer_three||'',Carrer_four||'',Carrer_five||''])
+    setCarrer_score(Carrer_score);
+    console.log(Carrer_string_array);
+    
+
+}
+
+
+const add_string_handler_license = () =>{
+
+    if(License_string_array.length>0){
+        console.log("이거");
+        console.log("데이터 :"+License_string_array);
+        console.log("호잇!"+License_one);
+        console.log(License_two);
+        return;
+    }
+    console.log(License_one);
+    console.log(License_two);
+    setLicense_string_array((previousArray)=>[...previousArray,License_one||'',License_two||'',License_three||'',License_four||'',License_five||''])
+    setLicense_score(License_score);
+    console.log(License_string_array);
 }
 
 
 
-const company_Select_Component_University_grade_one = () =>{
-    const send_Data = {grade_one_string_array,Grade_One_University_score};
+const company_Select_Component_University_total_and_score = () =>{
+    // !key-value형태로 데이터를 넣어야한다 company?.companyTelNumber만 넣으면 key값이 없기 때문에 앞에 key를 추가해준다 
+    const send_Data = {companyTelNumber: company?.companyTelNumber,
+                       grade_one_string_array,Grade_One_University_score,
+                       grade_two_string_array,Grade_Two_University_score,
+                       grade_three_string_array,Grade_Three_University_score,
+                       grade_etc_string_array,Grade_Etc_University_score};
 
     axios.post(COMPANY_SELECT_UNIVERSITY,send_Data,authorizationHeader(accessToken))
             .then((response)=>company_Select_University_ResponseHandler(response))
             .catch((error)=>company_Select_ComponentError(error));
 }
 
-const company_Select_Component_University_grade_two = () =>{
-    const send_Data = {grade_two_string_array,Grade_One_University_score};
 
-    axios.post(COMPANY_SELECT_UNIVERSITY,send_Data,authorizationHeader(accessToken))
-            .then((response)=>company_Select_University_ResponseHandler(response))
-            .catch((error)=>company_Select_ComponentError(error));
-}
-
-const company_Select_Component_University_grade_three = () =>{
-    const send_Data = {grade_three_string_array,Grade_One_University_score};
-
-    axios.post(COMPANY_SELECT_UNIVERSITY,send_Data,authorizationHeader(accessToken))
-            .then((response)=>company_Select_University_ResponseHandler(response))
-            .catch((error)=>company_Select_ComponentError(error));
-}
-
-const company_Select_Component_University_grade_etc = () =>{
-    const send_Data = {grade_etc_string_array,Grade_One_University_score};
-
-    axios.post(COMPANY_SELECT_UNIVERSITY,send_Data,authorizationHeader(accessToken))
-            .then((response)=>company_Select_University_ResponseHandler(response))
-            .catch((error)=>company_Select_ComponentError(error));
-}
 
 const comapny_Select_Component_Carrer = () =>{
-    const send_Data = {Carrer,Carrer_score};
+    const send_Data = {companyTelNumber:company?.companyTelNumber,Carrer_string_array,Carrer_score};
 
     axios.post(COMPANY_SELECT_CARRER,send_Data,authorizationHeader(accessToken))
             .then((response)=>company_Select_Carrer_ResponseHandler(response))
@@ -125,7 +194,7 @@ const comapny_Select_Component_Carrer = () =>{
 }
 
 const company_Select_Component_License = () =>{
-    const send_Data = {License,License_score};
+    const send_Data = {companyTelNumber:company?.companyTelNumber,License_string_array,License_score};
 
     axios.post(COMPANY_SELECT_LICENSE,send_Data,authorizationHeader(accessToken))
             .then((response)=>company_Select_License_ResponseHandler(response))
@@ -135,15 +204,12 @@ const company_Select_Component_License = () =>{
 // ! 가장 먼저 불리는 함수
 const UpLoad_company_select_component_Handler = () =>{
 
-    if(!Grade_One_University_one?.trim() || !Grade_One_University_two?.trim() || !Grade_One_University_three?.trim() || !Grade_One_University_four?.trim() ||!Carrer?.trim() || !License?.trim() ){
+    if(grade_one_string_array==null || grade_two_string_array==null || grade_three_string_array==null || grade_etc_string_array==null ||Carrer_string_array==null || License_string_array==null ){
         alert('모든 사항을 선택해 주세요');
         return;
       }
 
-      company_Select_Component_University_grade_one();
-      company_Select_Component_University_grade_two();
-      company_Select_Component_University_grade_three();
-      company_Select_Component_University_grade_etc();
+      company_Select_Component_University_total_and_score();
       comapny_Select_Component_Carrer();
       company_Select_Component_License();
 
@@ -157,7 +223,7 @@ const UpLoad_company_select_component_Handler = () =>{
 //      Response Handler   //
 const company_Select_University_ResponseHandler = (response : AxiosResponse<any,any>)=>{
 
-    const {result,message,data} = response.data as ResponseDto<UpLoadCompanySelectComponentResponseDto>
+    const {result,message,data} = response.data as ResponseDto<SelectUniversityResponseDto>
     // ? data에는 우리회사가 가장 비중을 두고 있는 선택사항을 보여준다, 우리회사에 지원한 지원자중 가장 점수가 높은 ? 인의 정보를 보여준다
     if(!result || !data){
         alert(message);
@@ -171,7 +237,7 @@ const company_Select_University_ResponseHandler = (response : AxiosResponse<any,
 
 const company_Select_Carrer_ResponseHandler = (response : AxiosResponse<any,any>)=>{
 
-    const {result,message,data} = response.data as ResponseDto<UpLoadCompanySelectComponentResponseDto>
+    const {result,message,data} = response.data as ResponseDto<SelectCarrerResponseDto>
     // ? data에는 우리회사가 가장 비중을 두고 있는 선택사항을 보여준다, 우리회사에 지원한 지원자중 가장 점수가 높은 ? 인의 정보를 보여준다
     if(!result || !data){
         alert(message);
@@ -186,7 +252,7 @@ const company_Select_Carrer_ResponseHandler = (response : AxiosResponse<any,any>
 
 const company_Select_License_ResponseHandler = (response : AxiosResponse<any,any>)=>{
 
-    const {result,message,data} = response.data as ResponseDto<UpLoadCompanySelectComponentResponseDto>
+    const {result,message,data} = response.data as ResponseDto<SelectLicenseResponseDto>
     // ? data에는 우리회사가 가장 비중을 두고 있는 선택사항을 보여준다, 우리회사에 지원한 지원자중 가장 점수가 높은 ? 인의 정보를 보여준다
     if(!result || !data){
         alert(message);
@@ -327,6 +393,9 @@ const company_Select_ComponentError =(error:any)=>{
                                     onChange={(event,value)=>setGrade_One_University_score(value?.label)}
                                     />
                                 </Grid>
+                                <Grid item xs={10.5} sx={{display:'flex', justifyContent: 'center'}}>
+                                    <Button variant="contained" color="secondary" onClick={add_string_handler_grade_two_university}>2등급학교 설정완료</Button>
+                                </Grid>
                             </Grid>
                         </Grid>
                     </Grid>
@@ -386,6 +455,9 @@ const company_Select_ComponentError =(error:any)=>{
                                     renderInput={(params) => <TextField {...params} label="3등급 학교 점수" /> }
                                     onChange={(event,value)=>setGrade_One_University_score(value?.label)}
                                     />
+                                </Grid>
+                                <Grid item xs={10.5} sx={{display:'flex', justifyContent: 'center'}}>
+                                    <Button variant="contained" color="secondary" onClick={add_string_handler_grade_three_university}>3등급학교 설정완료</Button>
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -447,53 +519,138 @@ const company_Select_ComponentError =(error:any)=>{
                                     onChange={(event,value)=>setGrade_One_University_score(value?.label)}
                                     />
                                 </Grid>
+                                <Grid item xs={10.5} sx={{display:'flex', justifyContent: 'center'}}>
+                                    <Button variant="contained" color="secondary" onClick={add_string_handler_grade_etc_university}>기타등급학교 설정완료</Button>
+                                </Grid>
                             </Grid>
                         </Grid>
                     </Grid>
                     <Grid item sx={{display:'flex', alignItems:'center', p:'20px',width:'100%', height: '100%', border:'2px solid black', pb:'100px'}}>
-                        <Grid item xs={6}>
-                            <Grid container>
-                                <Grid item xs={6}>
+                        <Grid item xs={18}>
+                            <Grid container spacing={3}>
+                                <Grid item xs={2} spacing={3}>
                                     <Autocomplete
                                     sx={{width:'200px', ml:'55px' }} 
                                     options={company_carrer} disablePortal 
-                                    renderInput={(params) => <TextField {...params} label="1급 경력" /> }
-                                    onChange={(event,value)=>setCarrer(value?.label)}
+                                    renderInput={(params) => <TextField {...params} label="경력우대 업종" /> }
+                                    onChange={(event,value)=>setCarrer_one(value?.label)}
                                     />
                                 </Grid>
-                                <Grid>
+                                <Grid item xs={2} spacing={3}>
                                     <Autocomplete
                                     sx={{width:'200px', ml:'55px' }} 
-                                    options={company_carrer_score} disablePortal 
-                                    renderInput={(params) => <TextField {...params} label="1급 경력 점수" /> }
+                                    options={company_carrer} disablePortal 
+                                    renderInput={(params) => <TextField {...params} label="경력우대 업종" /> }
+                                    onChange={(event,value)=>setCarrer_two(value?.label)}
+                                    />
+                                </Grid>
+                                <Grid item xs={2} spacing={3}>
+                                    <Autocomplete
+                                    sx={{width:'200px', ml:'55px' }} 
+                                    options={company_carrer} disablePortal 
+                                    renderInput={(params) => <TextField {...params} label="경력우대 업종" /> }
+                                    onChange={(event,value)=>setCarrer_three(value?.label)}
+                                    />
+                                </Grid>
+                                <Grid item xs={2} spacing={3}>
+                                    <Autocomplete
+                                    sx={{width:'200px', ml:'55px' }} 
+                                    options={company_carrer} disablePortal 
+                                    renderInput={(params) => <TextField {...params} label="경력우대 업종" /> }
+                                    onChange={(event,value)=>setCarrer_four(value?.label)}
+                                    />
+                                </Grid>
+                                <Grid item xs={2}>
+                                    <Autocomplete
+                                    sx={{width:'200px', ml:'55px' }} 
+                                    options={company_carrer} disablePortal 
+                                    renderInput={(params) => <TextField {...params} label="경력우대 업종" /> }
+                                    onChange={(event,value)=>setCarrer_five(value?.label)}
+                                    />
+                                </Grid>
+                                <Grid item sx={{display:'flex', alignItems:'center'}}>
+                                    <Grid item xs={18} spacing={3}></Grid>
+                                    <Grid item xs={18} spacing={3}></Grid>
+                                    <Grid item xs={18} spacing={3}></Grid>
+                                    <Grid item xs={18} spacing={3}></Grid>
+                                </Grid>    
+                                <Grid item xs={10.5} sx={{display:'flex', justifyContent: 'center'}}>
+                                    <Autocomplete
+                                    sx={{width:'200px', ml:'55px' }} 
+                                    options={company_second_grade_university_score} disablePortal 
+                                    renderInput={(params) => <TextField {...params} label="경력우대 업종 점수" /> }
                                     onChange={(event,value)=>setCarrer_score(value?.label)}
                                     />
+                                </Grid>
+                                <Grid item xs={10.5} sx={{display:'flex', justifyContent: 'center'}}>
+                                    <Button variant="contained" color="secondary" onClick={add_string_handler_carrer}>경력우대 업종 설정완료</Button>
                                 </Grid>
                             </Grid>
                         </Grid>
                     </Grid>
-                        <Grid item sx={{display:'flex', alignItems:'center', p:'20px',width:'100%', height: '100%', border:'2px solid black', pb:'100px'}}>   
-                            <Grid item xs={6}>
-                                <Grid container>
-                                    <Grid item xs={6}>
-                                        <Autocomplete
-                                        sx={{width:'200px', ml:'55px' }} 
-                                        options={company_license} disablePortal 
-                                        renderInput={(params) => <TextField {...params} label="1급 자격증" /> }
-                                        onChange={(event,value)=>setLicense(value?.label)}
-                                        />
-                                    </Grid>
-                                    <Grid>
-                                        <Autocomplete
-                                        sx={{width:'200px', ml:'55px' }} 
-                                        options={company_license_score} disablePortal 
-                                        renderInput={(params) => <TextField {...params} label="1급 자격증 점수" /> }
-                                        onChange={(event,value)=>setLicense_score(value?.label)}
-                                        />
-                                    </Grid>
+                    <Grid item sx={{display:'flex', alignItems:'center', p:'20px',width:'100%', height: '100%', border:'2px solid black', pb:'100px'}}>
+                        <Grid item xs={18}>
+                            <Grid container spacing={3}>
+                                <Grid item xs={2} spacing={3}>
+                                    <Autocomplete
+                                    sx={{width:'200px', ml:'55px' }} 
+                                    options={company_license} disablePortal 
+                                    renderInput={(params) => <TextField {...params} label="우대 자격증" /> }
+                                    onChange={(event,value)=>setLicense_one(value?.label)}
+                                    />
+                                </Grid>
+                                <Grid item xs={2} spacing={3}>
+                                    <Autocomplete
+                                    sx={{width:'200px', ml:'55px' }} 
+                                    options={company_license} disablePortal 
+                                    renderInput={(params) => <TextField {...params} label="우대 자격증" /> }
+                                    onChange={(event,value)=>setLicense_two(value?.label)}
+                                    />
+                                </Grid>
+                                <Grid item xs={2} spacing={3}>
+                                    <Autocomplete
+                                    sx={{width:'200px', ml:'55px' }} 
+                                    options={company_license} disablePortal 
+                                    renderInput={(params) => <TextField {...params} label="우대 자격증" /> }
+                                    onChange={(event,value)=>setLicense_three(value?.label)}
+                                    />
+                                </Grid>
+                                <Grid item xs={2} spacing={3}>
+                                    <Autocomplete
+                                    sx={{width:'200px', ml:'55px' }} 
+                                    options={company_license} disablePortal 
+                                    renderInput={(params) => <TextField {...params} label="우대 자격증" /> }
+                                    onChange={(event,value)=>setLicense_four(value?.label)}
+                                    />
+                                </Grid>
+                                <Grid item xs={2}>
+                                    <Autocomplete
+                                    sx={{width:'200px', ml:'55px' }} 
+                                    options={company_license} disablePortal 
+                                    renderInput={(params) => <TextField {...params} label="우대 자격증" /> }
+                                    onChange={(event,value)=>setLicense_five(value?.label)}
+                                    />
+                                </Grid>
+                                <Grid item sx={{display:'flex', alignItems:'center'}}>
+                                    <Grid item xs={18} spacing={3}></Grid>
+                                    <Grid item xs={18} spacing={3}></Grid>
+                                    <Grid item xs={18} spacing={3}></Grid>
+                                    <Grid item xs={18} spacing={3}></Grid>
+                                </Grid>    
+                                <Grid item xs={10.5} sx={{display:'flex', justifyContent: 'center'}}>
+                                    <Autocomplete
+                                    sx={{width:'200px', ml:'55px' }} 
+                                    options={company_second_grade_university_score} disablePortal 
+                                    renderInput={(params) => <TextField {...params} label="우대 자격증 점수" /> }
+                                    onChange={(event,value)=>setLicense_score(value?.label)}
+                                    />
+                                </Grid>
+                                <Grid item xs={10.5} sx={{display:'flex', justifyContent: 'center'}}>
+                                    <Button variant="contained" color="secondary" onClick={add_string_handler_license}>우대 자격증 설정완료</Button>
                                 </Grid>
                             </Grid>
-                        </Grid>         
+                        </Grid>
+                    </Grid>        
                     <Button variant="contained" color="secondary" onClick={UpLoad_company_select_component_Handler}>등록하기</Button>
             </Grid>
     )
@@ -645,14 +802,6 @@ const company_carrer = [
     {label:'예술직 근무 경력'}
 ]
 
-const company_carrer_year = [
-    {label:'20년 이상'},
-    {label:'15년 이상'},
-    {label:'10년 이상'},
-    {label:'5년 이상'},
-    {label:'3년 이상'}
-    
-]
 const company_carrer_score = [
     {label:20},
     {label:19},
