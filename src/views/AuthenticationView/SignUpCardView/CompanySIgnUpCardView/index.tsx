@@ -66,6 +66,8 @@ function FirstPage(){
         setEmailValidate(data.result)
     }
 
+    // Error Handler //
+
     const validateCompanyEmailResponseError = (error: any) => {
         console.log(error.message);
     }
@@ -224,7 +226,7 @@ export default function CompanySignUpCardView(){
 
         axios.post(COMPANY_SIGN_UP_URL,data)
                 .then((response)=>Company_Sign_Up_ResponseHandler(response))
-                .then((error)=>Company_Sign_Up_Error_Handler(error))
+                .catch((error)=>Company_Sign_Up_Error_Handler(error))
 
     }
 

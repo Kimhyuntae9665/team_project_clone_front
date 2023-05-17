@@ -31,8 +31,8 @@ export default function MainContents(){
    }
 
    useEffect(() => {
-    // getList();
-    setCompanyList(COMPANYLISTTOP6);
+    getList();
+    
    },[]);
 
   
@@ -44,8 +44,8 @@ export default function MainContents(){
         <Box>
         <Box sx={{ p:'15px' ,border: '3px solid black', textAlign:'center', alignItems:'flex-start'}}>
           <Grid container spacing={3}> 
-                    {viewList.map((companyList) => (<Grid item sm={12} md={2}  ><CompanyListItem companyListItem={companyList as GetCompanyListResponseDto} /></Grid>))}
-            </Grid>
+                    {companyList.map((company) => (<Grid item sm={12} md={2}  ><CompanyListItem companyListItem={company as GetCompanyListResponseDto} /></Grid>))}
+          </Grid>
         </Box>
         </Box>
         <Box sx={{ display: 'flex', justifyContent: 'center'}}>

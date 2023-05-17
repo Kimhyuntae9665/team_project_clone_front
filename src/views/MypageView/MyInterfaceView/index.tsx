@@ -29,10 +29,11 @@ export default function MyInterfaceView() {
                         />
                     </Grid>
                     <Grid item xs={6}>
-                        <Autocomplete 
-                        sx={{width:'200px', ml:'55px' }} 
-                        options={userWriteForFree} disablePortal 
-                        renderInput={(params) => <TextField {...params} label="기타 이력사항" />}
+                        <TextField 
+                        sx={{width:'200px', ml:'55px' }}
+                        multiline
+                        label="기타 입력사항"
+                        placeholder="자유롭게 입력해주세요."
                         />
                     </Grid>
                 </Grid>
@@ -64,8 +65,6 @@ const userCarrer = [
 const userLicense  = [
     {label:'AWS 자격증'},
     {label:'SQLD 자격증'},
-    {label:'컴퓨터활용능력 자격증'}
-    
+    {label:'컴퓨터활용능력 자격증'},
+    {label:'기타'}
 ]
-
-const userWriteForFree = [{label:'자유롭게 입력해 주세요'}]

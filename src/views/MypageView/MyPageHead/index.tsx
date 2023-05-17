@@ -71,9 +71,9 @@ export default function MyPageHead() {
     
     
 
-    return(
-        
-        <Box sx={{p:'5px'}}>
+    return (
+
+        <Box sx={{ p: '5px' }}>
             {/* 유저 프로필 */}
                 <Box sx={{ display: 'flex', alignItems: 'center', m:'15px 15px',p:'10px'}}>
                     <Box>
@@ -110,9 +110,9 @@ export default function MyPageHead() {
                         </Grid>
                     </Grid>
                 </Box>
-                </Box>
-                
+            </Box>
+
         </Box>
-        
+
     )
 }

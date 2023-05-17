@@ -12,7 +12,7 @@ export const VALIDATE_USER_NICKNAME_URL = `${HOST}user/validate/userNickname`;
 export const GET_TOP3_COMPANY_LIST_URL = `${HOST}company/top3-company-list`;
 export const VALIDATE_COMPANY_EMAIL_URL = `${HOST}company/validate/companyEmail`;
 export const VALIDATE_COMPANY_TEL_NUMBER_URL = `${HOST}company/validate/companyTelNumber`;
-export const GET_LIST_COMPANY = `${HOST}api/company/list`;
+export const GET_LIST_COMPANY = `${HOST}company/list`;
 
 export const COMPANY_SELECT_UNIVERSITY = `${HOST}select/company/university`;
 export const COMPANY_SELECT_CARRER = `${HOST}select/company/carrer`;
