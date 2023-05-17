@@ -60,10 +60,6 @@ export default function MyCompanypageHeadView() {
 
     }
 
-    
-
-
-
     // Error Handler //
 
     const CompanyIndoPatchErrorHander = (error:any)=>{
