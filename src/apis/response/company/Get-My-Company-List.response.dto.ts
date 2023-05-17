@@ -1,12 +1,10 @@
 interface Dto{
     companyTelNumber: string;
     companyName:string;
-    companyImgUrl:string | null;
-    companyEmployeeNumber: string;
-    companyAnnualIncomeAverage: number;
-    companySales: number;
+    companyProfileUrl:string | null;
     companyAddress: string;
-    companyHomepage: string;
+    companyCategory:string|null;
+    companyPassword:string;
 
 }
 //  유저페이지에서 내가 지원한 회사 보기

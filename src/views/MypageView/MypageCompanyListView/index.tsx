@@ -29,7 +29,7 @@ export default function MyPageCompanyListView (){
     const getMyListResponseHandler =(response: AxiosResponse<any,any>) =>{
         const {result,message,data} = response.data as ResponseDto<GetMyCompanyListResponseDto[]>
         if(!result || data === null) return;
-        setCompanyList(data);
+        // setCompanyList(data);
     }
 
     const getMyListErrorHandler = (error:any) => {

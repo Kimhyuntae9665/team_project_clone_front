@@ -27,7 +27,7 @@ function App() {
     if (cookies.accessToken && !user) {
 
     }
-  }, []);
+  }, [path]);
 
   return(
     <>
@@ -47,8 +47,8 @@ function App() {
         </Route>
       </Route>
       <Route path='/myPage' element={(<MyPage/>)}/>
-      <Route path='/myCompanyPage' element={(<MyCompanypageView/>)} /> 
-      <Route path='/Company' element={(<CompanyPage/>)}/>
+      <Route path='/myCompanyPage/:phoneNumber' element={(<MyCompanypageView/>)}/>
+      <Route path='/Company/:phoneNumber' element={(<CompanyPage/>)}/>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
     <Footer/>

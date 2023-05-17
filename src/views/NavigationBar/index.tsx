@@ -80,7 +80,7 @@ const PointerDiv = styled('div')({
                             </Button>
                             </FormControl>
                             <FormControl variant="outlined" sx={{ mr: '10px' }}>
-                            <Button variant="outlined" color="secondary" onClick={() => navigator('/myCompanyPage')}>
+                            <Button variant="outlined" color="secondary" onClick={() => navigator(`/myCompanyPage/${company?.companyTelNumber}`)}>
                                 회사페이지
                             </Button>
                             </FormControl>
