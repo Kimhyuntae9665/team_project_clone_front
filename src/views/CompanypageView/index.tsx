@@ -10,7 +10,7 @@ export default function CompanyPage(){
 
        <>
        <CompanyPageHead/>
-       { !user ? (<> <CompanyPageMySuccessRate/> </>) : ( <CompanypageMySussessRateNotLoggedIn/>)}
+       { user ? (<> <CompanyPageMySuccessRate/> </>) : ( <CompanypageMySussessRateNotLoggedIn/>)}
        
        </>
     )

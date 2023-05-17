@@ -1,4 +1,4 @@
-import { AppBar, Box, Button, FormControl, IconButton, InputAdornment, OutlinedInput, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Button, FormControl, IconButton, InputAdornment, OutlinedInput, Toolbar, Typography, makeStyles, styled } from "@mui/material";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import { Company, User } from "src/interfaces";
@@ -41,12 +41,13 @@ const CompanyLogOutHandler = () =>{
 
 }
 
-
-
+const PointerDiv = styled('div')({
+    cursor: 'pointer',
+  });
 
     return (
         <Box sx={{flexGrow:1}}>
-            <AppBar variant="outlined" position="static" sx={{ p: '0px 100px', backgroundColor: '#ffffff' }} >
+            <AppBar variant="outlined" position="static" sx={{ p: '0px 80px', backgroundColor: '#ffffff' }} >
                 <Toolbar>
                     
                     <Typography 
@@ -54,8 +55,8 @@ const CompanyLogOutHandler = () =>{
                     noWrap 
                     component="div" 
                     sx={{ flexGrow:1, display: {xs: 'none', sm:'block', color:'#000000'} } }
-                    onClick={() => navigator('/')} >
-                        구직 사이트
+                    onClick={() => navigator('/')}>
+                       <PointerDiv sx={{mr:'950px'}}>구직 사이트</PointerDiv>
                     </Typography>
                     <Box sx={{ display: 'flex' }}>
                     {user?.userAddress && cookies.accessToken ? (

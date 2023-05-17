@@ -8,6 +8,7 @@ import { GetTop3CompanyListResponseDto } from "src/apis/response/company";
 import PreviewCard from "src/components/previewCard";
 import { GET_TOP3_COMPANY_LIST_URL } from "src/contants/api";
 import { COMPANYLISTTOP3 } from "src/mock";
+import { useCompanyStore } from "src/stores/companystores";
 import companyStore from "src/stores/companystores/companysign-up.stores";
 import { useUserStore } from "src/stores/userstores";
 
@@ -17,6 +18,7 @@ export default function MainHead() {
 
     // const { Company } = companyStore();
     const {user} = useUserStore();
+    const {company} = useCompanyStore();
     const navigator = useNavigate();
 
     const getTop3List = () => {
@@ -42,7 +44,29 @@ export default function MainHead() {
     return (
         <Box  sx ={{ pb: '40px', pl: '120px', pr: '120px'}} >
             {/*로그인 전  { user ? (<> 로그인 전의 화면</>) : ( 로그인 된 화면)} */}
-            {!user ? (
+            {user ? (
+                <Box>
+                <Typography  sx={{ fontSize: '24px', fontWeight: '400', p: '24px', textAlign: ' center' }}>{user.userName}님에게 추천하는 TOP3 회사</Typography>
+                    <Grid container spacing={3}>
+                    {top3List.map((item)=> (
+                        <Grid item sm={12} md={4}>
+                            <PreviewCard top3PreviewItem={item} />
+                        </Grid>
+                        ))}
+                </Grid>
+            </Box>
+            ) : company ? (
+                <Box>
+                    <Typography  sx={{ fontSize: '24px', fontWeight: '400', p: '24px', textAlign: ' center' }}>TOP3 회사</Typography>
+                        <Grid container spacing={3}>
+                        {top3List.map((item)=> (
+                            <Grid item sm={12} md={4}>
+                                <PreviewCard top3PreviewItem={item} />
+                            </Grid>
+                            ))}
+                    </Grid>
+                </Box>
+            ) : (
                 <>
                     <Box  sx={{ pt: '20px', pb: '5px', textAlign: 'center' }}>
                         <Typography sx={{ fontSize: '24px', fontWeight: '500', textAlign: ' center' }}>로그인이 필요한 작업입니다!</Typography>
@@ -56,17 +80,6 @@ export default function MainHead() {
                         </Box>
                     </Box>
                 </>
-            ) : (
-                <Box>
-                    <Typography  sx={{ fontSize: '24px', fontWeight: '400', p: '24px', textAlign: ' center' }}>{user.userName}님에게 추천하는 TOP3 회사</Typography>
-                        <Grid container spacing={3}>
-                        {top3List.map((item)=> (
-                            <Grid item sm={12} md={4}>
-                                <PreviewCard top3PreviewItem={item} />
-                            </Grid>
-                            ))}
-                    </Grid>
-                </Box>
             )}
             
             
