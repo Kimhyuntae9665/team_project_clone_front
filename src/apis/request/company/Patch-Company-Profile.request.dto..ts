@@ -1,5 +1,5 @@
 interface RequestDto {
-    companyProfile: string;
+    companyProfileUrl: string;
 }
 
 export default RequestDto;
