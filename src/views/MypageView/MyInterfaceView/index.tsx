@@ -5,7 +5,7 @@ export default function MyInterfaceView() {
 
     return(
         <Box> 
-        <Grid container sx={{ p:'20px 20px'}}>
+        <Grid container sx={{  pt:'40px', pb:'20px',pl:'50px',pr: '50px'}}>
                 <Grid item sx={{display:'flex', alignItems:'center', p:'20px',width:'100%', height: '100%', border:'2px solid black', pb:'100px'}}>
                     <Grid item xs={6}>
                         <Autocomplete 

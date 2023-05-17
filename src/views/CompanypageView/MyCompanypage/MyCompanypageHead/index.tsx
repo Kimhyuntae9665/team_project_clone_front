@@ -1,10 +1,11 @@
 import { Avatar, Box, Button, FormControl, Grid, IconButton, Input, Typography } from "@mui/material";
 import axios, { AxiosResponse } from "axios";
+import { ChangeEvent, useRef } from "react";
 import { useCookies } from "react-cookie";
 import { useNavigate, useParams } from "react-router-dom";
 import ResponseDto from "src/apis/response";
 import { CompanyInfoPatchResponseDto } from "src/apis/response/company";
-import { PARCH_COMPANY_PROFILE } from "src/contants/api";
+import { FILE_COMPANY_UPLOAD_URL, PARCH_COMPANY_PROFILE, mutipartHeadler } from "src/contants/api";
 import companyStore from "src/stores/companystores/company.store";
 
 
@@ -13,6 +14,8 @@ export default function MyCompanypageHeadView() {
     // Hook //
 
     const navigator = useNavigate();
+    const imageRef = useRef<HTMLInputElement | null> (null);
+
     const [cookies,setCookies] = useCookies();
     const {company,setCompany,resetCompany} = companyStore();
     const { phoneNumber } = useParams();
@@ -27,15 +30,19 @@ export default function MyCompanypageHeadView() {
         axios.post(PARCH_COMPANY_PROFILE,sendData,accessToken())
                 .then((response)=>CompanyInfoPatchResponseHandler(response))
                 .catch((error)=>CompanyIndoPatchErrorHander(error))
-
     }
-
-    
-    const logoutHandler = () => {
-        setCookies('accessToken','',{ expires: new Date(), path:'/' });
-        resetCompany();
-        navigator('/');
-    };
+    const onProfileUploadButtonHandler = () => {
+        if (!imageRef.current) return;
+        imageRef.current.click();
+    }
+    const onProfileUploadChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+        if (!event.target.files) return;
+        const data = new FormData();
+        data.append('file', event.target.files[0]);
+        axios.post(FILE_COMPANY_UPLOAD_URL, data, mutipartHeadler())
+            .then((response) => imageUploadResponseHandler(response))
+            .catch((error) => imageUploadErrorHandler(error));
+    }
 
 
     // Response Handler //
@@ -48,15 +55,19 @@ export default function MyCompanypageHeadView() {
             return;
           }
         navigator('/myCompanyPage');
-
-
     }
 
+    const imageUploadResponseHandler = (response: AxiosResponse<any,any>) => {
 
+    }
 
     // Error Handler //
 
     const CompanyIndoPatchErrorHander = (error:any)=>{
+        console.log(error.message);
+    }
+
+    const imageUploadErrorHandler = (error:any) => {
         console.log(error.message);
     }
 
