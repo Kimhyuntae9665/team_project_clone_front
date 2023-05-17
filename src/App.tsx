@@ -15,6 +15,7 @@ import UserSignUpCardView from './views/AuthenticationView/SignUpCardView/UserSI
 import CompanySignUpCardView from './views/AuthenticationView/SignUpCardView/CompanySIgnUpCardView';
 import { useCookies } from 'react-cookie';
 import { useUserStore } from './stores/userstores';
+import NotFoundPage from './views/ErrorPage';
 
 function App() {
   const path = useLocation();
@@ -48,6 +49,7 @@ function App() {
       <Route path='/myPage' element={(<MyPage/>)}/>
       <Route path='/myCompanyPage' element={(<MyCompanypageView/>)} /> 
       <Route path='/Company' element={(<CompanyPage/>)}/>
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
     <Footer/>
     </>

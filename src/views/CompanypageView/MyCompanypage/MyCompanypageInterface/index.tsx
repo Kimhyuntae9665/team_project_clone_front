@@ -134,13 +134,13 @@ const company_Select_ComponentError =(error:any)=>{
     console.log(error.message);
 }
     return (
-        <Grid container spacing={4} sx={{p:'20px 20px', mr:'20px' }}>
-                <Grid item sx={{display:'flex', alignItems:'center', p:'20px',width:'100%', height: '100%', border:'2px solid black', pb:'100px'}}>
-                    <Grid item xs={6}>
+        <Grid container spacing={4} sx={{mt:'32px'}}>
+                <Grid item sx={{display:'flex', alignItems:'center',width:'100%', height: '100%', border:'2px solid black', pb:'100px', mr:'20px', ml:'55px'}}>
+                    <Grid item xs={5}>
                         <Grid container>
-                            <Grid item xs={6}>
+                            <Grid item xs={7}>
                                 <Autocomplete
-                                sx={{width:'200px', ml:'55px' }} 
+                                sx={{width:'150px', ml:'30px' }} 
                                 options={company_first_grade_university} disablePortal 
                                 renderInput={(params) => <TextField {...params} label="1등급 학교" /> }
                                 onChange={(event,value)=>setGrade_One_University(value?.label)}
@@ -148,7 +148,7 @@ const company_Select_ComponentError =(error:any)=>{
                             </Grid>
                             <Grid>
                                 <Autocomplete
-                                sx={{width:'200px', ml:'55px' }} 
+                                sx={{width:'150px', ml:'30px' }} 
                                 options={company_first_grade_university_score} disablePortal 
                                 renderInput={(params) => <TextField {...params} label="1등급 학교 점수" /> }
                                 onChange={(event,value)=>setGrade_One_University_score(value?.label)}
@@ -156,11 +156,11 @@ const company_Select_ComponentError =(error:any)=>{
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={5}>
                         <Grid container>
                             <Grid item xs={6}>
                                 <Autocomplete
-                                sx={{width:'200px', ml:'55px' }} 
+                                sx={{width:'200px', ml:'45px' }} 
                                 options={company_carrer} disablePortal 
                                 renderInput={(params) => <TextField {...params} label="1급 경력" /> }
                                 onChange={(event,value)=>setCarrer(value?.label)}
@@ -168,7 +168,7 @@ const company_Select_ComponentError =(error:any)=>{
                             </Grid>
                             <Grid>
                                 <Autocomplete
-                                sx={{width:'200px', ml:'55px' }} 
+                                sx={{width:'200px', ml:'45px' }} 
                                 options={company_carrer_year} disablePortal 
                                 renderInput={(params) => <TextField {...params} label="1급 경력 연차" /> }
                                 onChange={(event,value)=>setCarrer_year(value?.label)}
@@ -176,7 +176,7 @@ const company_Select_ComponentError =(error:any)=>{
                             </Grid>
                             <Grid>
                                 <Autocomplete
-                                sx={{width:'200px', ml:'55px' }} 
+                                sx={{width:'200px', ml:'45px' }} 
                                 options={company_carrer_score} disablePortal 
                                 renderInput={(params) => <TextField {...params} label="1급 경력 점수" /> }
                                 onChange={(event,value)=>setCarrer_score(value?.label)}
@@ -184,7 +184,7 @@ const company_Select_ComponentError =(error:any)=>{
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={5}>
                         <Grid container>
                             <Grid item xs={6}>
                                 <Autocomplete
@@ -204,7 +204,7 @@ const company_Select_ComponentError =(error:any)=>{
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Button variant="contained" color="secondary" onClick={UpLoad_company_select_component_Handler}>등록하기</Button>
+                    <Button variant="contained" color="secondary" onClick={UpLoad_company_select_component_Handler} sx={{mr:'30px'}}>등록하기</Button>
                 </Grid>
             </Grid>
     )
