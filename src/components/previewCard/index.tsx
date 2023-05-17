@@ -18,7 +18,7 @@ export default function PreviewCard({top3PreviewItem} : Props) {
                 <Box sx={{ p: '24px' }}>
                     <Box sx={{ display: 'flex' }}>
                         <Box sx={{ mr: '8px' }}>
-                            <Avatar alt="Remy Sharp" src={ top3PreviewItem.companyImgUrl ? top3PreviewItem.companyName : '' } />
+                            <Avatar src={ top3PreviewItem.companyImgUrl ? top3PreviewItem.companyName : '' } />
                         </Box>
                         <Box>
                             <Typography sx={{ fontSize: '12px', fontWeight: 500, color: '#ffffff' }}>{ top3PreviewItem.companyName }</Typography>
