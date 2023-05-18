@@ -26,7 +26,7 @@ const [Grade_One_University_two,setGrade_One_University_two] = useState<string |
 const [Grade_One_University_three,setGrade_One_University_three] = useState<string | undefined>('');
 const [Grade_One_University_four,setGrade_One_University_four] = useState<string | undefined>('');
 const [Grade_One_University_five,setGrade_One_University_five] = useState<string | undefined>('');
-const [Grade_One_University_score,setGrade_One_University_score] = useState<Number| undefined>(0);
+const [first_grade_university_score,setFirst_grade_university_score] = useState<Number| undefined>(0);
 
 
 const [Grade_Two_University_one,setGrade_Two_University_one] = useState<string | undefined>('');
@@ -34,7 +34,7 @@ const [Grade_Two_University_two,setGrade_Two_University_two] = useState<string |
 const [Grade_Two_University_three,setGrade_Two_University_three] = useState<string | undefined>('');
 const [Grade_Two_University_four,setGrade_Two_University_four] = useState<string | undefined>('');
 const [Grade_Two_University_five,setGrade_Two_University_five] = useState<string | undefined>('');
-const [Grade_Two_University_score,setGrade_Two_University_score] = useState<Number| undefined>(0);
+const [second_grade_university_score,setSecond_grade_university_score] = useState<Number| undefined>(0);
 
 
 
@@ -44,7 +44,7 @@ const [Grade_Three_University_two,setGrade_Three_University_two] = useState<stri
 const [Grade_Three_University_three,setGrade_Three_University_three] = useState<string | undefined>('');
 const [Grade_Three_University_four,setGrade_Three_University_four] = useState<string | undefined>('');
 const [Grade_Three_University_five,setGrade_Three_University_five] = useState<string | undefined>('');
-const [Grade_Three_University_score,setGrade_Three_University_score] = useState<Number| undefined>(0);
+const [third_grade_university_score,setThird_grade_university_score] = useState<Number| undefined>(0);
 
 
 
@@ -53,32 +53,32 @@ const [Grade_Etc_University_two,setGrade_Etc_University_two] = useState<string |
 const [Grade_Etc_University_three,setGrade_Etc_University_three] = useState<string | undefined>('');
 const [Grade_Etc_University_four,setGrade_Etc_University_four] = useState<string | undefined>('');
 const [Grade_Etc_University_five,setGrade_Etc_University_five] = useState<string | undefined>('');
-const [Grade_Etc_University_score,setGrade_Etc_University_score] = useState<Number| undefined>(0);
+const [etc_grade_university_score,setEtc_grade_university_score] = useState<Number| undefined>(0);
 
 
 
 
 
-const [grade_one_string_array,setGrade_one_string_array] = useState<string[]>([]);
-const [grade_two_string_array,setGrade_two_string_array] = useState<string[]>([]);
-const [grade_three_string_array,setGrade_three_string_array] = useState<string[]>([]);
-const [grade_etc_string_array,setGrade_etc_string_array] = useState<string[]>([]);
+const [first_grade_university,setFirst_grade_university] = useState<string[]>([]);
+const [second_grade_university,setSecond_grade_university] = useState<string[]>([]);
+const [third_grade_university,setThird_grade_university] = useState<string[]>([]);
+const [etc_grade_university,setEtc_grade_university] = useState<string[]>([]);
 
 const [Carrer_one,setCarrer_one] = useState<string| undefined>('');
 const [Carrer_two,setCarrer_two] = useState<string| undefined>('');
 const [Carrer_three,setCarrer_three] = useState<string| undefined>('');
 const [Carrer_four,setCarrer_four] = useState<string| undefined>('');
 const [Carrer_five,setCarrer_five] = useState<string| undefined>('');
-const [Carrer_score,setCarrer_score] = useState<Number| undefined>(0);
-const [Carrer_string_array,setCarrer_string_array] = useState<string[]>([]);
+const [carrer_score,setCarrer_score] = useState<Number| undefined>(0);
+const [carrer,setCarrer] = useState<string[]>([]);
 
 const [License_one,setLicense_one]= useState<string| undefined>('');
 const [License_two,setLicense_two]= useState<string| undefined>('');
 const [License_three,setLicense_three]= useState<string| undefined>('');
 const [License_four,setLicense_four]= useState<string| undefined>('');
 const [License_five,setLicense_five]= useState<string| undefined>('');
-const [License_score,setLicense_score]= useState<Number| undefined>(0);
-const [License_string_array,setLicense_string_array] = useState<string[]>([]);
+const [license_score,setLicense_score]= useState<Number| undefined>(0);
+const [license,setLicense] = useState<string[]>([]);
 
 const [cookies] = useCookies();
 const accessToken = cookies.accessToken;
@@ -90,62 +90,62 @@ const accessToken = cookies.accessToken;
 
 
 const add_string_handler_grade_one_university = () =>{
-    if(grade_one_string_array.length>0){
+    if(first_grade_university.length>0){
         console.log("이거");
-        console.log("데이터 :"+grade_one_string_array);
+        console.log("데이터 :"+first_grade_university);
         return;
     }
-    setGrade_one_string_array((previousArray)=>[...previousArray,Grade_One_University_one || '',Grade_One_University_two || '',Grade_One_University_three || '',Grade_One_University_four || '',Grade_One_University_five || '']);
-    setGrade_One_University_score(Grade_One_University_score);
-    console.log(grade_one_string_array);
-    console.log(Grade_One_University_score);
+    setFirst_grade_university((previousArray)=>[...previousArray,Grade_One_University_one || '',Grade_One_University_two || '',Grade_One_University_three || '',Grade_One_University_four || '',Grade_One_University_five || '']);
+    
+    console.log(first_grade_university);
+    console.log(first_grade_university_score);
 }
 
 const add_string_handler_grade_two_university = () =>{
-    if(grade_two_string_array.length>0){
+    if(second_grade_university.length>0){
         console.log("이거");
-        console.log("데이터 :"+grade_two_string_array);
+        console.log("데이터 :"+second_grade_university);
         return;
     }
-    setGrade_two_string_array((previousArray)=>[...previousArray,Grade_Two_University_one || '',Grade_Two_University_two || '',Grade_Two_University_three || '',Grade_Two_University_four || '',Grade_Two_University_five || '']);
-    setGrade_Two_University_score(Grade_Two_University_score);
-    console.log(grade_two_string_array);
+    setSecond_grade_university((previousArray)=>[...previousArray,Grade_Two_University_one || '',Grade_Two_University_two || '',Grade_Two_University_three || '',Grade_Two_University_four || '',Grade_Two_University_five || '']);
+   
+    console.log(second_grade_university);
 
 }
 
 const add_string_handler_grade_three_university = () =>{
-    if(grade_three_string_array.length>0){
+    if(third_grade_university.length>0){
         console.log("이거");
-        console.log("데이터 :"+grade_three_string_array);
+        console.log("데이터 :"+third_grade_university);
         return;
     }
 
-    setGrade_three_string_array((previousArray)=>[...previousArray,Grade_Three_University_one || '',Grade_Three_University_two || '',Grade_Three_University_three || '',Grade_Three_University_four || '',Grade_Three_University_five || '']);
-    setGrade_Three_University_score(Grade_Three_University_score);
-    console.log(grade_three_string_array);
+    setThird_grade_university((previousArray)=>[...previousArray,Grade_Three_University_one || '',Grade_Three_University_two || '',Grade_Three_University_three || '',Grade_Three_University_four || '',Grade_Three_University_five || '']);
+    
+    console.log(third_grade_university);
 }
 
 const add_string_handler_grade_etc_university = ()=>{
-    if(grade_etc_string_array.length>0){
+    if(etc_grade_university.length>0){
         console.log("이거");
-        console.log("데이터 :"+grade_etc_string_array);
+        console.log("데이터 :"+etc_grade_university);
         return;
     }
 
-    setGrade_etc_string_array((previousArray)=>[...previousArray,Grade_Etc_University_one || '',Grade_Etc_University_two || '',Grade_Etc_University_three || '',Grade_Etc_University_four || '',Grade_Etc_University_five || '']);
-    setGrade_Etc_University_score(Grade_Etc_University_score);
-    console.log(grade_etc_string_array);
+    setEtc_grade_university((previousArray)=>[...previousArray,Grade_Etc_University_one || '',Grade_Etc_University_two || '',Grade_Etc_University_three || '',Grade_Etc_University_four || '',Grade_Etc_University_five || '']);
+    
+    console.log(etc_grade_university);
 }
 
 const add_string_handler_carrer = () =>{
-    if(Carrer_string_array.length>0){
+    if(carrer.length>0){
         console.log("이거");
-        console.log("데이터 :"+Carrer_string_array);
+        console.log("데이터 :"+carrer);
         return;
     }
-    setCarrer_string_array((previousArray)=>[...previousArray,Carrer_one||'',Carrer_two||'',Carrer_three||'',Carrer_four||'',Carrer_five||''])
-    setCarrer_score(Carrer_score);
-    console.log(Carrer_string_array);
+    setCarrer((previousArray)=>[...previousArray,Carrer_one||'',Carrer_two||'',Carrer_three||'',Carrer_four||'',Carrer_five||''])
+    
+    console.log(carrer);
     
 
 }
@@ -153,18 +153,20 @@ const add_string_handler_carrer = () =>{
 
 const add_string_handler_license = () =>{
 
-    if(License_string_array.length>0){
+    console.log(license.length);
+
+    if(license.length>0){
         console.log("이거");
-        console.log("데이터 :"+License_string_array);
+        console.log("데이터 :"+license);
         console.log("호잇!"+License_one);
         console.log(License_two);
         return;
     }
     console.log(License_one);
     console.log(License_two);
-    setLicense_string_array((previousArray)=>[...previousArray,License_one||'',License_two||'',License_three||'',License_four||'',License_five||''])
-    setLicense_score(License_score);
-    console.log(License_string_array);
+    setLicense((previousArray)=>[...previousArray,License_one||'',License_two||'',License_three||'',License_four||'',License_five||''])
+    
+    console.log(license);
 }
 
 
@@ -172,10 +174,13 @@ const add_string_handler_license = () =>{
 const company_Select_Component_University_total_and_score = () =>{
     // !key-value형태로 데이터를 넣어야한다 company?.companyTelNumber만 넣으면 key값이 없기 때문에 앞에 key를 추가해준다 
     const send_Data = {companyTelNumber: company?.companyTelNumber,
-                       grade_one_string_array,Grade_One_University_score,
-                       grade_two_string_array,Grade_Two_University_score,
-                       grade_three_string_array,Grade_Three_University_score,
-                       grade_etc_string_array,Grade_Etc_University_score};
+        first_grade_university,first_grade_university_score,
+        second_grade_university,second_grade_university_score,
+        third_grade_university,third_grade_university_score,
+        etc_grade_university,etc_grade_university_score};
+
+    console.log("이게 왜 null이지? : "+ first_grade_university);
+    console.log("이것도 0으로 나와 :" + first_grade_university_score);
 
     axios.post(COMPANY_SELECT_UNIVERSITY,send_Data,authorizationHeader(accessToken))
             .then((response)=>company_Select_University_ResponseHandler(response))
@@ -185,7 +190,7 @@ const company_Select_Component_University_total_and_score = () =>{
 
 
 const comapny_Select_Component_Carrer = () =>{
-    const send_Data = {companyTelNumber:company?.companyTelNumber,Carrer_string_array,Carrer_score};
+    const send_Data = {companyTelNumber:company?.companyTelNumber,carrer,carrer_score};
 
     axios.post(COMPANY_SELECT_CARRER,send_Data,authorizationHeader(accessToken))
             .then((response)=>company_Select_Carrer_ResponseHandler(response))
@@ -194,7 +199,7 @@ const comapny_Select_Component_Carrer = () =>{
 }
 
 const company_Select_Component_License = () =>{
-    const send_Data = {companyTelNumber:company?.companyTelNumber,License_string_array,License_score};
+    const send_Data = {companyTelNumber:company?.companyTelNumber,license,license_score};
 
     axios.post(COMPANY_SELECT_LICENSE,send_Data,authorizationHeader(accessToken))
             .then((response)=>company_Select_License_ResponseHandler(response))
@@ -204,7 +209,7 @@ const company_Select_Component_License = () =>{
 // ! 가장 먼저 불리는 함수
 const UpLoad_company_select_component_Handler = () =>{
 
-    if(grade_one_string_array==null || grade_two_string_array==null || grade_three_string_array==null || grade_etc_string_array==null ||Carrer_string_array==null || License_string_array==null ){
+    if(first_grade_university==null || second_grade_university==null || third_grade_university==null || etc_grade_university==null ||carrer==null || license==null ){
         alert('모든 사항을 선택해 주세요');
         return;
       }
@@ -230,7 +235,7 @@ const company_Select_University_ResponseHandler = (response : AxiosResponse<any,
         return;
       }
 
-    navigator('/myCompanyPage');
+    
     
 
 }
@@ -244,7 +249,7 @@ const company_Select_Carrer_ResponseHandler = (response : AxiosResponse<any,any>
         return;
       }
 
-    navigator('/myCompanyPage');
+    
     
 
 }
@@ -259,7 +264,7 @@ const company_Select_License_ResponseHandler = (response : AxiosResponse<any,any
         return;
       }
 
-    navigator('/myCompanyPage');
+      navigator('/myCompanyPage/{company.companyTelNumber}');
     
 
 }
@@ -327,7 +332,7 @@ const company_Select_ComponentError =(error:any)=>{
                                     sx={{width:'200px', ml:'55px' }} 
                                     options={company_first_grade_university_score} disablePortal 
                                     renderInput={(params) => <TextField {...params} label="1등급 학교 점수" /> }
-                                    onChange={(event,value)=>setGrade_One_University_score(value?.label)}
+                                    onChange={(event,value)=>setFirst_grade_university_score(value?.label)}
                                     />
                                 </Grid>
                                 <Grid item xs={10.5} sx={{display:'flex', justifyContent: 'center'}}>
@@ -390,7 +395,7 @@ const company_Select_ComponentError =(error:any)=>{
                                     sx={{width:'200px', ml:'55px' }} 
                                     options={company_second_grade_university_score} disablePortal 
                                     renderInput={(params) => <TextField {...params} label="2등급 학교 점수" /> }
-                                    onChange={(event,value)=>setGrade_One_University_score(value?.label)}
+                                    onChange={(event,value)=>setSecond_grade_university_score(value?.label)}
                                     />
                                 </Grid>
                                 <Grid item xs={10.5} sx={{display:'flex', justifyContent: 'center'}}>
@@ -453,7 +458,7 @@ const company_Select_ComponentError =(error:any)=>{
                                     sx={{width:'200px', ml:'55px' }} 
                                     options={company_first_grade_university_score} disablePortal 
                                     renderInput={(params) => <TextField {...params} label="3등급 학교 점수" /> }
-                                    onChange={(event,value)=>setGrade_One_University_score(value?.label)}
+                                    onChange={(event,value)=>setThird_grade_university_score(value?.label)}
                                     />
                                 </Grid>
                                 <Grid item xs={10.5} sx={{display:'flex', justifyContent: 'center'}}>
@@ -516,7 +521,7 @@ const company_Select_ComponentError =(error:any)=>{
                                     sx={{width:'200px', ml:'55px' }} 
                                     options={company_first_grade_university_score} disablePortal 
                                     renderInput={(params) => <TextField {...params} label="기타등급 학교 점수" /> }
-                                    onChange={(event,value)=>setGrade_One_University_score(value?.label)}
+                                    onChange={(event,value)=>setEtc_grade_university_score(value?.label)}
                                     />
                                 </Grid>
                                 <Grid item xs={10.5} sx={{display:'flex', justifyContent: 'center'}}>
