@@ -8,13 +8,14 @@ import GetCompanyListResponseDto from './Get-Company-List.response.dto';
 import UpLoadCompanySelectComponentResponseDto from './Up-Load-Company-Select-Component.response.dto';
 import GetMyCompanyListResponseDto from './Get-My-Company-List.response.dto'
 import CompanyInfoPatchResponseDto from './Patch-Company-Profile.response.dto'
+import GetSearchListResponseDto from './Get-Search-List-response.dto'
 
 export type {
     GetCompanyResponseDto,
     PatchCompanyProfileResponseDto,
     ValidateCompanyEmailResponseDto,
     ValidateCompanytelNumberResponseDto,
-    
+    GetSearchListResponseDto,
     GetTop3CompanyListResponseDto,
     GetListResponseDto,
     GetCompanyListResponseDto,
