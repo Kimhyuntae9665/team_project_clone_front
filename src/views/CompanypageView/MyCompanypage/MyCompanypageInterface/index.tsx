@@ -20,6 +20,7 @@ export default function MyCompanypageInterfaceView() {
 //      HOOK        //
 const navigator = useNavigate();
 const {company,setCompany} = useCompanyStore();
+const [university_response_data,setUniversity_response_data] = useState<SelectUniversityResponseDto>({companyTelNumber:'',first_grade_university:[]});
 // ? undefined, 랑 null이랑 다르다 
 const [Grade_One_University_one,setGrade_One_University_one] = useState<string | undefined>('');
 const [Grade_One_University_two,setGrade_One_University_two] = useState<string | undefined>('');
@@ -236,6 +237,7 @@ const company_Select_University_ResponseHandler = (response : AxiosResponse<any,
       }
 
     
+    setUniversity_response_data(data.university_data); 
     
 
 }
@@ -263,7 +265,7 @@ const company_Select_License_ResponseHandler = (response : AxiosResponse<any,any
         alert(message);
         return;
       }
-
+    // ? 마지막으로 License까지 등록한 후에는 다시 회사페이지로 돌아오기    
       navigator('/myCompanyPage/{company.companyTelNumber}');
     
 
