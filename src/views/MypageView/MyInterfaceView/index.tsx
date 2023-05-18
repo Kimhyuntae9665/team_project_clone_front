@@ -1,12 +1,13 @@
-import { Autocomplete, Box ,Grid, TextField } from "@mui/material";
+import { Autocomplete, Box ,Grid, IconButton, TextField } from "@mui/material";
 
 export default function MyInterfaceView() {
 
 
     return(
         <Box> 
-        <Grid container sx={{ p:'20px 20px'}}>
-                <Grid item sx={{display:'flex', alignItems:'center', p:'20px',width:'100%', height: '100%', border:'2px solid black', pb:'100px'}}>
+        <Grid container sx={{  pt:'40px', pb:'20px',pl:'50px',pr: '50px'}}>
+                <Grid item sx={{ p:'20px',width:'100%', height: '100%', border:'2px solid black', pb:'50px'}}>
+                    <Grid item sx={{display:'flex', alignItems:'center'}}>
                     <Grid item xs={6}>
                         <Autocomplete 
                         sx={{width:'200px', ml:'55px' }} 
@@ -28,16 +29,23 @@ export default function MyInterfaceView() {
                         renderInput={(params) => <TextField {...params} label="자격증" />}
                         />
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={6} sx={{display:'flex', flexDirection: 'column'}}>
                         <TextField 
                         sx={{width:'200px', ml:'55px' }}
                         multiline
                         label="기타 입력사항"
                         placeholder="자유롭게 입력해주세요."
                         />
+                        
                     </Grid>
+                    </Grid>
+                    <Box sx={{ display:'flex', alignItems:'center',justifyContent:'right',pr:'80px'}}>
+                        <IconButton>저장</IconButton>
+                    </Box>
                 </Grid>
+                
             </Grid>
+                
             </Box>
     )
 }

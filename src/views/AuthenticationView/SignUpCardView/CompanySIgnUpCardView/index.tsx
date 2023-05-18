@@ -146,11 +146,11 @@ function SecondPage(){
         const data: ValidateCompanyTelNumberDto = {companyTelNumber};
 
         axios.post(VALIDATE_COMPANY_TEL_NUMBER_URL, data) 
-        .then((response) => validateUserTelNumberResponseHandler(response))
+        .then((response) => validateCompanyTelNumberResponseHandler(response))
         .catch((error) => validateCompanyTelNumberErrorHandler(error))
     }
 
-    const validateUserTelNumberResponseHandler = (response: AxiosResponse<any, any>) => {
+    const validateCompanyTelNumberResponseHandler = (response: AxiosResponse<any, any>) => {
         const {result, data, message} = response.data as ResponseDto<ValidateCompanytelNumberResponseDto>
         if(!result || !data) {
             alert(message);

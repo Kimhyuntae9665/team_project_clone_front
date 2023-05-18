@@ -1,11 +1,11 @@
 interface Dto {
-    companyAddress: string;
-    companyEmail: string;
+    companyTelNumber: string;
     companyName: string;
     companyProfileUrl: string | null;
-    companyTelNumber: string;
+    companyAddress: string;
     companyCategory: string;
-    companyPassword: string;
+    companyEmail: string;
+    companyPassword : string;
 }
 
 export default Dto;

@@ -1,8 +1,8 @@
 import { AppBar, Box, Button, FormControl, IconButton, InputAdornment, OutlinedInput, Toolbar, Typography, makeStyles, styled } from "@mui/material";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
-import { Company, User } from "src/interfaces";
 import { useCompanyStore } from "src/stores/companystores";
+import { Company, User } from "src/interfaces";
 import { useUserStore } from "src/stores/userstores";
 
 
