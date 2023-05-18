@@ -5,9 +5,11 @@ import ValidateCompanytelNumberResponseDto from "./Validate-Company-telNumber.re
 import GetTop3CompanyListResponseDto from './Get-Top3-List.response.dto';
 import GetListResponseDto from './Get-List.response.dto';
 import GetCompanyListResponseDto from './Get-Company-List.response.dto';
-import UpLoadCompanySelectComponentResponseDto from './Up-Load-Company-Select-Component.response.dto';
 import GetMyCompanyListResponseDto from './Get-My-Company-List.response.dto'
 import CompanyInfoPatchResponseDto from './Patch-Company-Profile.response.dto'
+import {SelectUniversityResponseDto} from './Up-Load-Company-Select-Component.response.dto';
+import { SelectCarrerResponseDto } from './Up-Load-Company-Select-Component.response.dto';
+import { SelectLicenseResponseDto } from './Up-Load-Company-Select-Component.response.dto';
 
 export type {
     GetCompanyResponseDto,
@@ -18,8 +20,10 @@ export type {
     GetTop3CompanyListResponseDto,
     GetListResponseDto,
     GetCompanyListResponseDto,
-    UpLoadCompanySelectComponentResponseDto,
     GetMyCompanyListResponseDto,
-    CompanyInfoPatchResponseDto
+    CompanyInfoPatchResponseDto,
+    SelectUniversityResponseDto,
+    SelectCarrerResponseDto,
+    SelectLicenseResponseDto
     
 }

@@ -4,7 +4,7 @@ interface Company{
     companyName: string;
     companyProfileUrl: string | null;
     companyAddress: string;
-    companyCategory: string;
+    companyCategory: string|null;
     companyEmail: string;
     companyPassword : string;
     
