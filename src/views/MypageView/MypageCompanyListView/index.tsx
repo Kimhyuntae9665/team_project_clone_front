@@ -36,15 +36,15 @@ export default function MyPageCompanyListView (){
         console.log(error.message);
     }
 
-    // useEffect(() => {
-    //     const accessToken = cookies.accessToken;
-    //     //? 로그인이 되어있지 않으면 로그인 페이지로 이동
-    //     if ( !accessToken) {
-    //         alert('로그인이 필요한 작업입니다.');
-    //         navigator('/');
-    //     }
-    //     getMyList(accessToken);
-    // },[]);
+    useEffect(() => {
+        const accessToken = cookies.accessToken;
+        //? 로그인이 되어있지 않으면 로그인 페이지로 이동
+        if ( !accessToken) {
+            alert('로그인이 필요한 작업입니다.');
+            navigator('/');
+        }
+        getMyList(accessToken);
+    },[]);
 
     return (
 
