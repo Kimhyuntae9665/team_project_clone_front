@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useCompanyStore } from "src/stores/companystores";
 import { Company, User } from "src/interfaces";
 import { useUserStore } from "src/stores/userstores";
+import {KeyboardEvent, useState} from 'react'
 
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -20,11 +21,23 @@ export default function NavigationBar() {
   const {company,setCompany} = useCompanyStore();
   const {resetCompany} = useCompanyStore();
   const [cookies, setCookies] = useCookies();
+  const [content, setContent] = useState<string>('');
 
 
 
 //    Event Handler  //
+const onSearchKeyPressHandler = (event: KeyboardEvent<HTMLDivElement>) => {
+    if(event.key !== 'Enter') return;
+    onSearchHandler();
+}
 
+const onSearchHandler = () => {
+    if(!content.trim()){
+        alert('검색어를 입력하세요.');
+        return;
+    }
+    navigator(`/search/${content}`)
+}
 
 const UserLogOutHandler = () =>{
 
@@ -63,11 +76,13 @@ const PointerDiv = styled('div')({
                         <FormControl variant="outlined" sx={{mr:'10px'}}>
                             <OutlinedInput size="small" type="text" placeholder="검색어를 입력해주세요." endAdornment={
                                 <InputAdornment position="end">
-                                    <IconButton edge='end'>
+                                    <IconButton edge='end' onClick={onSearchHandler}>
                                         <SearchIcon/>
                                     </IconButton>
                                 </InputAdornment>
                             }
+                            onChange={(event) => setContent(event.target.value)}
+                            onKeyPress={(event) => onSearchKeyPressHandler(event)}
                             />
                         </FormControl>
                     </Box>

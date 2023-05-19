@@ -34,5 +34,5 @@ export const mutipartHeadler = () => {
     return { headers: {'Content-Type': 'multipart/form-data' } };
 }
 
-export const GET_SEARCH_LIST_URL = (content: string, previous: string) => previous ? `${HOST}search-list/${content}/${previous}` : `${HOST}search-list/${content}`
+export const GET_SEARCH_LIST_URL = (content: string, previous: string) => previous ? `${HOST}search/search-list/${content}/${previous}` : `${HOST}search/search-list/${content}`
 
