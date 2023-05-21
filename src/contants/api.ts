@@ -28,6 +28,7 @@ export const PATCH_USER_PROFILE_URL =`${HOST}user/profile`;
 
 export const FILE_COMPANY_UPLOAD_URL= `${HOST}company-file/companyUpload`;
 export const PATCH_COMPANY_PROFILE = `${HOST}company/companyProfile`;
+
 export const authorizationHeader = (accessToken: string) =>{
     return {headers:{Authorization:`Bearer ${accessToken}`}}
 }
