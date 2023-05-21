@@ -36,8 +36,8 @@ export default function MainHead() {
         console.log(error.message);
     }
     useEffect(() => {
-        // getTop3List();
-        setTop3List(COMPANYLISTTOP3);
+        getTop3List();
+        // setTop3List(COMPANYLISTTOP3);
     },[])
 
     
