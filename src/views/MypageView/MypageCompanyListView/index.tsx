@@ -10,8 +10,13 @@ import useCompanyPagingHook from "src/hooks/paging.hook";
 import { getPageCount } from "src/utils";
 import { useUserStore } from "src/stores/userstores";
 import { useCookies } from "react-cookie";
+import companyStore from "src/stores/companystores/company.store";
 
 export default function MyPageCompanyListView (){
+    
+    // Hook //
+
+    
 
     const navigator = useNavigate();
 

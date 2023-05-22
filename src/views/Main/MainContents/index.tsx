@@ -44,7 +44,7 @@ export default function MainContents(){
         <Box>
         <Box sx={{ p:'15px' ,border: '3px solid black', textAlign:'center', alignItems:'flex-start'}}>
           <Grid container spacing={3}> 
-                    {companyList.map((company) => (<Grid item sm={12} md={2}  ><CompanyListItem companyListItem={company as GetCompanyListResponseDto} /></Grid>))}
+            {companyList.map((company) => (<Grid item sm={12} md={2}><CompanyListItem companyListItem={company as GetCompanyListResponseDto} /></Grid>))}
           </Grid>
         </Box>
         </Box>
