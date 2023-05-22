@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 import { Avatar, Box, Grid, Typography } from "@mui/material"
-=======
-import { Avatar, Box, Typography } from "@mui/material"
 import companyStore from "src/stores/companystores/company.store";
->>>>>>> 274b5adafe3973a3d652d46fc8a75fba09b6529c
 
 export default function CompanyPageHead(){
     // Hook //
@@ -42,24 +38,6 @@ export default function CompanyPageHead(){
                         <Typography>회사 소개글 : </Typography>
                     </Box>
                 </Box>
-<<<<<<< HEAD
-=======
-                <Box sx={{p:'40px 40px',width:'30%'}}>
-                    <Typography sx={{fontSize:'30px'}}>연락처:{company?.companyTelNumber}</Typography>
-                    <Typography sx={{fontSize:'30px'}}>이메일:{company?.companyEmail}</Typography>
-                    <Typography sx={{fontSize:'30px'}}>주소:{company?.companyAddress}</Typography>
-                    <Typography sx={{fontSize:'30px'}}>업종:{company?.companyCategory}</Typography>
-                </Box>
-                <Box sx={{p:'40px 20px',width:'30%'}}>
-                    <Typography sx={{fontSize:'30px'}}>평균 연봉:</Typography>
-                    <Typography sx={{fontSize:'30px'}}>설립일</Typography>
-                    <Typography sx={{fontSize:'30px'}}>홈페이지 주소</Typography>
-                    <Typography sx={{fontSize:'30px'}}>매출액</Typography>
-                </Box>
-        </Box>
-            <Box sx={{m:'10px 10px'}}>
-                <Typography sx={{fontSize:'20px'}}>회사 소개글: </Typography>
->>>>>>> 274b5adafe3973a3d652d46fc8a75fba09b6529c
             </Box>
         </Box>
     )
