@@ -1,5 +1,9 @@
+<<<<<<< HEAD
+import { Avatar, Box, Grid, Typography } from "@mui/material"
+=======
 import { Avatar, Box, Typography } from "@mui/material"
 import companyStore from "src/stores/companystores/company.store";
+>>>>>>> 274b5adafe3973a3d652d46fc8a75fba09b6529c
 
 export default function CompanyPageHead(){
     // Hook //
@@ -8,11 +12,38 @@ export default function CompanyPageHead(){
 
     return(
         <Box>
-        <Box sx={{display:'flex'}}>
-                <Box sx={{ width:'30%', m:'50px 50px'}}>
-                    <Avatar sx={{width:'150px', height:'150px',ml:'110px'}}/>
-                    <Typography sx={{ml:'145px', fontSize:'30px', fontWeight:'600'}}>A회사</Typography>
+        <Grid container sx={{ justifyContent: 'center' }}>
+                <Grid item xs={3} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
+                    <Avatar sx={{width:'150px', height:'150px'}}/>
+                    <Typography sx={{textAlign:'center', fontSize:'30px', fontWeight:'600'}}>A회사</Typography>
+                </Grid>
+                <Grid item xs={4} sx={{ p: '40px 40px', display: 'flex', alignItems: 'center' }}>
+                    <Box sx={{ border: '1px solid rgba(0, 0, 0, 0.2)', height: '150px', marginRight: '10px' }}></Box>
+                    <Grid container direction="column">
+                        <Typography sx={{ fontSize: '25px' }}>연락처</Typography>
+                        <Typography sx={{ fontSize: '25px' }}>이메일</Typography>
+                        <Typography sx={{ fontSize: '25px' }}>주소</Typography>
+                        <Typography sx={{ fontSize: '25px' }}>업종</Typography>
+                    </Grid>
+                </Grid>
+                <Grid item xs={4} sx={{ p: '40px 10px', display: 'flex', alignItems: 'center' }}>
+                    <Box sx={{ border: '1px solid rgba(0, 0, 0, 0.2)', height: '150px', marginRight: '10px' }}></Box>
+                    <Grid container direction="column">
+                        <Typography sx={{ fontSize: '25px' }}>평균 연봉</Typography>
+                        <Typography sx={{ fontSize: '25px' }}>회사 설립일</Typography>
+                        <Typography sx={{ fontSize: '25px' }}>홈페이지 주소</Typography>
+                        <Typography sx={{ fontSize: '25px' }}>회사 매출액</Typography>
+                    </Grid>
+                </Grid>
+        </Grid>
+            <Box sx = {{ pt: '20px', pb: '30px', ml:'50px', mr:'50px' }}>
+                <Box sx={{ pt: '10px', pr: '10px', pl:'10px', border: '2px solid rgba(0, 0, 0, 0.2)', pb:'50px' }}>
+                    <Box sx={{display:'flex'}}>
+                        <Typography>회사 소개글 : </Typography>
+                    </Box>
                 </Box>
+<<<<<<< HEAD
+=======
                 <Box sx={{p:'40px 40px',width:'30%'}}>
                     <Typography sx={{fontSize:'30px'}}>연락처:{company?.companyTelNumber}</Typography>
                     <Typography sx={{fontSize:'30px'}}>이메일:{company?.companyEmail}</Typography>
@@ -28,6 +59,7 @@ export default function CompanyPageHead(){
         </Box>
             <Box sx={{m:'10px 10px'}}>
                 <Typography sx={{fontSize:'20px'}}>회사 소개글: </Typography>
+>>>>>>> 274b5adafe3973a3d652d46fc8a75fba09b6529c
             </Box>
         </Box>
     )
