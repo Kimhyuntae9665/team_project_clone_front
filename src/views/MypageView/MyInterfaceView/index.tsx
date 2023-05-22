@@ -157,9 +157,7 @@ export default function MyInterfaceView() {
                         <Button variant="contained" color="secondary" onClick={My_info_upload}>내 정보 저장</Button>
                     </Box>
                 </Grid>
-                
             </Grid>
-                
             </Box>
     )
 }

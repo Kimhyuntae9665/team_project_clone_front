@@ -7,6 +7,7 @@ import ResponseDto from "src/apis/response";
 import { CompanyInfoPatchResponseDto, PatchCompanyProfileResponseDto } from "src/apis/response/company";
 import { FILE_COMPANY_UPLOAD_URL, PATCH_COMPANY_PROFILE, authorizationHeader, mutipartHeadler } from "src/contants/api";
 import companyStore from "src/stores/companystores/company.store";
+import CompanyInformationMain from "../../CompanyInformation";
 
 
 export default function MyCompanypageHeadView() {
@@ -113,15 +114,15 @@ export default function MyCompanypageHeadView() {
                         <Box sx={{  alignItems: 'center' }}>
                             <Typography sx={{fontSize: '24px', fontWeight: 500, color: 'rgba(0,0,0,0.7)'}}>회사 이름 : {company?.companyName} </Typography>
                             <Typography sx={{mt: '10px', fontSize: '16px', fontWeight: 500, color: 'rgba(0,0,0,0.4)' }}>회사 번호 : {company?.companyTelNumber}</Typography>
-                            <Typography sx={{mt: '10px', fontSize: '16px', fontWeight: 500, color: 'rgba(0,0,0,0.4)' }}>회사 업종 : {company?.companyCategory}</Typography>
+                            <Typography sx={{mt: '10px', fontSize: '16px', fontWeight: 500, color: 'rgba(0,0,0,0.4)' }}>회사 이메일 : {company?.companyEmail}</Typography>
                             <Typography sx={{ mt: '10px', fontSize: '16px', fontWeight: 500, color: 'rgba(0,0,0,0.4)' }}>회사 주소 : {company?.companyAddress}</Typography>
                         </Box>
                     </Box>
             </Grid>
             <Grid item xs={2}>
                 <FormControl  variant='outlined'>
-                    <Button variant="contained" color="secondary"  sx={{mt:'25px',width:'120px', height:'100px', mb:'30px'}} >
-                        <Typography sx={{fontSize:'20px', fontWeight:'400'}}>회사정보 수정</Typography>
+                    <Button variant="contained" color="secondary"  sx={{mt:'25px',width:'120px', height:'100px', mb:'30px'}}onClick = {()=>navigator('/myCompanyPage/CompanyInformation')}>
+                        <Typography sx={{fontSize:'20px', fontWeight:'400'}} >회사정보 수정</Typography>
                     </Button>
                 </FormControl>
             </Grid>
