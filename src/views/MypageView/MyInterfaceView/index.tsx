@@ -43,9 +43,7 @@ export default function MyInterfaceView() {
                         <IconButton>저장</IconButton>
                     </Box>
                 </Grid>
-                
             </Grid>
-                
             </Box>
     )
 }

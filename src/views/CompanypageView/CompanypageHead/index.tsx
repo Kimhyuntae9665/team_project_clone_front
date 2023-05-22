@@ -1,7 +1,10 @@
 import { Avatar, Box, Typography } from "@mui/material"
+import companyStore from "src/stores/companystores/company.store";
 
 export default function CompanyPageHead(){
-    
+    // Hook //
+
+    const {company, setCompany} = companyStore();
 
     return(
         <Box>
@@ -11,13 +14,13 @@ export default function CompanyPageHead(){
                     <Typography sx={{ml:'145px', fontSize:'30px', fontWeight:'600'}}>A회사</Typography>
                 </Box>
                 <Box sx={{p:'40px 40px',width:'30%'}}>
-                    <Typography sx={{fontSize:'30px'}}>연락처</Typography>
-                    <Typography sx={{fontSize:'30px'}}>이메일</Typography>
-                    <Typography sx={{fontSize:'30px'}}>주소</Typography>
-                    <Typography sx={{fontSize:'30px'}}>업종</Typography>
+                    <Typography sx={{fontSize:'30px'}}>연락처:{company?.companyTelNumber}</Typography>
+                    <Typography sx={{fontSize:'30px'}}>이메일:{company?.companyEmail}</Typography>
+                    <Typography sx={{fontSize:'30px'}}>주소:{company?.companyAddress}</Typography>
+                    <Typography sx={{fontSize:'30px'}}>업종:{company?.companyCategory}</Typography>
                 </Box>
                 <Box sx={{p:'40px 20px',width:'30%'}}>
-                    <Typography sx={{fontSize:'30px'}}>평균 연봉</Typography>
+                    <Typography sx={{fontSize:'30px'}}>평균 연봉:</Typography>
                     <Typography sx={{fontSize:'30px'}}>설립일</Typography>
                     <Typography sx={{fontSize:'30px'}}>홈페이지 주소</Typography>
                     <Typography sx={{fontSize:'30px'}}>매출액</Typography>
