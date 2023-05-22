@@ -17,6 +17,7 @@ import { useCookies } from 'react-cookie';
 import { useUserStore } from './stores/userstores';
 import NotFoundPage from './views/ErrorPage';
 import CompanyInformationMain from './views/CompanypageView/CompanyInformation';
+import SearchView from './views/SearchView';
 
 function App() {
   const path = useLocation();
@@ -48,6 +49,7 @@ function App() {
         </Route>
       </Route>
       <Route path='/myPage' element={(<MyPage/>)}/>
+      <Route path='/search/:content' element={(<SearchView/>)}/>
       <Route path='/myCompanyPage/:phoneNumber' element={(<MyCompanypageView/>)}/>
       <Route path='/myCompanyPage/CompanyInformation' element={(<CompanyInformationMain/>)}/>
       <Route path='/Company/:phoneNumber' element={(<CompanyPage/>)}/>
