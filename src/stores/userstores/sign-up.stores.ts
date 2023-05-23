@@ -1,4 +1,5 @@
 
+import { User } from "src/interfaces";
 import { create } from "zustand";
 
 interface ISignUpStore {
@@ -12,6 +13,11 @@ interface ISignUpStore {
     userEmailMessage: string;
     userAge: string;
     userGender: string;
+    applicantFinalEducation:string|null;
+    applicantCarrer:string|null;
+    applicantLicense:string|null;
+    applicantTotalScore:string|null;
+    applicantPercentile:string|null;
     setUserEmail: (str: string) => void;
     setUserPassword: (str: string) => void;
     setUserPasswordCheck: (str: string) => void;
@@ -21,6 +27,11 @@ interface ISignUpStore {
     setUserAddressDetail: (str: string) => void;
     setUserAge: (str:string) => void;
     setUserGender: (str:string) => void;
+    setApplicantFinalEducation:(str:string)=>void;
+    setApplicantCarrer:(str:string)=>void;
+    setApplicantLicense:(str:string)=>void;
+    setApplicantTotalScore:(str:string)=>void;
+    setApplicantPercentile:(str:string)=>void;
 
     signUpError: boolean;
     setSignUpError: (signUpError: boolean) => void;
@@ -54,6 +65,11 @@ const userStore = create<ISignUpStore>((set) => ({
     userEmailMessage: '',
     userAge: '',
     userGender: '',
+    applicantFinalEducation:'',
+    applicantCarrer:'',
+    applicantLicense:'',
+    applicantTotalScore:'',
+    applicantPercentile:'',
     setUserEmail: (userEmail) => {
         const emailValidator = /^[A-Za-z0-9]*@[A-Za-z0-9]([-.]?[A-Za-z0-9])*\.[A-Za-z0-9]{2,3}$/;
         const isMatched = emailValidator.test(userEmail);
@@ -68,6 +84,13 @@ const userStore = create<ISignUpStore>((set) => ({
     setUserAddressDetail: (userAddressDetail) => set((state) => ({...state, userAddressDetail})),
     setUserAge: (userAge) => set((state) => ({...state, userAge})),
     setUserGender: (userGender) => set((state) => ({...state, userGender})),
+    setApplicantFinalEducation:(applicantFinalEducation)=>set((state)=>({...state,applicantFinalEducation})),
+    setApplicantCarrer:(applicantCarrer) => set((state) => ({...state,applicantCarrer})),
+    setApplicantLicense:(applicantLicense) => set((state) => ({...state,applicantLicense})),
+    setApplicantTotalScore:(applicantTotalScore) => set((state) => ({...state,applicantTotalScore})),
+    setApplicantPercentile:(applicantPercentile) => set((state) => ({...state,applicantPercentile})),
+
+
 
     signUpError: false,
     setSignUpError: (signUpError: boolean) => set((state) => ({...state, signUpError})),

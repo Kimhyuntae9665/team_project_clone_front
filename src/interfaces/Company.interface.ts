@@ -7,6 +7,12 @@ interface Company{
     companyCategory: string|null;
     companyEmail: string;
     companyPassword : string;
+
+    companyHomePage:string|null;
+    companyEmployee:string|null;
+    companyAnnualSales:string|null;
+    companyStartingSalary:string|null;
+    companyContents:string|null;
     
 
 

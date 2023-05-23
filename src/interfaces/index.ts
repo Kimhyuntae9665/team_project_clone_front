@@ -25,13 +25,18 @@ export interface IUser {
 }
 export interface ICompany{
     companyTelNumber: string;
-    companyName:string;
-    companyImgUrl:string | null;
-    companyEmployeeNumber: string;
-    companyAnnualIncomeAverage: number;
-    companySales: number;
+    companyName: string;
+    companyProfileUrl: string | null;
     companyAddress: string;
-    companyHomepage: string;
+    companyCategory: string|null;
+    companyEmail: string;
+    companyPassword : string;
+
+    companyHomePage:string|null;
+    companyEmployee:string|null;
+    companyAnnualSales:string|null;
+    companyStartingSalary:string|null;
+    companyContents:string|null;
 
 }
 

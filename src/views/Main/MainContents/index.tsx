@@ -8,7 +8,7 @@ import { getPageCount } from "src/utils";
 import companyPagingHook from "src/hooks/paging.hook";
 import { GET_LIST_COMPANY } from "src/contants/api";
 import ResponseDto from "src/apis/response";
-import { COMPANYLISTTOP6 } from "src/mock";
+// import { COMPANYLISTTOP6 } from "src/mock";
 
 export default function MainContents(){
    const { viewList,pageNumber, companyList,setCompanyList,onPageHandler,COUNT } = companyPagingHook(6);
