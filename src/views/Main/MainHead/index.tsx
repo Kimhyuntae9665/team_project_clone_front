@@ -7,7 +7,7 @@ import ResponseDto from "src/apis/response";
 import { GetTop3CompanyListResponseDto } from "src/apis/response/company";
 import PreviewCard from "src/components/previewCard";
 import { GET_TOP3_COMPANY_LIST_URL } from "src/contants/api";
-import { COMPANYLISTTOP3 } from "src/mock";
+// import { COMPANYLISTTOP3 } from "src/mock";
 import { useCompanyStore } from "src/stores/companystores";
 import companyStore from "src/stores/companystores/companysign-up.stores";
 import { useUserStore } from "src/stores/userstores";
@@ -36,8 +36,8 @@ export default function MainHead() {
         console.log(error.message);
     }
     useEffect(() => {
-        // getTop3List();
-        setTop3List(COMPANYLISTTOP3);
+        getTop3List();
+        // setTop3List(COMPANYLISTTOP3);
     },[])
 
     

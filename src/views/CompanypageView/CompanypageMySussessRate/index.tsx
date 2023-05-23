@@ -1,13 +1,99 @@
 import { Box, Button, FormHelperText, Grid, Typography } from "@mui/material";
+import axios, { AxiosResponse } from "axios";
 import { useState } from "react";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
+import ResponseDto from "src/apis/response";
+import { ApplyToCompanyResponseDto } from "src/apis/response/applicant";
+import { APPLICANT_SCORE_PER_COMPANY, authorizationHeader } from "src/contants/api";
+import { useUserStore } from "src/stores/userstores";
 
 export default function CompanyPageMySuccessRate(){
+    //Hook  //
+    const [cookies] = useCookies();
+    const accessToken = cookies.accessToken;
+    const {user,setUser} = useUserStore();
+    const navigator = useNavigate();
 
+
+    const [applicant_FinalEducation,setApplicant_FinalEducation] = useState<string|undefined|null>('');
+    const [applicant_Carrer,setApplicant_Carrer]=  useState<string|undefined|null>('');
+    const [applicant_License,setApplicant_License] = useState<string|undefined|null>('');
     const [applySign, setApplySign] = useState<Boolean>(false)
-    
+
+    // Event Handler //
+
+
+    const ApplyToCompany = () =>{
+
+        setApplicant_FinalEducation(user?.applicantFinalEducation);
+        setApplicant_Carrer(user?.applicantCarrer);
+        setApplicant_License(user?.applicantLicense);
+
+        console.log("여기 :"+ applicant_FinalEducation);
+        console.log("여기 2:"+ applicant_Carrer);
+        console.log("여기 2:"+applicant_License);
+        console.log("여기 2:"+user?.userEmail);
+
+
+        const send_data = {applicantEmail:user?.userEmail,
+            applicant_FinalEducation,
+            applicant_Carrer,
+            applicant_License}
+        axios.post(APPLICANT_SCORE_PER_COMPANY,send_data,authorizationHeader(accessToken))
+             .then((response)=>ApplyToCompanyResponseHandler(response))
+             .catch((error)=>ApplyToCompanyErrorHandler(error))
+    }
+
+
     const applyCheckHandler = () => {
         setApplySign(true)
     }
+
+
+
+
+
+
+    //  Response Handler //
+
+    const ApplyToCompanyResponseHandler = (response:AxiosResponse<any,any>)=>{
+        const {result,message,data} = response.data as ResponseDto<ApplyToCompanyResponseDto>
+
+        if (!result || !data) {
+            alert(message);
+            return;
+        }
+
+
+        navigator("/Company/{phoneNumber}");
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+    //  Error Handler  //
+
+    const ApplyToCompanyErrorHandler = (error:any) =>{
+        console.log(error.message);
+
+    }
+
+
+
+
+
+
+
 
     return(
         <Grid container xs={11.2} sx={{pt: '20px', pb: '50px', ml:'50px', mr:'50px', mb:'50px', border:'2px solid black'}}>
@@ -42,7 +128,7 @@ export default function CompanyPageMySuccessRate(){
                         {
                             applySign ? (
                                 <>
-                                    <Button sx={{ mx: 'auto' }} variant="contained" color="secondary">
+                                    <Button sx={{ mx: 'auto' }} variant="contained" color="secondary" onClick={ApplyToCompany}>
                                         예
                                     </Button>
                                     <Button sx={{ mx: 'auto' }} variant="contained" color="secondary">
