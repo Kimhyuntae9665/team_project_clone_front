@@ -30,7 +30,7 @@ export default function PreviewCard({top3PreviewItem} : Props) {
                         <Typography sx={{ mt: '5px', fontSize: '12px', fontWeight: 400, color: 'rgba(255, 255, 255, 0.7)' }}>{ top3PreviewItem.companyHomepage }</Typography>
                     </Box>
                     <Box>
-                        <Typography sx={{ fontSize: '12px', fontWeight: 400, color: 'rgba(255, 255, 255, 0.7)' }}>{`월간 매출 ${top3PreviewItem.companySales} · 연간 소득 평균 ${top3PreviewItem.companyAnnualIncomeAverage} · 직원수 ${top3PreviewItem.companyEmployeeNumber}`}</Typography>
+                        <Typography sx={{ fontSize: '12px', fontWeight: 400, color: 'rgba(255, 255, 255, 0.7)' }}>{`연간 소득 평균 ${top3PreviewItem.companyAnnualIncomeAverage} · 직원수 ${top3PreviewItem.companyEmployeeNumber}`}</Typography>
                     </Box>
                 </Box>
             </Box>
