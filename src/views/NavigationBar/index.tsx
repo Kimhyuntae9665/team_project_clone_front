@@ -70,7 +70,7 @@ const PointerDiv = styled('div')({
                     component="div" 
                     sx={{ flexGrow:1, display: {xs: 'none', sm:'block', color:'#000000'} } }
                     onClick={() => navigator('/')}>
-                       <PointerDiv sx={{mr:'700px'}}>구직 사이트</PointerDiv>
+                       <PointerDiv sx={{mr:'550px'}}>구직 사이트</PointerDiv>
                     </Typography>
                     <Box sx={{display:'flex'}}>
                         <FormControl variant="outlined" sx={{mr:'10px'}}>
