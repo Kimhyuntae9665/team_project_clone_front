@@ -13,7 +13,7 @@ import companyStore from "src/stores/companystores/companysign-up.stores";
 import { useUserStore } from "src/stores/userstores";
 
 export default function MainHead() {
-    
+    //          Hook          //
     const [top3List, setTop3List] = useState<GetTop3CompanyListResponseDto[]>([]);
 
     // const { Company } = companyStore();
@@ -21,20 +21,24 @@ export default function MainHead() {
     const {company} = useCompanyStore();
     const navigator = useNavigate();
 
+    //          Event Handler          //
     const getTop3List = () => {
         axios.get(GET_TOP3_COMPANY_LIST_URL)
         .then((response) => getTop3ListResponseHandler(response))
         .catch((error) => getTop3ListErrorHandler(error));
     }
 
+    //          Response Handler          //
     const getTop3ListResponseHandler = (response: AxiosResponse<any,any>) => {
         const { result, message, data } = response.data as ResponseDto<GetTop3CompanyListResponseDto[]>;
         if ( !result || data === null) return;
         setTop3List(data);
     }
+    //          Error Handler          //
     const getTop3ListErrorHandler = (error: any) => {
         console.log(error.message);
     }
+    //          Use Effect          //
     useEffect(() => {
         getTop3List();
         // setTop3List(COMPANYLISTTOP3);
@@ -48,7 +52,7 @@ export default function MainHead() {
                 <Box>
                 <Typography  sx={{ fontSize: '24px', fontWeight: '400', p: '24px', textAlign: ' center' }}>{user.userName}님에게 추천하는 TOP3 회사</Typography>
                     <Grid container spacing={3}>
-                    {top3List.map((item)=> (
+                    {top3List.slice(0,3).map((item)=> (
                         <Grid item sm={12} md={4}>
                             <PreviewCard top3PreviewItem={item} />
                         </Grid>
@@ -59,7 +63,7 @@ export default function MainHead() {
                 <Box>
                     <Typography  sx={{ fontSize: '24px', fontWeight: '400', p: '24px', textAlign: ' center' }}>TOP3 회사</Typography>
                         <Grid container spacing={3}>
-                        {top3List.map((item)=> (
+                        {top3List.slice(0,3).map((item)=> (
                             <Grid item sm={12} md={4}>
                                 <PreviewCard top3PreviewItem={item} />
                             </Grid>
