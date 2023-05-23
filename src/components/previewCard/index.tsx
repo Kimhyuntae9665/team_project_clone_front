@@ -9,7 +9,7 @@ interface Props {
 
 export default function PreviewCard({top3PreviewItem} : Props) {
     const navigator = useNavigate();
-    const backgroundImage = `url(${top3PreviewItem.companyImgUrl})`;
+    const backgroundImage = `url(${top3PreviewItem.companyProfileUrl})`;
 
     return (
         <Card>
@@ -18,7 +18,7 @@ export default function PreviewCard({top3PreviewItem} : Props) {
                 <Box sx={{ p: '24px' }}>
                     <Box sx={{ display: 'flex' }}>
                         <Box sx={{ mr: '8px' }}>
-                            <Avatar src={ top3PreviewItem.companyImgUrl ? top3PreviewItem.companyName : '' } />
+                            <Avatar src={ top3PreviewItem.companyProfileUrl ? top3PreviewItem.companyName : '' } />
                         </Box>
                         <Box>
                             <Typography sx={{ fontSize: '12px', fontWeight: 500, color: '#ffffff' }}>{ top3PreviewItem.companyName }</Typography>
@@ -27,7 +27,7 @@ export default function PreviewCard({top3PreviewItem} : Props) {
                     </Box>
                     <Box sx={{ mt: '16px', mb: '16px' }}>
                         <Typography sx={{ fontSize: '16px', fontWeight: 500, color: '#ffffff' }}>{ top3PreviewItem.companyAddress }</Typography>
-                        <Typography sx={{ mt: '5px', fontSize: '12px', fontWeight: 400, color: 'rgba(255, 255, 255, 0.7)' }}>{ top3PreviewItem.companyHomepage }</Typography>
+                        <Typography sx={{ mt: '5px', fontSize: '12px', fontWeight: 400, color: 'rgba(255, 255, 255, 0.7)' }}>{ top3PreviewItem.companyHomePage }</Typography>
                     </Box>
                     <Box>
                         <Typography sx={{ fontSize: '12px', fontWeight: 400, color: 'rgba(255, 255, 255, 0.7)' }}>{`월간 매출 ${top3PreviewItem.companySales} · 연간 소득 평균 ${top3PreviewItem.companyAnnualIncomeAverage} · 직원수 ${top3PreviewItem.companyEmployeeNumber}`}</Typography>

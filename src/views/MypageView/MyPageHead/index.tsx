@@ -2,13 +2,13 @@ import { Avatar, Box,  Grid, Typography,IconButton } from "@mui/material";
 import axios, { AxiosResponse } from "axios";
 import { ChangeEvent, useEffect, useRef } from "react";
 import {  useCookies } from "react-cookie";
-import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { useNavigate } from "react-router-dom";
 import { PatchUserProfileDto } from "src/apis/request/user";
 import ResponseDto from "src/apis/response";
 import { PatchUserProfileResponseDto } from "src/apis/response/user";
 import {  FILE_USER_UPLOAD_URL, PATCH_USER_PROFILE_URL, authorizationHeader, mutipartHeadler } from "src/contants/api";
 import { useUserStore } from "src/stores/userstores";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 export default function MyPageHead() {
 
@@ -84,8 +84,8 @@ export default function MyPageHead() {
                     <Box sx={{ ml: '25px', display: 'flax', FlexDirection: 'column', justifyContent: 'center' }}>
                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
                             <Typography sx={{ fontSize: '24px', fontWeight: 500, color: 'rgba(0,0,0,0.7)' }}>{user?.userName}</Typography>
-                            <IconButton sx={{ mr: '10px' }} onClick={() => onProfileUploadButtonHandler()}>
-                                <EditOutlinedIcon />
+                            <IconButton sx={{ mr: '10px' }} onClick={(event) => onProfileUploadButtonHandler()}>
+                                <CheckCircleIcon />
                                 <input ref={imageRef} hidden type='file' accept = 'image/*' onChange={(event) => onProfileUploadChangeHandler(event)}/>
                             </IconButton>
                         </Box>

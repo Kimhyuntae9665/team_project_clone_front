@@ -11,6 +11,7 @@ import GetSearchListResponseDto from './Get-Search-List-response.dto'
 import {SelectUniversityResponseDto} from './Up-Load-Company-Select-Component.response.dto';
 import { SelectCarrerResponseDto } from './Up-Load-Company-Select-Component.response.dto';
 import { SelectLicenseResponseDto } from './Up-Load-Company-Select-Component.response.dto';
+import InsertCompanyInfoResponseDto from './Add-Company-Info.response.dto';
 
 export type {
     GetCompanyResponseDto,
@@ -25,6 +26,7 @@ export type {
     CompanyInfoPatchResponseDto,
     SelectUniversityResponseDto,
     SelectCarrerResponseDto,
-    SelectLicenseResponseDto
+    SelectLicenseResponseDto,
+    InsertCompanyInfoResponseDto
     
 }

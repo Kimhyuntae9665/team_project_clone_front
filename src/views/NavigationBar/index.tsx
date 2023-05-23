@@ -6,8 +6,7 @@ import { Company, User } from "src/interfaces";
 import { useUserStore } from "src/stores/userstores";
 import {KeyboardEvent, useState} from 'react'
 
-import SearchIcon from '@mui/icons-material/Search';
-
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 export default function NavigationBar() {
 
@@ -77,7 +76,7 @@ const PointerDiv = styled('div')({
                             <OutlinedInput size="small" type="text" placeholder="검색어를 입력해주세요." endAdornment={
                                 <InputAdornment position="end">
                                     <IconButton edge='end' onClick={onSearchHandler}>
-                                        <SearchIcon/>
+                                        <CheckCircleIcon/>
                                     </IconButton>
                                 </InputAdornment>
                             }
