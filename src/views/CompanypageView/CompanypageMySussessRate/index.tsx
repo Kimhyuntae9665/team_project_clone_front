@@ -2,6 +2,7 @@ import { Box, Grid, Typography } from "@mui/material";
 import axios, { AxiosResponse } from "axios";
 import { useState } from "react";
 import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 import ResponseDto from "src/apis/response";
 import { ApplyToCompanyResponseDto } from "src/apis/response/applicant";
 import { APPLICANT_SCORE_PER_COMPANY, authorizationHeader } from "src/contants/api";
@@ -12,6 +13,7 @@ export default function CompanyPageMySuccessRate(){
     const [cookies] = useCookies();
     const accessToken = cookies.accessToken;
     const {user,setUser} = useUserStore();
+    const navigator = useNavigate();
 
 
     const [applicant_FinalEducation,setApplicant_FinalEducation] = useState<string|undefined|null>('');
@@ -26,6 +28,12 @@ export default function CompanyPageMySuccessRate(){
         setApplicant_FinalEducation(user?.applicantFinalEducation);
         setApplicant_Carrer(user?.applicantCarrer);
         setApplicant_License(user?.applicantLicense);
+
+        console.log("여기 :"+ applicant_FinalEducation);
+        console.log("여기 2:"+ applicant_Carrer);
+        console.log("여기 2:"+applicant_License);
+        console.log("여기 2:"+user?.userEmail);
+
 
         const send_data = {applicantEmail:user?.userEmail,
             applicant_FinalEducation,
@@ -50,6 +58,11 @@ export default function CompanyPageMySuccessRate(){
             alert(message);
             return;
         }
+
+
+        navigator("/Company/{phoneNumber}");
+
+
 
 
 
@@ -103,6 +116,9 @@ export default function CompanyPageMySuccessRate(){
                         </Grid>
                     </Grid>
                 </Grid>
-            </Grid>
+        </Grid>
+
+        
+            
     )
 }
