@@ -31,7 +31,9 @@ export const PATCH_USER_PROFILE_URL =`${HOST}user/profile`;
 export const FILE_COMPANY_UPLOAD_URL= `${HOST}company-file/companyUpload`;
 export const PATCH_COMPANY_PROFILE = `${HOST}company/companyProfile`;
 
-export const APPLICANT_SCORE_PER_COMPANY = `${HOST}applicant/score/{company_Tel_Number}`
+export const APPLICANT_SCORE_PER_COMPANY =(company_Tel_Number:string) =>`${HOST}applicant/score/${company_Tel_Number}`;
+
+export const GET_APPLICANT_DATA = `${HOST}applicant/get-data`;
 
 export const authorizationHeader = (accessToken: string) =>{
     return {headers:{Authorization:`Bearer ${accessToken}`}}

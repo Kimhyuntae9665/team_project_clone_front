@@ -25,17 +25,24 @@ export default function MyPageCompanyListView (){
     const {user} = useUserStore();
     const [cookies] = useCookies();
 
+    //  Event Handler //
+
     const getMyList = (accessToken:string) => {
         axios.get (GET_MY_COMPANY_LIST_URL, authorizationHeader(accessToken))
         .then((response) => getMyListResponseHandler(response))
         .catch((error) => getMyListErrorHandler(error))
     }
 
+    // Response Handler //
+
     const getMyListResponseHandler =(response: AxiosResponse<any,any>) =>{
         const {result,message,data} = response.data as ResponseDto<GetMyCompanyListResponseDto[]>
         if(!result || data === null) return;
-        // setCompanyList(data);
+        
+        setCompanyList(data);
     }
+
+    // Error Handler //
 
     const getMyListErrorHandler = (error:any) => {
         console.log(error.message);
@@ -60,7 +67,7 @@ export default function MyPageCompanyListView (){
             <Box>
                 <Box sx={{ p:'15px' ,border: '3px solid black', textAlign:'center', alignItems:'flex-start'}}>
                     <Grid container spacing={3}> 
-                            {viewList.map((companyList) => (<Grid item sm={12} md={2}  ><CompanyListItem companyListItem={companyList as GetCompanyListResponseDto} /></Grid>))}
+                            {companyList.map((companyList) => (<Grid item sm={12} md={2}  ><CompanyListItem companyListItem={companyList as GetCompanyListResponseDto} /></Grid>))}
                     </Grid>
                 </Box>
             </Box>
