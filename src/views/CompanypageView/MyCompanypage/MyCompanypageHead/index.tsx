@@ -115,7 +115,7 @@ export default function MyCompanypageHeadView() {
                             <Typography sx={{fontSize: '24px', fontWeight: 500, color: 'rgba(0,0,0,0.7)'}}>회사 이름 : {company?.companyName} </Typography>
                             <Typography sx={{mt: '10px', fontSize: '16px', fontWeight: 500, color: 'rgba(0,0,0,0.4)' }}>회사 번호 : {company?.companyTelNumber}</Typography>
                             <Typography sx={{mt: '10px', fontSize: '16px', fontWeight: 500, color: 'rgba(0,0,0,0.4)' }}>회사 이메일 : {company?.companyEmail}</Typography>
-                            <Typography sx={{ mt: '10px', fontSize: '16px', fontWeight: 500, color: 'rgba(0,0,0,0.4)' }}>회사 주소 : {company?.companyAddress}</Typography>
+                            <Typography sx={{mt: '10px', fontSize: '16px', fontWeight: 500, color: 'rgba(0,0,0,0.4)' }}>회사 주소 : {company?.companyAddress}</Typography>
                         </Box>
                     </Box>
             </Grid>

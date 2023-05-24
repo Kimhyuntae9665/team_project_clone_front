@@ -62,7 +62,7 @@ export default function CompanyListCard ({companyListItem}:Props) {
                 color: "rgba(0, 0, 0, 0.7)",
               }}
             >
-              {companyListItem.companyName}
+              {companyListItem.companyAddress}
             </Typography>
           </Box>
         </Box>

@@ -7,8 +7,6 @@ export default function CompanyPageHead(){
     const {company, setCompany,resetCompany} = CompanyStore();
 
 
-    
-
     return(
         <Box>
         <Grid container sx={{ justifyContent: 'center' }}>
@@ -19,19 +17,19 @@ export default function CompanyPageHead(){
                 <Grid item xs={4} sx={{ p: '40px 40px', display: 'flex', alignItems: 'center' }}>
                     <Box sx={{ border: '1px solid rgba(0, 0, 0, 0.2)', height: '150px', marginRight: '10px' }}></Box>
                     <Grid container direction="column">
-                        <Typography sx={{ fontSize: '25px' }}>연락처</Typography>
-                        <Typography sx={{ fontSize: '25px' }}>이메일</Typography>
-                        <Typography sx={{ fontSize: '25px' }}>주소</Typography>
-                        <Typography sx={{ fontSize: '25px' }}>업종</Typography>
+                        <Typography sx={{ fontSize: '25px' }}>연락처 : {company?.companyTelNumber}</Typography>
+                        <Typography sx={{ fontSize: '25px' }}>이메일 : {company?.companyEmail}</Typography>
+                        <Typography sx={{ fontSize: '25px' }}>주소 : {company?.companyAddress}</Typography>
+                        <Typography sx={{ fontSize: '25px' }}>업종 : {company?.companyCategory}</Typography>
                     </Grid>
                 </Grid>
                 <Grid item xs={4} sx={{ p: '40px 10px', display: 'flex', alignItems: 'center' }}>
                     <Box sx={{ border: '1px solid rgba(0, 0, 0, 0.2)', height: '150px', marginRight: '10px' }}></Box>
                     <Grid container direction="column">
-                        <Typography sx={{ fontSize: '25px' }}>평균 연봉</Typography>
-                        <Typography sx={{ fontSize: '25px' }}>회사 설립일</Typography>
-                        <Typography sx={{ fontSize: '25px' }}>홈페이지 주소</Typography>
-                        <Typography sx={{ fontSize: '25px' }}>회사 매출액</Typography>
+                        <Typography sx={{ fontSize: '25px' }}>평균 연봉 : {company?.companyAnnualSales}</Typography>
+                        <Typography sx={{ fontSize: '25px' }}>회사 설립일 : {company?.companyTelNumber}</Typography>
+                        <Typography sx={{ fontSize: '25px' }}>홈페이지 주소 : {company?.companyHomePage}</Typography>
+                        <Typography sx={{ fontSize: '25px' }}>회사 직원수 : {company?.companyStartingSalary}</Typography>
                     </Grid>
                 </Grid>
         </Grid>

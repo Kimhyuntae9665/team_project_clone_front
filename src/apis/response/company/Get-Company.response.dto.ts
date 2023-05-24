@@ -6,6 +6,7 @@ interface Dto {
     companyTelNumber: string;
     companyCategory: string;
     companyPassword: string;
+
 }
 
 export default Dto;
