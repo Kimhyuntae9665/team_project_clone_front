@@ -65,6 +65,38 @@ export default function CompanyListCard ({companyListItem}:Props) {
               {companyListItem.companyName}
             </Typography>
           </Box>
+          <Box sx={{ mt: "16px", mb: "16px",display:"flex",gap:"8px",justifyContent: "space-between" }}>
+            
+              <Typography
+                sx={{
+                  mt: "5px",
+                  fontSize: "12px",
+                  fontWeight: 400,
+                  color: "rgba(0, 0, 0, 0.7)",
+                  
+                  // ?Typograph는 기본적으로 세로 정렬 ==> 가로 정렬을 원하면 inline요소를 추가 
+                  
+                }}
+              >
+                {companyListItem.applicantTotalScore}
+              </Typography>
+            
+            
+              <Typography
+                sx={{
+                  mt: "5px",
+                  fontSize: "12px",
+                  fontWeight: 400,
+                  color: "rgba(0, 0, 0, 0.7)",
+                  
+                  
+                }}
+              >
+                {companyListItem.applicantTotalScore}
+              </Typography>
+            
+          </Box>
+
         </Box>
         
       </CardActionArea>

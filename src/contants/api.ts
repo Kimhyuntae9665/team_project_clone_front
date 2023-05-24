@@ -21,7 +21,7 @@ export const COMPANY_SELECT_LICENSE = `${HOST}select/company/license`;
 
 export const USER_SELECT_COMPONENT = `${HOST}user/select-component`;
 
-export const GET_MY_COMPANY_LIST_URL =`${HOST}company/my-list`;
+export const GET_MY_COMPANY_LIST_URL =`${HOST}applicant/my-list`;
 export const INSERT_COMPANY_INFO = `${HOST}company/insertCompanyInfo`;
 export const GET_MY_SCORE = `${HOST}user/score`;
 
