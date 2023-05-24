@@ -6,3 +6,8 @@ export const getExpires = (expiredTime: number) => {
     const expires = new Date(now + expiredTime)
     return expires;
 }
+
+export const stringToArray = (string: string) => {
+    string = string.replace("\"[", "").replace("]\"", "").replaceAll("'", "").replaceAll('"', "");
+    return string.split(",");
+}
