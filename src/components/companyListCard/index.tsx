@@ -13,22 +13,23 @@ export default function CompanyListCard ({companyListItem}:Props) {
         <Card variant="outlined">
       <CardActionArea sx={{ display: "flex",height:'400px', justifyContent: "space-between", p: "24px", backgroundColor: "#ffffff"}} onClick={() => navigator(`/Company/${companyListItem.companyTelNumber}`)}>
         <Box>
-          {companyListItem.companyProfileUrl ? (
-              <Box>
-                <Box
-                  component="img"
-                  src={companyListItem.companyProfileUrl}
-                  sx={{ height: "152px", width: "152px", borderRadius: "5%", mb:'20px' }}
-                />
-              </Box>
-            ) : 
-            (<Box>
-              <Box
+        {companyListItem.companyProfileUrl ? (
+          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Box
+              component="img"
+              src={companyListItem.companyProfileUrl}
+              sx={{ height: '152px', width: '140px', borderRadius: '5%', mb: '20px' }}
+            />
+          </Box>
+        ) : (
+          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Box
               component="img"
               src="https://cdn.discordapp.com/attachments/863056937511551008/1110086770911084564/no-image-icon-6.png"
-              sx={{height:"152px", width:'152px', mb:'20px'}}>
-              </Box>
-            </Box>)}
+              sx={{ height: '152px', width: '140px', mb: '20px' }}
+            />
+          </Box>
+        )}
           <Box sx={{ display: "flex" }}>
             <Box sx={{ mr: "8px" }}>
               <Avatar alt={companyListItem.companyName} src={companyListItem.companyProfileUrl ? companyListItem.companyProfileUrl : ''} />

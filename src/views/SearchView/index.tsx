@@ -60,7 +60,7 @@ export default function SearchView() {
                 <Box>
                     <Box sx={{ p:'15px' ,border: '3px solid black', textAlign:'center', alignItems:'flex-start'}}>
                         <Grid container spacing={3}> 
-                            {companyList.length === 0 ? (<Grid item sm={12} md={12} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Typography sx={{fontSize:'24px', fontWeight: 500, color:'rgba(0, 0, 0, 0.4)', mb:'263px'}}>검색 결과가 없습니다.</Typography></Grid>) : companyList.map((company) => (<Grid item sm={12} md={4}><CompanyListItem companyListItem={company as GetCompanyListResponseDto} /></Grid>))}
+                            {companyList.length === 0 ? (<Grid item sm={12} md={12} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Typography sx={{fontSize:'24px', fontWeight: 500, color:'rgba(0, 0, 0, 0.4)', mb:'263px'}}>검색 결과가 없습니다.</Typography></Grid>) : companyList.map((company) => (<Grid item sm={12} md={2}><CompanyListItem companyListItem={company as GetCompanyListResponseDto} /></Grid>))}
                         </Grid>
                     </Box>
                 </Box>

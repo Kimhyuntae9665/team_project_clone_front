@@ -338,7 +338,7 @@ const company_Select_ComponentError =(error:any)=>{
                                     />
                                 </Grid>
                                 <Grid item xs={10.5} sx={{display:'flex', justifyContent: 'center'}}>
-                                    <Button variant="contained" color="secondary" onClick={add_string_handler_grade_one_university}>1등급학교 설정완료</Button>
+                                    <Button sx={{width:'200px', height:'56', ml:'55px'}} variant="contained" color="secondary" onClick={add_string_handler_grade_one_university}>1등급학교 설정완료</Button>
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -401,7 +401,7 @@ const company_Select_ComponentError =(error:any)=>{
                                     />
                                 </Grid>
                                 <Grid item xs={10.5} sx={{display:'flex', justifyContent: 'center'}}>
-                                    <Button variant="contained" color="secondary" onClick={add_string_handler_grade_two_university}>2등급학교 설정완료</Button>
+                                    <Button sx={{width:'200px', height:'56', ml:'55px'}} variant="contained" color="secondary" onClick={add_string_handler_grade_two_university}>2등급학교 설정완료</Button>
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -464,7 +464,7 @@ const company_Select_ComponentError =(error:any)=>{
                                     />
                                 </Grid>
                                 <Grid item xs={10.5} sx={{display:'flex', justifyContent: 'center'}}>
-                                    <Button variant="contained" color="secondary" onClick={add_string_handler_grade_three_university}>3등급학교 설정완료</Button>
+                                    <Button sx={{width:'200px', height:'56', ml:'55px'}} variant="contained" color="secondary" onClick={add_string_handler_grade_three_university}>3등급학교 설정완료</Button>
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -527,7 +527,7 @@ const company_Select_ComponentError =(error:any)=>{
                                     />
                                 </Grid>
                                 <Grid item xs={10.5} sx={{display:'flex', justifyContent: 'center'}}>
-                                    <Button variant="contained" color="secondary" onClick={add_string_handler_grade_etc_university}>기타등급학교 설정완료</Button>
+                                    <Button sx={{width:'200px', height:'56', ml:'55px'}} variant="contained" color="secondary" onClick={add_string_handler_grade_etc_university}>기타등급학교 설정완료</Button>
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -590,7 +590,7 @@ const company_Select_ComponentError =(error:any)=>{
                                     />
                                 </Grid>
                                 <Grid item xs={10.5} sx={{display:'flex', justifyContent: 'center'}}>
-                                    <Button variant="contained" color="secondary" onClick={add_string_handler_carrer}>경력우대 업종 설정완료</Button>
+                                    <Button sx={{width:'200px', height:'56', ml:'55px'}} variant="contained" color="secondary" onClick={add_string_handler_carrer}>경력우대 업종 설정완료</Button>
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -653,12 +653,17 @@ const company_Select_ComponentError =(error:any)=>{
                                     />
                                 </Grid>
                                 <Grid item xs={10.5} sx={{display:'flex', justifyContent: 'center'}}>
-                                    <Button variant="contained" color="secondary" onClick={add_string_handler_license}>우대 자격증 설정완료</Button>
+                                    <Button sx={{width:'200px', height:'56', ml:'55px'}} variant="contained" color="secondary" onClick={add_string_handler_license}>우대 자격증 설정완료</Button>
                                 </Grid>
                             </Grid>
                         </Grid>
-                    </Grid>        
-                    <Button variant="contained" color="secondary" onClick={UpLoad_company_select_component_Handler}>등록하기</Button>
+                    </Grid>
+                    <Grid container xs={12} sx={{mt:'10px'}}>
+                        <Grid item xs={10}></Grid>
+                        <Grid item xs={2} container justifyContent="flex-end" alignItems="center">
+                            <Button sx={{ mx: 'auto' }} variant="contained" color="secondary" size="large" onClick={UpLoad_company_select_component_Handler} >등록하기</Button>
+                        </Grid>
+                    </Grid>    
             </Grid>
     )
 }

@@ -45,3 +45,4 @@ export const mutipartHeadler = () => {
 
 export const GET_SEARCH_LIST_URL = (content: string, previous: string) => previous ? `${HOST}search/search-list/${content}/${previous}` : `${HOST}search/search-list/${content}`
 
+export const GET_COMPANY_URL = (companyTelNumber: string) => `${HOST}company/${companyTelNumber}`

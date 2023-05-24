@@ -7,6 +7,7 @@ import { useUserStore } from "src/stores/userstores";
 import {KeyboardEvent, useState} from 'react'
 
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import SearchIcon from '@mui/icons-material/Search';
 
 export default function NavigationBar() {
 
@@ -69,14 +70,14 @@ const PointerDiv = styled('div')({
                     component="div" 
                     sx={{ flexGrow:1, display: {xs: 'none', sm:'block', color:'#000000'} } }
                     onClick={() => navigator('/')}>
-                       <PointerDiv sx={{mr:'700px'}}>구직 사이트</PointerDiv>
+                       <PointerDiv sx={{mr:'550px'}}>구직 사이트</PointerDiv>
                     </Typography>
                     <Box sx={{display:'flex'}}>
                         <FormControl variant="outlined" sx={{mr:'10px'}}>
-                            <OutlinedInput size="small" type="text" placeholder="검색어를 입력해주세요." endAdornment={
+                            <OutlinedInput size="small" type="text" placeholder="회사명 또는 업종을 입력해주세요." endAdornment={
                                 <InputAdornment position="end">
                                     <IconButton edge='end' onClick={onSearchHandler}>
-                                        <CheckCircleIcon/>
+                                        <SearchIcon/>
                                     </IconButton>
                                 </InputAdornment>
                             }
