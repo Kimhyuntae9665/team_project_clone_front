@@ -13,7 +13,7 @@ export default function PreviewCard({top3PreviewItem} : Props) {
 
     return (
         <Card>
-        <CardActionArea sx={{ height: '508px', backgroundImage: backgroundImage, backgroundSize: 'cover', backgroundColor: '#666666' }} onClick={() => navigator(`/Company${top3PreviewItem.companyTelNumber}`)}>
+        <CardActionArea sx={{ height: '508px', backgroundImage: backgroundImage, backgroundSize: 'cover', backgroundColor: '#666666' }} onClick={() => navigator(`/Company/${top3PreviewItem.companyTelNumber}`)}>
             <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column-reverse' }}>
                 <Box sx={{ p: '24px' }}>
                     <Box sx={{ display: 'flex' }}>

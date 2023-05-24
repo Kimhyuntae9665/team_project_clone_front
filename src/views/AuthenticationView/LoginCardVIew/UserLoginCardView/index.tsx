@@ -117,6 +117,7 @@ export default function UserLoginCardView(){
                         component="span"
                         fontWeight={900}
                         onClick={() => navigator('/auth/login')}
+                        sx={{cursor:'pointer'}}
                     >
                         {" "}
                         회원가입

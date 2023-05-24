@@ -12,6 +12,7 @@ import {SelectUniversityResponseDto} from './Up-Load-Company-Select-Component.re
 import { SelectCarrerResponseDto } from './Up-Load-Company-Select-Component.response.dto';
 import { SelectLicenseResponseDto } from './Up-Load-Company-Select-Component.response.dto';
 import InsertCompanyInfoResponseDto from './Add-Company-Info.response.dto';
+import  GetCompanyPageResponseDto from './Get-CompanyPage.response.dto';
 
 export type {
     GetCompanyResponseDto,
@@ -27,6 +28,7 @@ export type {
     SelectUniversityResponseDto,
     SelectCarrerResponseDto,
     SelectLicenseResponseDto,
-    InsertCompanyInfoResponseDto
+    InsertCompanyInfoResponseDto,
+    GetCompanyPageResponseDto
     
 }
