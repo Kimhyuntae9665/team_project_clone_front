@@ -25,17 +25,29 @@ export default function MyPageCompanyListView (){
     const {user} = useUserStore();
     const [cookies] = useCookies();
 
+    //  Event Handler //
+
     const getMyList = (accessToken:string) => {
-        axios.get (GET_MY_COMPANY_LIST_URL, authorizationHeader(accessToken))
+        const send_Data = {applicantEmail:user?.userEmail}
+        axios.post (GET_MY_COMPANY_LIST_URL,send_Data,authorizationHeader(accessToken))
         .then((response) => getMyListResponseHandler(response))
         .catch((error) => getMyListErrorHandler(error))
     }
 
+    // Response Handler //
+
     const getMyListResponseHandler =(response: AxiosResponse<any,any>) =>{
+        console.log("여기까지는 완료_List 앞에 :");
         const {result,message,data} = response.data as ResponseDto<GetMyCompanyListResponseDto[]>
-        if(!result || data === null) return;
-        // setCompanyList(data);
+        if (!result || !data) {
+            alert(message);
+            return;
+        }
+        console.log("여기까지는 완료_List: "+data[0]);
+        setCompanyList(data);
     }
+
+    // Error Handler //
 
     const getMyListErrorHandler = (error:any) => {
         console.log(error.message);
@@ -60,7 +72,7 @@ export default function MyPageCompanyListView (){
             <Box>
                 <Box sx={{ p:'15px' ,border: '3px solid black', textAlign:'center', alignItems:'flex-start'}}>
                     <Grid container spacing={3}> 
-                            {viewList.map((companyList) => (<Grid item sm={12} md={2}  ><CompanyListItem companyListItem={companyList as GetCompanyListResponseDto} /></Grid>))}
+                        {companyList.map((company) => (<Grid item sm={12} md={2}  ><CompanyListItem companyListItem={company as GetCompanyListResponseDto} /></Grid>))}
                     </Grid>
                 </Box>
             </Box>

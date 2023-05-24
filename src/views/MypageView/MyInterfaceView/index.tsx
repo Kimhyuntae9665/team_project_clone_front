@@ -131,7 +131,7 @@ export default function MyInterfaceView() {
                         <Autocomplete 
                         sx={{width:'200px', ml:'55px' }} 
                         options={usercarrer} disablePortal 
-                        renderInput={(params) => <TextField {...params} label="최종학력" />}
+                        renderInput={(params) => <TextField {...params} label="업무 경력" />}
                         onChange={(event,value)=>setUserCarrer_str(value?.label)}
                         />
                     </Grid>
@@ -139,7 +139,7 @@ export default function MyInterfaceView() {
                         <Autocomplete 
                         sx={{width:'200px', ml:'55px' }} 
                         options={userlicense} disablePortal 
-                        renderInput={(params) => <TextField {...params} label="최종학력" />}
+                        renderInput={(params) => <TextField {...params} label="자격증" />}
                         onChange={(event,value)=>setUserLicense_str(value?.label)}
                         />
                     </Grid>
