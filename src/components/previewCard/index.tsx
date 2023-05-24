@@ -7,7 +7,7 @@ interface Props {
 
 }
 
-export default function PreviewCard({top3PreviewItem} : Props) {
+export default function Top3PreviewItem({top3PreviewItem} : Props) {
     const navigator = useNavigate();
     const backgroundImage = `url(${top3PreviewItem.companyProfileUrl})`;
 
