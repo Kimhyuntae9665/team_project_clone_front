@@ -1,4 +1,4 @@
-import {Box,Divider,Fab,Grid, IconButton,Input,Typography, TextField} from '@mui/material';
+import {Box,Divider,Fab,Grid, IconButton,Input,Typography, TextField, Button} from '@mui/material';
 import axios, { AxiosResponse } from 'axios';
 import { error } from 'console';
 import {useRef, useState} from 'react';
@@ -101,10 +101,10 @@ export default function CompanyInformationInterface() {
                     <Grid item sx={{display:'flex', alignItems:'center'}}>
                         <Grid item xs={4} sx={{display:'flex', flexDirection: 'column',justifyContents:'center'}}>
                             <TextField 
-                            sx={{width:'100%'}}
+                            sx={{width:'100%', '& input::placeholder': { fontSize: '10px'}}}
                             multiline
                             label="회사 홈페이지"
-                            placeholder="자유롭게 입력해주세요."
+                            placeholder="https://www 는 제외해주.."
                             onChange={(event)=>setCompanyHomePage(event?.target.value)}
                             />
                         </Grid>
@@ -148,8 +148,8 @@ export default function CompanyInformationInterface() {
                         
                 </Grid>
             </Grid>
-            <Box sx={{  pt:'10px', pb:'20px',pl:'100px',pr: '100px'}}>
-                <Box sx={{ p: '10px 5px', border:'2px solid black' }} >
+            <Box sx={{  pt:'20px', pb:'20px',pl:'100px',pr: '100px'}}>
+                <Box sx={{ p: '10px 10px', border:'2px solid black' }} >
                     <Box sx={{  alignItems: 'start' }} >
                         <Box sx={{display:'flex'}}>
                             <Typography sx={{fontSize: '24px', fontWeight: 500, color: 'rgba(0,0,0,0.7)'}} >회사 소개 글</Typography>
@@ -159,8 +159,8 @@ export default function CompanyInformationInterface() {
                             <Box sx={{width:'100%'}} component='img'  />
                         </Box>
                     </Box>
-                        <Box sx={{ display:'flex', alignItems:'center',justifyContent:'right',pr:'60px'}}>
-                            <IconButton onClick={SaveAdditionalCompanyInfo}>저장</IconButton>
+                        <Box sx={{ display:'flex', alignItems:'center',justifyContent:'right',pr:'5px'}}>
+                            <Button size='large' variant="outlined" color="secondary" onClick={SaveAdditionalCompanyInfo}>저장</Button>
                         </Box>
                 </Box>
             </Box>

@@ -82,7 +82,7 @@ function FirstPage(){
                         emailPatternCheck === null ? (<></>) :
                         !emailPatternCheck ? (<FormHelperText sx={{color:'red'}}>이메일 형식이 올바르지 않습니다.</FormHelperText>) :
                         emailValidate === null ? (<FormHelperText sx={{color:'orange'}}>이메일 중복체크를 해주세요.</FormHelperText>) :
-                        !emailValidate ? (<FormHelperText sx={{color:'red'}}>사용할 수 없는 이메일입니다.</FormHelperText>) :
+                        !emailValidate ? (<FormHelperText sx={{color:'red'}}>사용할 수 없거나 사용중인 이메일입니다.</FormHelperText>) :
                                         (<FormHelperText sx={{color:'green'}}>사용 가능한 이메일입니다.</FormHelperText>)
                     }
                     

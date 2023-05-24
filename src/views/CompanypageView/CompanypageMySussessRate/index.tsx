@@ -207,7 +207,7 @@ export default function CompanyPageMySuccessRate(){
                                     <FormHelperText sx={{color:'red', textAlign:'center', mr:'10px'}}>정말로 지원하시겠습니까?</FormHelperText>
                                 </>
                             ) : (
-                                <Button sx={{ mx: 'auto' }} variant="contained" color="secondary" onClick={applyCheckHandler}>신청하기</Button>
+                                <Button sx={{ mx: 'auto' }} variant="contained" color="secondary" onClick={applyCheckHandler}>지원하기</Button>
                             )
                         }
 
