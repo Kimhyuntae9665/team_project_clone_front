@@ -31,6 +31,9 @@ export const PATCH_USER_PROFILE_URL =`${HOST}user/profile`;
 export const FILE_COMPANY_UPLOAD_URL= `${HOST}company-file/companyUpload`;
 export const PATCH_COMPANY_PROFILE = `${HOST}company/companyProfile`;
 
+export const GET_INFO_FOR_PERCENTILE = `${HOST}applicant/get-info`;
+export const GET_PERCENTILE = (companyTelNumber:string) => `${HOST}applicant/percentile/${companyTelNumber}`;
+
 export const APPLICANT_SCORE_PER_COMPANY =(company_Tel_Number:string) =>`${HOST}applicant/score/${company_Tel_Number}`;
 
 export const GET_APPLICANT_DATA = `${HOST}applicant/get-data`;

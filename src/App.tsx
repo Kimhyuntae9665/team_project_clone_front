@@ -18,6 +18,7 @@ import { useUserStore } from './stores/userstores';
 import NotFoundPage from './views/ErrorPage';
 import CompanyInformationMain from './views/CompanypageView/CompanyInformation';
 import SearchView from './views/SearchView';
+import CompletePage from './views/CompletePageView';
 
 function App() {
   const path = useLocation();
@@ -54,6 +55,7 @@ function App() {
       <Route path='/myCompanyPage/CompanyInformation' element={(<CompanyInformationMain/>)}/>
       <Route path='/Company/:phoneNumber' element={(<CompanyPage/>)}/>
       <Route path="*" element={<NotFoundPage />} />
+      <Route path='/complete/:percentile' element={<CompletePage />} />
     </Routes>
     <Footer/>
     </>

@@ -98,7 +98,8 @@ export default function MyInterfaceView() {
             alert(message);
             return;
         }
-        alert("저장 되었습니다.");
+
+        alert("저장되었습니다");
 
     }
 
@@ -155,7 +156,7 @@ export default function MyInterfaceView() {
                     </Grid>
                     </Grid>
                     <Box sx={{ display:'flex', alignItems:'center',justifyContent:'right',pr:'80px'}}>
-                        <Button variant="contained" color="secondary" onClick={My_info_upload} >내 정보 저장</Button>
+                        <Button variant="contained" color="secondary" onClick={My_info_upload}>내 정보 저장</Button>
                     </Box>
                 </Grid>
             </Grid>
