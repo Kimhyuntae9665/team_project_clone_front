@@ -40,7 +40,7 @@ export default function MyPageHead() {
      const imageUploadResponseHandler = (response: AxiosResponse<any,any>) => {
         const userProfileUrl = response.data as string;
         const data =  { userProfileUrl }; //? 보낼때 객체로 보내야 되는데 문자열로 보내져서 안되는거였음 {}를 꼭 해서 보내야됨
-
+        
         axios.patch(PATCH_USER_PROFILE_URL, data, authorizationHeader(accessToken))
             .then((response) => patchProfileResponseHandler(response))
             .catch((error) => patchProfileErrorHandler(error));
