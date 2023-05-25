@@ -7,8 +7,10 @@ interface Props {
 
 }
 
-export default function PreviewCard({top3PreviewItem} : Props) {
+export default function Top3PreviewItem({top3PreviewItem} : Props) {
+
     const navigator = useNavigate();
+
     const backgroundImage = `url(${top3PreviewItem.companyProfileUrl})`;
 
     return (
@@ -18,7 +20,7 @@ export default function PreviewCard({top3PreviewItem} : Props) {
                 <Box sx={{ p: '24px' }}>
                     <Box sx={{ display: 'flex' }}>
                         <Box sx={{ mr: '8px' }}>
-                            <Avatar src={ top3PreviewItem.companyProfileUrl ? top3PreviewItem.companyName : '' } />
+                            <Avatar alt="Remy Sharp" src={ top3PreviewItem.companyProfileUrl ? top3PreviewItem.companyProfileUrl : '' } />
                         </Box>
                         <Box>
                             <Typography sx={{ fontSize: '12px', fontWeight: 500, color: '#ffffff' }}>{ top3PreviewItem.companyName }</Typography>
