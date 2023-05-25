@@ -79,8 +79,9 @@ export default function CompanyPageHead(){
                 <Grid item xs={4} sx={{ p: '40px 10px', display: 'flex', alignItems: 'center' }}>
                     <Box sx={{ border: '1px solid rgba(0, 0, 0, 0.2)', height: '150px', marginRight: '10px' }}></Box>
                     <Grid container direction="column">
-                        <Typography sx={{ fontSize: '20px' }}>초봉 {companyList?.companyStartingSalary}</Typography>
-                        <Typography sx={{ fontSize: '20px' }}>회사 매출액 {companyList?.companyAnnualSales}</Typography>
+                        <Typography sx={{ fontSize: '20px' }}>초봉 {companyList?.companyStartingSalary ? (companyList.companyStartingSalary):("--")} 원</Typography>
+                        <Typography sx={{ fontSize: '20px' }}>회사 매출액 {companyList?.companyAnnualSales ? (companyList.companyAnnualSales):("--")} 원</Typography>
+                        <Typography sx={{ fontSize: '20px' }}>회사 직원 수 {companyList?.companyEmployee ? (companyList.companyEmployee):("--")}명</Typography>
                         <Typography sx={{ fontSize: '20px' }}>홈페이지 주소 <a href={`https://www.${companyList?.companyHomePage}/`}>{companyList?.companyHomePage}</a></Typography>
                     </Grid>
                 </Grid>

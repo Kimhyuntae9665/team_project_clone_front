@@ -8,6 +8,8 @@ interface Dto {
     companyPassword: string;
 
     applicantTotalScore:number|null;
+
+    
 }
 
 export default Dto;
