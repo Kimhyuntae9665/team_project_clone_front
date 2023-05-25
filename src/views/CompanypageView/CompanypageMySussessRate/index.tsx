@@ -105,13 +105,7 @@ export default function CompanyPageMySuccessRate(){
             return;
         }
 
-
         navigator(`/Company/${phoneNumber}`);
-
-
-
-
-
 
 
     }
@@ -125,6 +119,7 @@ export default function CompanyPageMySuccessRate(){
             alert(message);
             return;
         }
+        alert("지원 되었습니다.");
         // ? set함수는  set함수를 포함하고 있는 더 큰 함수가 끝나야지 효과 적용이 끝난다 
         setApplicant_FinalEducation_str(data?.applicant_FinalEducation);
         setApplicant_Carrer_str(data?.applicant_Carrer);

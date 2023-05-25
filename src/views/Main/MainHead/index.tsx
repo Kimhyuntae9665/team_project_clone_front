@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ResponseDto from "src/apis/response";
 import { GetTop3CompanyListResponseDto } from "src/apis/response/company";
-import PreviewCard from "src/components/previewCard";
+import Top3PreviewItem from "src/components/previewCard";
 import { GET_TOP3_COMPANY_LIST_URL } from "src/contants/api";
 // import { COMPANYLISTTOP3 } from "src/mock";
 import { useCompanyStore } from "src/stores/companystores";
@@ -52,9 +52,9 @@ export default function MainHead() {
                 <Box>
                 <Typography  sx={{ fontSize: '24px', fontWeight: '400', p: '24px', textAlign: ' center' }}>{user.userName}님에게 추천하는 TOP3 회사</Typography>
                     <Grid container spacing={3}>
-                    {top3List.slice(0,3).map((item)=> (
+                    {top3List.slice(0,3).map((company)=> (
                         <Grid item sm={12} md={4}>
-                            <PreviewCard top3PreviewItem={item} />
+                            <Top3PreviewItem top3PreviewItem={company as GetTop3CompanyListResponseDto} />
                         </Grid>
                         ))}
                 </Grid>
@@ -63,9 +63,9 @@ export default function MainHead() {
                 <Box>
                     <Typography  sx={{ fontSize: '24px', fontWeight: '400', p: '24px', textAlign: ' center' }}>TOP3 회사</Typography>
                         <Grid container spacing={3}>
-                        {top3List.slice(0,3).map((item)=> (
+                        {top3List.slice(0,3).map((company)=> (
                             <Grid item sm={12} md={4}>
-                                <PreviewCard top3PreviewItem={item} />
+                                <Top3PreviewItem top3PreviewItem={company} />
                             </Grid>
                             ))}
                     </Grid>
@@ -85,8 +85,6 @@ export default function MainHead() {
                     </Box>
                 </>
             )}
-            
-            
             
         </Box>
     )

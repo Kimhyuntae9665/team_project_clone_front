@@ -116,7 +116,7 @@ export default function CompanyListCard ({companyListItem}:Props) {
                 color: "rgba(0, 0, 0, 0.7)",
               }}
             >
-              {companyListItem.companyName}
+              {companyListItem.companyAddress}
             </Typography>
           </Box>
           <Box sx={{ mt: "16px", mb: "16px",display:"flex",gap:"8px",justifyContent: "center" }}>

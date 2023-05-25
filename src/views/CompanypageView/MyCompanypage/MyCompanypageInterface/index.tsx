@@ -94,18 +94,21 @@ const add_string_handler_grade_one_university = () =>{
     if(first_grade_university.length>0){
         console.log("이거");
         console.log("데이터 :"+first_grade_university);
+        alert("저장되었습니다.");
         return;
     }
     setFirst_grade_university((previousArray)=>[...previousArray,Grade_One_University_one || '',Grade_One_University_two || '',Grade_One_University_three || '',Grade_One_University_four || '',Grade_One_University_five || '']);
     
     console.log(first_grade_university);
     console.log(first_grade_university_score);
+    
 }
 
 const add_string_handler_grade_two_university = () =>{
     if(second_grade_university.length>0){
         console.log("이거");
         console.log("데이터 :"+second_grade_university);
+        alert("저장되었습니다.");
         return;
     }
     setSecond_grade_university((previousArray)=>[...previousArray,Grade_Two_University_one || '',Grade_Two_University_two || '',Grade_Two_University_three || '',Grade_Two_University_four || '',Grade_Two_University_five || '']);
@@ -118,6 +121,7 @@ const add_string_handler_grade_three_university = () =>{
     if(third_grade_university.length>0){
         console.log("이거");
         console.log("데이터 :"+third_grade_university);
+        alert("저장되었습니다.");
         return;
     }
 
@@ -130,6 +134,7 @@ const add_string_handler_grade_etc_university = ()=>{
     if(etc_grade_university.length>0){
         console.log("이거");
         console.log("데이터 :"+etc_grade_university);
+        alert("저장되었습니다.");
         return;
     }
 
@@ -142,6 +147,7 @@ const add_string_handler_carrer = () =>{
     if(carrer.length>0){
         console.log("이거");
         console.log("데이터 :"+carrer);
+        alert("저장되었습니다.");
         return;
     }
     setCarrer((previousArray)=>[...previousArray,Carrer_one||'',Carrer_two||'',Carrer_three||'',Carrer_four||'',Carrer_five||''])
@@ -161,6 +167,7 @@ const add_string_handler_license = () =>{
         console.log("데이터 :"+license);
         console.log("호잇!"+License_one);
         console.log(License_two);
+        alert("저장되었습니다.");
         return;
     }
     console.log(License_one);
@@ -235,6 +242,7 @@ const company_Select_University_ResponseHandler = (response : AxiosResponse<any,
         alert(message);
         return;
       }
+      alert("모든데이터가 저장되었습니다.");
 
     
     // setUniversity_response_data(data.university_data); 

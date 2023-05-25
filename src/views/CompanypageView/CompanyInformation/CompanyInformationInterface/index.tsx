@@ -72,7 +72,7 @@ export default function CompanyInformationInterface() {
             alert(message);
             return;
           }
-
+          
           navigator("/myCompanyPage/{company.companyTelNumber}");
 
     }
