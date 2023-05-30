@@ -26,12 +26,12 @@ export default function MyCompanypageHeadView() {
 
     // Event Handler //
 
-    // const PatchCompanyProfileUrl = () =>{
-    //     const sendData = {};
-    //     axios.patch(PATCH_COMPANY_PROFILE,sendData,accessToken())
-    //             .then((response)=>PatchCompanyProfileUrlResponseHandler(response))
-    //             .catch((error)=>CompanyIndoPatchErrorHander(error))
-    // }
+    const PatchCompanyProfileUrl = () =>{
+        const sendData = {};
+        axios.patch(PATCH_COMPANY_PROFILE,sendData,accessToken())
+                .then((response)=>PatchCompanyProfileUrlResponseHandler(response))
+                .catch((error)=>CompanyIndoPatchErrorHander(error))
+    }
 
     const onProfileUploadButtonHandler = () => {
         if (!imageRef.current) return;
@@ -50,15 +50,15 @@ export default function MyCompanypageHeadView() {
 
     // Response Handler //
 
-    // const PatchCompanyProfileUrlResponseHandler = (response:AxiosResponse<any,any>)=>{
+    const PatchCompanyProfileUrlResponseHandler = (response:AxiosResponse<any,any>)=>{
 
-    //     const {result,data,message} = response.data as ResponseDto<CompanyInfoPatchResponseDto>
-    //     if(!result || !data){
-    //         alert(message);
-    //         return;
-    //       }
-    //     navigator('/myCompanyPage');
-    // }
+        const {result,data,message} = response.data as ResponseDto<CompanyInfoPatchResponseDto>
+        if(!result || !data){
+            alert(message);
+            return;
+          }
+        navigator('/myCompanyPage');
+    }
 
     const imageUploadResponseHandler = (response: AxiosResponse<any,any>) => {
         const companyProfileUrl = response.data as string;
@@ -80,9 +80,9 @@ export default function MyCompanypageHeadView() {
 
     // Error Handler //
 
-    // const CompanyIndoPatchErrorHander = (error:any)=>{
-    //     console.log(error.message);
-    // }
+    const CompanyIndoPatchErrorHander = (error:any)=>{
+        console.log(error.message);
+    }
 
     const imageUploadErrorHandler = (error:any) => {
         console.log(error.message);

@@ -1,5 +1,6 @@
 interface Dto {
 
+    
     applicant_percentile:number;
 
 }

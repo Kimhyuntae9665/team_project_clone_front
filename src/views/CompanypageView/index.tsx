@@ -5,6 +5,7 @@ import CompanypageMySussessRateNotLoggedIn from "./CompanyPageMySuccessRateNotLo
 import { useUserStore } from "src/stores/userstores";
 import { useCompanyStore } from "src/stores/companystores";
 import CompanyPageMySuccessRateCompanyLoggedIn from "./CompanyPageMySuccessRateCompanyLoggedIn";
+import CompanyPageCompanyInterface from "./CompanyPageCompanyInterface";
 
 export default function CompanyPage(){
     const {user} = useUserStore();
@@ -13,6 +14,7 @@ export default function CompanyPage(){
 
        <>
        <CompanyPageHead/>
+       <CompanyPageCompanyInterface/>
        { user ? (<> <CompanyPageMySuccessRate/> </>) : company ? ( <CompanyPageMySuccessRateCompanyLoggedIn/>) : (<CompanypageMySussessRateNotLoggedIn/>)}
        
        </>

@@ -9,6 +9,7 @@ import { APPLICANT_SCORE_PER_COMPANY, authorizationHeader } from "src/contants/a
 import { useUserStore } from "src/stores/userstores";
 import { GET_APPLICANT_DATA } from "../../../contants/api";
 import { stringToArray } from "src/utils";
+import CompletePage from "src/views/CompletePageView";
 
 export default function CompanyPageMySuccessRate(){
     //Hook  //
@@ -18,6 +19,7 @@ export default function CompanyPageMySuccessRate(){
     const {user,setUser} = useUserStore();
     const navigator = useNavigate();
     const { phoneNumber } = useParams();
+    const { percentile } = useParams();
 
 
     const [applicant_FinalEducation_str,setApplicant_FinalEducation_str] = useState<string|undefined|null>('');
@@ -162,33 +164,14 @@ export default function CompanyPageMySuccessRate(){
 
     return(
         <Grid container xs={11.2} sx={{pt: '20px', pb: '50px', ml:'50px', mr:'50px', mb:'50px', border:'2px solid black'}}>
-                <Grid item xs={7} sx={{pl:'30px', pt:'10px'}}>
-                    <Typography sx={{fontSize:'30px', fontWeight:'400'}}>내 합격률</Typography>
-                </Grid>
-                <Grid item xs={4} sx={{ml: "80px", pt:'10px '}}>
-                    <Grid container>
-                        <Grid item xs={6} sx={{p:'10px 10px', border:'2px solid black'}}>
-                            <Typography sx={{fontSize:'20px'}}>종합 인재상</Typography>
-                            <Box sx={{p:'50px'}}></Box>
-                        </Grid>
-                        <Grid item xs={6} sx={{p:'10px 10px', border:'2px solid black'}}>
-                            <Typography sx={{fontSize:'20px'}}>종합 인재상</Typography>
-                            <Box sx={{p:'50px'}}></Box>
-                        </Grid>
-                    </Grid>
-                    <Grid container>
-                        <Grid item xs={6} sx={{p:'10px 10px', border:'2px solid black'}}>
-                            <Typography sx={{fontSize:'20px'}}>종합 인재상</Typography>
-                            <Box sx={{p:'50px'}}></Box>
-                        </Grid>
-                        <Grid item xs={6} sx={{p:'10px 10px', border:'2px solid black'}}>
-                            <Typography sx={{fontSize:'20px'}}>종합 인재상</Typography>
-                            <Box sx={{p:'50px'}}></Box>
-                        </Grid>
-                    </Grid>
-                </Grid>
+                
                 <Grid container xs={12} sx={{mt:'20px'}}>
-                    <Grid item xs={10}></Grid>
+                    <Grid item xs={10} sx={{pl:'30px'}}>
+                        <Typography sx={{fontSize:'20'}}>내 합격률은 회사가 지정한 1등급, 2등급, 3등급, 기타 학교와</Typography>
+                        <Typography sx={{fontSize:'20'}}>경력, 자격증의 점수를 매겨 내 데이터와 비교해 합격률을 표시합니다.</Typography>
+                        <Typography sx={{fontSize:'20'}}>내 합격률은 <Button sx={{ mx: 'auto' }} variant="contained" color="secondary" onClick={() => navigator('/')} >회사목록</Button>에 있는</Typography>
+                        <Typography sx={{fontSize:'20'}}><Button sx={{ mx: 'auto' }} variant="contained" color="secondary" onClick={() => navigator('/')} >PERCENTILE</Button>버튼을 눌러 확인하실 수 있습니다.</Typography>
+                    </Grid>
                     <Grid item xs={2} container justifyContent="flex-end" alignItems="center">
                         {
                             applySign ? (
@@ -205,7 +188,7 @@ export default function CompanyPageMySuccessRate(){
                                 <Button sx={{ mx: 'auto' }} variant="contained" color="secondary" onClick={applyCheckHandler}>지원하기</Button>
                             )
                         }
-
+                        
                     </Grid>
                 </Grid>
             </Grid>
