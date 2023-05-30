@@ -3,8 +3,8 @@ import axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import ResponseDto from "src/apis/response";
-import { GetCompanyListResponseDto, GetCompanyPageResponseDto, PatchCompanyProfileResponseDto } from "src/apis/response/company";
-import { GET_COMPANY_URL } from "src/contants/api";
+import { GetCompanyListResponseDto, GetCompanyPageResponseDto, GetSelectInformationResponseDto, PatchCompanyProfileResponseDto } from "src/apis/response/company";
+import { GET_COMPANY_URL, GET_SELECT_INFORMATION_URL } from "src/contants/api";
 import { Company } from "src/interfaces";
 import CompanyStore from "src/stores/companystores/company.store";
 
@@ -27,6 +27,8 @@ export default function CompanyPageHead(){
             .catch((error) => getCompanyErrorHandler(error))
     }
 
+    
+
     //   response handler   //
     const getCompanyResponseHandler = (response: AxiosResponse<any, any>) => {
         const {result, message, data} = response.data as ResponseDto<GetCompanyPageResponseDto>
@@ -42,6 +44,8 @@ export default function CompanyPageHead(){
     const getCompanyErrorHandler = (error: any) => {
         console.log(error.message)
     }
+
+    
 
     //   function   //
     const setCompanyResponse = (data: GetCompanyPageResponseDto) => {
@@ -93,8 +97,8 @@ export default function CompanyPageHead(){
                         <Typography sx={{fontSize:'20px', fontWeight:400}}>{companyList?.companyContents}</Typography>
                     </Box>
                 </Box>
-                
             </Box>
+            
         </Box>
     )
 }

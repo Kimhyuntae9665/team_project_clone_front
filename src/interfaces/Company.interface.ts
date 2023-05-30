@@ -13,6 +13,8 @@ interface Company{
     companyAnnualSales:string|null;
     companyStartingSalary:string|null;
     companyContents:string|null;
+
+    
     
 
 

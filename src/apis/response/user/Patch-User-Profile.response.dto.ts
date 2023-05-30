@@ -9,11 +9,11 @@ interface Dto {
     userGender:string;
 
 
-    // applicantFinalEducation:string|null;
-    // applicantCarrer:string|null;
-    // applicantLicense:string|null;
-    // applicantTotalScore:string|null;
-    // applicantPercentile:string|null;
+    applicantFinalEducation:string|null;
+    applicantCarrer:string|null;
+    applicantLicense:string|null;
+    applicantTotalScore:string|null;
+    applicantPercentile:string|null;
 }
 
 export default Dto;

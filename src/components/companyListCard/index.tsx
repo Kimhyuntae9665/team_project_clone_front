@@ -26,9 +26,6 @@ const accessToken = cookies.accessToken;
 // Event Handler //
 const PopUpPage = ()=>{
   
-
-  
-
     getInfoForPercentile();
     
 
@@ -51,7 +48,7 @@ const percentile = (data : GetInfo[]) =>{
       applicant_Total_Score: item.applicant_Total_Score,
       applicant_Email: item.applicant_Email
     };
-    console.log("여기까지 성공2:"+i);
+    console.log("여기까지 성공2:"+i); 
     console.log("회사의 전화번호: "+item.companyTelNumber);
     axios
       .post(GET_PERCENTILE(item.companyTelNumber), send_Data, authorizationHeader(accessToken))
@@ -150,7 +147,7 @@ const getInfoForPercentileErrorHandler = (error:any) => {
           </Box>
         )}
           <Box sx={{ display: "flex" }}>
-            <Box sx={{ mr: "8px" }}>
+            <Box sx={{ ml: "8px" }}>
               <Avatar alt={companyListItem.companyName} src={companyListItem.companyProfileUrl ? companyListItem.companyProfileUrl : ''} />
             </Box>
             <Box>
@@ -186,12 +183,6 @@ const getInfoForPercentileErrorHandler = (error:any) => {
             </Typography>
           </Box>
           <Box sx={{ mt: "16px", mb: "16px",display:"flex",gap:"8px",justifyContent: "center" }}>
-            
-              <FormControl variant="outlined" sx={{ mr: '10px' }}>
-                <Button variant="contained" color="secondary" onClick={PopUpPage}>
-                  {companyListItem.applicantTotalScore}
-                </Button>
-              </FormControl>
               <FormControl variant="outlined" sx={{ mr: '10px' }}>
                 <Button variant="contained" color="secondary" onClick={PopUpPage}>
                   Percentile
